@@ -1,7 +1,7 @@
 # HRAS_2023
 Central Repo for the HRAS project for CSCI 340 in Spring 2023. DO NOT MESS AROUND HERE!
 
-Hospital Records Access System (HRAS) is a C# web projeect for CSCI 340. This README is to help with setup and use of HRAS
+Hospital Records Access System (HRAS) is a C# web project for CSCI 340. This README is to help with setup and use of HRAS
 
 Requirements
 ------------
@@ -23,8 +23,8 @@ MacOS:
 * Any setup issues contact Josh (** I am still verifying setup issues and so may sometimes run into problems)
 
 Web Browser:
-Firefox 110 (Preferred)
-Brave or Google Chrome (** Chromium based browsers have an issue with locally verified HTTPS keys and so need to be constantly security risk accepted)
+* Firefox 110 (Preferred)
+* Brave or Google Chrome (** Chromium based browsers have an issue with locally verified HTTPS keys and so need to be constantly security risk accepted)
 
 
 Installation
