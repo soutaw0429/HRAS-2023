@@ -1,0 +1,25 @@
+/* IMAGES */
+img
+	max-width: 100%
+	height: auto
+	vertical-align: middle
+	border-style: none
+
+// @each $size, $value in (
+// 	-sm: 3rem,
+// 	-md: 5rem,
+// 	-lg: 14rem ){
+// 	.img#{$size}{
+// 		width: #{$value} !important;
+// 		height: #{$value} !important;
+// 	}
+// }
+
+.rounded-img
+	border-radius: 100%
+	box-shadow: 0 1px 1px 1px rgba(0,0,0,0.15)
+
+.user-img
+	@extend .rounded-img
+	width: 14rem
+	height: 14rem

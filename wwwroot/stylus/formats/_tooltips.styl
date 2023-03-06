@@ -1,0 +1,23 @@
+
+.tooltip
+    visibility: hidden
+    max-width: 12.5rem
+    background-color: rgba(0, 0, 0, .8)
+    color: $third-color
+    text-align: center
+    border-radius: .375rem
+    padding: .35rem .55rem
+    z-index: $top-position
+    opacity: 0
+    -webkit-transition: opacity .3s
+    transition: opacity .3s
+
+    span
+        font-weight: bold
+        font-size: $small
+        font-family: OrkneyRegularItalic
+        word-wrap: break-word
+
+[data-tooltip='tooltip']:hover .tooltip
+    visibility: visible
+    opacity: 1

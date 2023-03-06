@@ -1,0 +1,49 @@
+/*SITE COLOURS*/
+base-color = @block {
+    background-color: $base-color
+}
+highlight-color = @block {
+    background-color: $base-color
+    border-bottom: 1px solid $highlight-color !important
+}
+emphasis-color = @block {
+    background-color: $emphasis-color
+}
+subtle-color = @block {
+    background-color: $subtle-color !important
+}
+col-flex = @block {
+    display: flex
+    flex-flow: column nowrap
+}
+row-flex = @block {
+    display: flex
+    flex-flow: row nowrap
+}
+fill-width = @block {
+    width: 100%
+}
+material-design = @block {
+    -webkit-box-shadow: 0 2px 4px 2px rgba(0, 0, 0, .15)
+    box-shadow: 0 2px 4px 2px rgba(0, 0, 0, .15)
+}
+top-position = @block {
+    z-index: $top-position
+}
+hide-element = @block {
+    opacity: 0
+    position: absolute
+    overflow: hidden
+    width: .1px
+    height: .1px
+    z-index: -1
+    margin: 0
+    padding: 0
+}
+input-element = @block {
+    {fill-width}
+    border: none;
+    font-size: 1rem
+    overflow: hidden
+    height: 3rem
+}

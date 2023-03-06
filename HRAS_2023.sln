@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 25.0.1706.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HRAS_2023", "HRAS_2023.csproj", "{995DC8E0-3E49-4FD3-BB14-F093775DE3BE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{995DC8E0-3E49-4FD3-BB14-F093775DE3BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{995DC8E0-3E49-4FD3-BB14-F093775DE3BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{995DC8E0-3E49-4FD3-BB14-F093775DE3BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{995DC8E0-3E49-4FD3-BB14-F093775DE3BE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1B341E4E-260F-4687-B5BB-535820EBF576}
+	EndGlobalSection
+EndGlobal

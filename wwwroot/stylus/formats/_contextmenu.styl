@@ -1,0 +1,27 @@
+.context-menu
+    position: absolute
+    background: $black-overlay
+    visibility: hidden
+    opacity: 0
+    border-radius: .375rem
+    min-width: 11.125rem !important
+    max-width: 18rem !important
+    z-index: $top-position
+    -webkit-transition: opacity 0.3s
+    transition: opacity 0.3s
+    
+    .context-menu-items 
+        .context-menu-item
+            padding: .35rem 0
+            .menu-controls
+                background: $transparent
+                width: 100%
+                {row-flex}
+                padding: 0
+
+        &:first-child, &:last-child
+            padding: 0
+
+.context-menu-active
+    visibility: visible
+    opacity: 1
