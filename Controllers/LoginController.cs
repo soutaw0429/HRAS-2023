@@ -13,8 +13,14 @@ public class LoginController : Controller
         _logger = logger;
     }
 
-    public IActionResult Login()
+    public IActionResult Login(int? id)
     {
+
+        if (id == null)
+        {
+            return NotFound();
+        }
+        
         return View();
     }
 
