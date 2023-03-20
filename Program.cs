@@ -1,7 +1,14 @@
-﻿var builder = WebApplication.CreateBuilder(args);
+﻿using HRAS.Context;
+using Microsoft.EntityFrameworkCore;
+
+var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+// Add database connection
+// builder.Services.AddDbContext<HRASContext>(options => options.UseSqlite(builder.Configuration.GetConnectionString("HRASContext")));
+
 
 var app = builder.Build();
 
