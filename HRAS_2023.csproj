@@ -9,6 +9,7 @@
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'https' " />
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'http' " />
   <ItemGroup>
+    <Content Remove="compilerconfig.json" />
     <Content Remove="wwwroot\lib\" />
     <Content Remove="wwwroot\stylus\" />
     <Content Remove="wwwroot\stylus\pages\" />
@@ -17,5 +18,8 @@
     <Folder Include="wwwroot\lib\" />
     <Folder Include="wwwroot\stylus\" />
     <Folder Include="wwwroot\stylus\pages\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="compilerconfig.json" />
   </ItemGroup>
 </Project>
