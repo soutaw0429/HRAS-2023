@@ -13,6 +13,11 @@ public class LoginController : Controller
         _logger = logger;
     }
 
+    public IActionResult WarningPage()
+    {
+        return View();
+    }
+
     public IActionResult Login(int? id)
     {
 
