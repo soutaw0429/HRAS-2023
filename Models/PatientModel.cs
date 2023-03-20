@@ -8,5 +8,5 @@ public class PatientModel
     public int id {get; set;}
     
     [Required]
-    public bool isCurrentlyCheckedIn { get; set; }
+    public bool isCurrentlyCheckedIn { get; set; } 
 }
