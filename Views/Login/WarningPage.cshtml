@@ -1,60 +1,57 @@
 ﻿@{
 	ViewData["Title"] = "Warning";
+	Layout = null;
 }
 <style>
-body {
-    background-color: #e3e3e3;
-    width: 100%;
-    text-align: center;
-}
+	body {
+		background-color: #e3e3e3;
+		width: 70%;
+		text-align: center;
+	}
 
-p {
-    text-align: left;
-    font-weight: bold;
-    font-size: 1.5em;
-    margin: 0 0 0 0;
-}
+	p {
+		text-align: left;
+		font-weight: bold;
+		font-size: 1.5em;
+		margin: 0 0 0 0;
+	}
 
-ol {
-    counter-reset: list;
-    margin: 5px 0 5px 0;
-}
+	ol {
+		counter-reset: list;
+		margin: 5px 0 5px 0;
+	}
 
-    ol > li {
-        list-style: none;
-        text-align: left;
-        font-weight: bold;
-        font-size: 1.5em;
-    }
+		ol > li {
+			list-style: none;
+			text-align: left;
+			font-weight: bold;
+			font-size: 1.5em;
+		}
 
-        ol > li:before {
-            content: " ("counter(list) ") ";
-            counter-increment: list;
-        }
+			ol > li:before {
+				content: " ("counter(list) ") ";
+				counter-increment: list;
+			}
 
-.btnWarning {
-    color: #ffff;
-    background-color: #000;
-    align-self: center;
-    margin-top: 80px;
-    padding: 5px 12px 5px 12px;
-}
+	.btnWarning {
+		color: #ffff;
+		background-color: #000;
+		align-self: center;
+		margin-top: 80px;
+		padding: 5px 12px 5px 12px;
+	}
 </style>
 
-<div class="container-fluid">
-    <div class="row">
-        <div class="col full-height">
-            <img class="mainImage" src="~/images/WarningImg.jpg" />
-            <h1 style="margin-top: 10px">UNAUTHORIZED ACCESS TO THIS COMPUTER SYSTEM IS PROHIBITED BY LAW</h1>
-            <p>You are accessing the Greater Smogtown Hospital Association which includes:</p>
-            <ol>
-                <li>this computer network,</li>
-                <li>all computers connected to this network</li>
-                <li>all devices and storage media attached to this network or to a computer on this network. </li>
-            </ol>
-            <p>This system is provided for authorized use only. Unauthorized or improper use of this system is prohibited and may result in disciplinary action and/or civil and criminal penalties. By using this system, you are acknowledging that you are in fact authorized to use this system and understand company policies and procedures pertaining to its usage.</p>
-            <button type="button" class="btnWarning" onclick="location.href='@Url.Action("Login","Login")'">ACKNOWLADGE</button>
-        </div>
-    </div>
+<div class="warningPage">
+	<img class="mainImage" src="~/images/WarningImg.jpg" />
+	<h1 style="margin-top: 10px">UNAUTHORIZED ACCESS TO THIS COMPUTER SYSTEM IS PROHIBITED BY LAW</h1>
+	<p style="font-weight: bold">You are accessing the Greater Smogtown Hospital Association which includes:</p>
+	<ol>
+		<li>this computer network,</li>
+		<li>all computers connected to this network</li>
+		<li>all devices and storage media attached to this network or to a computer on this network. </li>
+	</ol>
+	<p>This system is provided for authorized use only. Unauthorized or improper use of this system is prohibited and may result in disciplinary action and/or civil and criminal penalties. By using this system, you are acknowledging that you are in fact authorized to use this system and understand company policies and procedures pertaining to its usage.</p>
+	<button type="button" class="btnWarning" onclick="location.href='@Url.Action("Login","Login")'">ACKNOWLADGE</button>
 </div>
 
