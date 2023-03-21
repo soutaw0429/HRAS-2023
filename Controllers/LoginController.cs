@@ -21,10 +21,10 @@ public class LoginController : Controller
     public IActionResult Login(int? id)
     {
 
-        if (id == null)
-        {
-            return NotFound();
-        }
+        //if (id == null)
+        //{
+        //    return NotFound();
+        //}
         
         return View();
     }

@@ -16,8 +16,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="wwwroot\lib\" />
-    <Folder Include="wwwroot\stylus\" />
-    <Folder Include="wwwroot\stylus\pages\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="compilerconfig.json" />
