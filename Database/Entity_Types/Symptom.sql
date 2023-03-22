@@ -1,0 +1,4 @@
+CREATE TABLE Symptom 
+(
+	[Name] VARCHAR(50) PRIMARY KEY
+);
