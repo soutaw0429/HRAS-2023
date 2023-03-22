@@ -1,10 +1,15 @@
-﻿using HRAS.Context;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using HRAS.Context;
+using HRAS.Interfaces;
+using HRAS.Repository;
+using HRAS.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddScoped<ISecurityService, SecurityService>();
+builder.Services.AddScoped<IStaffRepository, StaffRepository>();
 
 // Add database connection
 // builder.Services.AddDbContext<HRASContext>(options => options.UseSqlite(builder.Configuration.GetConnectionString("HRASContext")));
