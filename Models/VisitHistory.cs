@@ -2,7 +2,7 @@
 
 namespace HRAS_2023.Models
 {
-    public class VisitHistory : PatientModel
+    public class VisitHistory : Patient
     {
         private DateTime checkInDateTime;
         private DateTime checkOutDateTime;
