@@ -40,6 +40,12 @@
 		align-self: center;
 		margin-top: 80px;
 		padding: 5px 12px 5px 12px;
+		cursor: pointer;
+	}
+
+	.btnWarning1:hover {
+		background-color: #ffff00;
+		color: black;
 	}
 </style>
 
@@ -53,6 +59,6 @@
 		<li>all devices and storage media attached to this network or to a computer on this network. </li>
 	</ol>
 	<p>This system is provided for authorized use only. Unauthorized or improper use of this system is prohibited and may result in disciplinary action and/or civil and criminal penalties. By using this system, you are acknowledging that you are in fact authorized to use this system and understand company policies and procedures pertaining to its usage.</p>
-	<button type="button" class="btnWarning" onclick="location.href='@Url.Action("Login","Login")'">ACKNOWLADGE</button>
+	<button type="button" class="btnWarning btnWarning1" onclick="location.href='@Url.Action("Login","Login")'">ACKNOWLEDGE</button>
 </div>
 
