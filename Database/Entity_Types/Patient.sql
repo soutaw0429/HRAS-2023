@@ -5,5 +5,5 @@ CREATE TABLE Patient (
     ZIP VARCHAR(10),
     City VARCHAR(50),
     StreetAddress VARCHAR(100),
-	VisitHistroy_ChecksInDateTime DATETIME
+	VisitHistory_ChecksInDateTime DATETIME
 );
