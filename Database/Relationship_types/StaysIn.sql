@@ -13,7 +13,7 @@ Constraint FK_StaysIn_Room
 	foreign key(room_building_key, room_key)
 	references Room(building_key, room_number),
 
-Constraint FK_Modifies_Patient
+Constraint FK_StaysIn_Patient
 	foreign key(patient_key)
 	references Patient(SSN)
 )
