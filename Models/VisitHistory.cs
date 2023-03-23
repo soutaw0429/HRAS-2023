@@ -1,4 +1,5 @@
-﻿using HRAS.Models;
+using HRAS.Models;
+
 
 namespace HRAS_2023.Models
 {
@@ -19,7 +20,7 @@ namespace HRAS_2023.Models
         public DateTime CheckOutDateTime
         {
             get { return checkOutDateTime; }
-            set { checkOutDateTime = value; }
+            set { checkOutDateTime = value; }        
         }
 
         public List<InventoryItem> UsedItems
