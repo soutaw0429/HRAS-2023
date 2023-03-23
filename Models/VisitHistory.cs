@@ -1,43 +1,44 @@
-﻿//using HRAS.Models;
+using HRAS.Models;
 
-//namespace HRAS_2023.Models
-//{
-//    public class VisitHistory : PatientModel
-//    {
-//        private DateTime checkInDateTime;
-//        private DateTime checkOutDateTime;
-//        private List<InventoryItem> usedItems;
-//        private List<string> symptoms;
-//        private string diagnose;
 
-//        public DateTime CheckInDateTime
-//        {
-//            get { return checkInDateTime; }
-//            set { checkInDateTime = value; }
-//        }
+namespace HRAS_2023.Models
+{
+    public class VisitHistory : Patient
+    {
+        private DateTime checkInDateTime;
+        private DateTime checkOutDateTime;
+        private List<InventoryItem> usedItems;
+        private List<string> symptoms;
+        private string diagnose;
 
-//        public DateTime CheckOutDateTime
-//        {
-//            get { return checkOutDateTime; }
-//            set { checkOutDateTime = value; }
-//        }
+        public DateTime CheckInDateTime
+        {
+            get { return checkInDateTime; }
+            set { checkInDateTime = value; }
+        }
 
-//        public List<InventoryItem> UsedItems
-//        {
-//            get { return usedItems; }
-//            set { usedItems = value; }
-//        }
+        public DateTime CheckOutDateTime
+        {
+            get { return checkOutDateTime; }
+            set { checkOutDateTime = value; }        
+        }
 
-//        public List<string> Symptoms
-//        {
-//            get { return symptoms; }
-//            set { symptoms = value; }
-//        }
+        public List<InventoryItem> UsedItems
+        {
+            get { return usedItems; }
+            set { usedItems = value; }
+        }
 
-//        public string Diagnose
-//        {
-//            get { return diagnose; }
-//            set { diagnose = value; }
-//        }
-//    }
-//}
+        public List<string> Symptoms
+        {
+            get { return symptoms; }
+            set { symptoms = value; 
+        }
+
+        public string Diagnose
+        {
+            get { return diagnose; }
+            set { diagnose = value; }
+        }
+    }
+}
