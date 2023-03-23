@@ -2,12 +2,71 @@
     ViewData["Title"] = "Login Page";
 }
 
-<div class="container-fluid">
-    <div class="row">
-        <div class="col full-height">
-            <h1>WARNING</h1>
-            <h3>UNAUTHORISED ACCESS TO THIS COMPUTER SYSTEM IS PROHIBITED BY STATE AND FEDERAL LAW</h3>
-        </div>
+<style>
+    body {
+        background-image: url('../images/LoginBackground.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        text-align: center;
+        padding: 100px;
+    }
+
+    h1 {
+        font-family: Arial, Helvetica, sans-serif;
+        color: white;
+        font-size: 80px;
+        padding-bottom: 130px;
+    }
+
+    input {
+        border: 1px solid black;
+        height: 3.5rem;
+        width: 20vw;
+        font-size: 22px;
+        margin-bottom: 30px;
+        padding-left: 17px;
+    }
+
+    .center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 200px;
+    }
+
+    .center2 {
+        padding: 17%;
+        text-align: center;
+    }
+    .loginButton {
+        color: white;
+        border: 1px solid black;
+        font-size: 18px;
+        background-color: purple;
+        padding: 12px 60px;
+    }
+
+    .loginButton1:hover {
+        background-color: #4d004d;
+        color: white;
+    }
+
+</style>
+
+
+<div class="center2">
+    <div class="center">
+        <form id="login">
+            <h1>HRAS</h1>
+            <div>
+                <p><input id="username" type="text" placeholder="Username" autofocus required></p>
+                <p><input id="password" type="password" placeholder="Password" required></p>
+            </div>
+
+            <div>
+                <button type="submit" class="loginButton loginButton1">LOGIN</button>
+            </div>
+        </form>
     </div>
 </div>
-

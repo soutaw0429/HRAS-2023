@@ -32,12 +32,14 @@ app.UseRouting();
 
 app.UseAuthorization();
 
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Auth}/{action=Index}/{id?}");
+// Below Not needed since we can use action in LoginController to start application with Warning page. 
+//app.MapControllerRoute(
+//    name: "default",
+//    pattern: "{controller=Auth}/{action=Index}/{id?}");
+
 app.MapControllerRoute(
     name: "login",
-    pattern: "{controller=Login}/{action=Login}/{id?}");
+    pattern: "{controller=Login}/{action=WarningPage}/{id?}");
 
 app.Run();
 
