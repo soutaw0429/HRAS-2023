@@ -10,16 +10,12 @@ public class Staff
     public int id {get; set;}
 
     [Required]
-    [MaxLengthAttribute(1)]
-    public char Sex {get; set;}
-
-    [Required]
     [DataType(DataType.Date)]
     public int BirthDate {get; set;}
 
     [Required]
     [StringLength(50)]
-    public string FirstName {get; set;}
+    public string? FirstName {get; set;}
 
     [Required]
     [MaxLengthAttribute(1)]
@@ -30,6 +26,7 @@ public class Staff
     public string? LastName {get; set;}
     
     [Required]
+    [Key]
     [StringLength(50)]
     public string? userName {get; set;}
 

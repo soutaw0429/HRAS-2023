@@ -64,7 +64,6 @@ namespace HRAS_2023.Models
             hourlyRate = _hourlyRate;
             floor = _floor;
             wing = _wing;
-
         }
     }
 }

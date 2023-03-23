@@ -1,10 +1,15 @@
-﻿using HRAS.Context;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+//using HRAS.Context;
+//using HRAS.Interfaces;
+//using HRAS.Repository;
+//using HRAS.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+//builder.Services.AddScoped<ISecurityService, SecurityService>();
+//builder.Services.AddScoped<IStaffRepository, StaffRepository>();
 
 // Add database connection
 // builder.Services.AddDbContext<HRASContext>(options => options.UseSqlite(builder.Configuration.GetConnectionString("HRASContext")));
@@ -27,12 +32,14 @@ app.UseRouting();
 
 app.UseAuthorization();
 
-app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Auth}/{action=Index}/{id?}");
+// Below Not needed since we can use action in LoginController to start application with Warning page. 
+//app.MapControllerRoute(
+//    name: "default",
+//    pattern: "{controller=Auth}/{action=Index}/{id?}");
+
 app.MapControllerRoute(
     name: "login",
-    pattern: "{controller=Login}/{action=Login}/{id?}");
+    pattern: "{controller=Login}/{action=WarningPage}/{id?}");
 
 app.Run();
 

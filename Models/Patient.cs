@@ -15,18 +15,19 @@ public class Patient
     public string? insurer {get; set;}
 
     [Required]
-    [DataType(DataType.MultilineText)]
-    public string? streetAddress {get; set;}
+    [MaxLengthAttribute(2)]
+    public char state {get; set;}
+
+    [Required]
+    [DataType(DataType.PostalCode)]
+    public int ZIP {get; set;}
 
     [Required]
     public string? city {get; set;}
 
     [Required]
-    public string? state {get; set;}
-
-    [Required]
-    [DataType(DataType.PostalCode)]
-    public int ZIP {get; set;}
+    [DataType(DataType.MultilineText)]
+    public string? streetAddress {get; set;}
     
     [Required]
     public bool isCurrentlyCheckedIn { get; set; }
