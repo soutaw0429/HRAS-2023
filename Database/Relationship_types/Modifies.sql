@@ -11,10 +11,10 @@ Create table Modifies
 Constraint PK_Modifies
 	primary key (staff_key, inventory_key),
 
-Constraint FK_Modifies_Staff
-	foreign key(staff_BirthDate_key, staff_FirstName_key, staff_MiddleInitial_key, staff_LastName_key)
-	references Staff(BirthDate, FirstName, MiddleInitial,
-	LastName),
+CONSTRAINT FK_Modifies_Staff
+	FOREIGN KEY (staff_key)
+	REFERENCES Staff(UserName),
+
 
 Constraint FK_Modifies_Inventory
 	foreign key(inventory_key)
