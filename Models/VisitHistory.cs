@@ -32,7 +32,7 @@ namespace HRAS_2023.Models
         public List<string> Symptoms
         {
             get { return symptoms; }
-            set { symptoms = value; 
+            set { symptoms = value; }
         }
 
         public string Diagnose
