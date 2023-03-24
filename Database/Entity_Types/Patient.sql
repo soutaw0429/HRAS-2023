@@ -5,10 +5,7 @@ CREATE TABLE Patient (
     ZIP VARCHAR(10),
     City VARCHAR(50),
     StreetAddress VARCHAR(100),
-<<<<<<< Updated upstream
-	VisitHistory_ChecksInDateTime DATETIME
-=======
-	VisitHistroy_ChecksInDateTime DATETIME
+	VisitHistroy_ChecksInDateTime DATETIME,
     CONSTRAINT PK_Patient PRIMARY KEY (SSN)
->>>>>>> Stashed changes
+
 );
