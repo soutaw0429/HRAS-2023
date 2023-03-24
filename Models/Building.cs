@@ -7,6 +7,7 @@ namespace HRAS_2023.Models
         private string name;
 
         [Required]
+        [Key]
         public string Name 
         { 
             get { return name; } 

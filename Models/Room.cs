@@ -2,14 +2,16 @@
 
 namespace HRAS_2023.Models
 {
-    public class Room : Building
+    public class Room
     {
         private string roomNumber;
         private string designation;
         private int maxOccupancy;
         private long hourlyRate; //in the Spec Doc, the hourlyRate is int. Isn't long better?
-        private int floor;
-        private int wing;
+        private Building building;
+        private string floor;
+        private string wing;
+        
 
         //[Required(ErrorMessage = "Specify the Room Number")]
         [Required]
@@ -41,27 +43,34 @@ namespace HRAS_2023.Models
         }
 
         [Required]
-        public int Floor
+        public string Floor
         {
             get { return floor; }
             set { floor = value; }
         }
 
         [Required]
-        public int Wing
+        public string Wing
         {
             get { return wing; }
             set { wing = value; }
         }
 
+        [Required]
+        public Building Building 
+        {
+            get { return building; }
+            set { building = value; }
+        } 
+
         public Room(string _roomNumber, string _buildingName, string _designation, int _maxOccupancy, 
-            long _hourlyRate, int _floor, int _wing) : base(_buildingName)
+            long _hourlyRate, string _floor, string _wing)
         {
             roomNumber = _roomNumber;
-            //buildingName -> comes from the base class
             designation = _designation;
             maxOccupancy = _maxOccupancy;
             hourlyRate = _hourlyRate;
+            building.Name = _buildingName;
             floor = _floor;
             wing = _wing;
         }
