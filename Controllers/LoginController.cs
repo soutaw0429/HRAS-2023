@@ -20,13 +20,23 @@ public class LoginController : Controller
 
     public IActionResult Login(int? id)
     {
-
-        //if (id == null)
-        //{
-        //    return NotFound();
-        //}
-        
         return View();
+    }
+    public IActionResult ProcessLogin() 
+    {
+        return View("Login");
+
+        // Bellow is example of what will be implemented after service is created. 
+        // StaffSecurity staff = new StaffSecurity();
+
+        // if (staff.IsValid(staffMember))
+        // {
+        //    return View("LoginSuccess", staffMember);
+        // }
+        // else
+        // {
+        //    return View("LoginFailure", staffMember);
+        // }
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
