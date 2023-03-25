@@ -15,6 +15,8 @@ namespace HRAS_2023.Models
 
         //[Required(ErrorMessage = "Specify the Room Number")]
         [Required]
+        [Key]
+        [StringLength(9)]
         public string RoomNumber
         {
             get { return roomNumber; }
@@ -63,7 +65,7 @@ namespace HRAS_2023.Models
             set { building = value; }
         } 
 
-        public Room(string _roomNumber, string _buildingName, string _designation, int _maxOccupancy, 
+      /*  public Room(string _roomNumber, string _buildingName, string _designation, int _maxOccupancy, 
             long _hourlyRate, string _floor, string _wing)
         {
             roomNumber = _roomNumber;
@@ -73,6 +75,6 @@ namespace HRAS_2023.Models
             building.Name = _buildingName;
             floor = _floor;
             wing = _wing;
-        }
+        }*/
     }
 }

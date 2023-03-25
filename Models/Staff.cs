@@ -7,7 +7,8 @@ public class Staff
 {
     [Required]
     [Key]
-    public int id {get; set;}
+    [StringLength(25)]
+    public string userName { get; set; }
 
     [Required]
     [DataType(DataType.Date)]
@@ -25,10 +26,6 @@ public class Staff
     [StringLength(50)]
     public string? LastName {get; set;}
     
-    [Required]
-    [Key]
-    [StringLength(50)]
-    public string? userName {get; set;}
 
     [Required]
     [DataType(DataType.Password)]

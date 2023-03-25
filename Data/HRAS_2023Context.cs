@@ -13,5 +13,13 @@ namespace HRAS_2023.Data
         public DbSet<Patient> Patients { get; set; }
         public DbSet<InventoryItem> InventoryItems { get; set; }
 
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            //base.OnConfiguring(optionsBuilder);
+
+            //I will change this, hardcoding this string is a bad practice!
+            //desktop-rmqlafu\sqlexpress.TestDB.dbo
+            optionsBuilder.UseSqlServer(@"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=HRAS_2023_InitialCreate; Integrated Security=True;");
+        }
     }
 }

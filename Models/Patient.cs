@@ -5,10 +5,8 @@ using System.ComponentModel.DataAnnotations;
 public class Patient
 {
     [Required]
-    public int id {get; set;}
-
-    [Required]
     [Key]
+    [StringLength(9)]
     public int SSN {get; set;}
     
     [Required]

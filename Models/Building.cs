@@ -14,9 +14,10 @@ namespace HRAS_2023.Models
             set { name = value; } 
         }
 
-        public Building(string _name)
+        /*public Building(string _name)
         {
             name = _name;
         }
+        */
     }
 }

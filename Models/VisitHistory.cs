@@ -1,9 +1,9 @@
 using HRAS.Models;
-
+using System.ComponentModel.DataAnnotations;
 
 namespace HRAS_2023.Models
 {
-    public class VisitHistory : Patient
+    public class VisitHistory
     {
         private DateTime checkInDateTime;
         private DateTime checkOutDateTime;
@@ -11,6 +11,7 @@ namespace HRAS_2023.Models
         private List<string> symptoms;
         private string diagnose;
 
+        [Key]
         public DateTime CheckInDateTime
         {
             get { return checkInDateTime; }
@@ -28,13 +29,13 @@ namespace HRAS_2023.Models
             get { return usedItems; }
             set { usedItems = value; }
         }
-
+/*
         public List<string> Symptoms
         {
             get { return symptoms; }
             set { symptoms = value; }
         }
-
+*/
         public string Diagnose
         {
             get { return diagnose; }
