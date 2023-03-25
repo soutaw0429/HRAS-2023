@@ -1,13 +1,13 @@
 Create table StaysIn
 (
 isAdmitted BIT,
-leftTheRoom DateTime,
+leftTheRoomDateTime DateTime,
 room_building_name varchar(30),
 room_number varchar(9),
 visitHistory_patientSSN varchar(9), 
 visitHistory_checkInDateTime DATETIME,
 
-Constraint PK_StaysIn primary key(room_building_name, room_number, history_patient_SSN, history_CheckInDateTime),
+Constraint PK_StaysIn primary key(room_building_name, room_number, visitHistory_patientSSN, visitHistory_checkInDateTime),
 
 Constraint FK_StaysIn_Room
     foreign key(room_building_name, room_number)

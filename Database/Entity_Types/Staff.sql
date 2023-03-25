@@ -3,7 +3,7 @@ CREATE TABLE Staff (
     FirstName VARCHAR(50),
     MiddleInitial CHAR(1),
     LastName VARCHAR(50),
-    UserName VARCHAR(50),
+    UserName VARCHAR(25),
     [Password] VARCHAR(50),
     UserType VARCHAR(50),
     Position VARCHAR(50),

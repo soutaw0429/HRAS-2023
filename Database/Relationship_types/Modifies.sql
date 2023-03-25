@@ -1,6 +1,6 @@
 Create table Modifies
 (
-	staff_key varchar(150),
+	staff_key varchar(25),
 	inventory_key char(5),
 	VisitHistory_patient_SSN varchar(9), 
 	VisitHistory_CheckInDateTime DATETIME,
@@ -20,6 +20,6 @@ Constraint FK_Modifies_Inventory
 
 Constraint FK_Modifies_VisitHistory
 	foreign key(VisitHistory_patient_SSN, VisitHistory_CheckInDateTime)
-	references Patient(patient_SSN, CheckInDateTime),
+	references VisitHistory(patient_SSN, CheckInDateTime),
 
 )
