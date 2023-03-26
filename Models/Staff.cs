@@ -11,22 +11,13 @@ public class Staff
     public string userName { get; set; }
 
     [Required]
-    [DataType(DataType.Date)]
-    public DateOnly BirthDate {get; set;}
-
-    [Required]
     [StringLength(20)]
     public string FirstName {get; set;}
-
-    [Required]
-    [MaxLengthAttribute(1)]
-    public char MiddleInitial {get; set;}
 
     [Required]
     [StringLength(30)]
     public string LastName {get; set;}
     
-
     [Required]
     [DataType(DataType.Password)]
     [StringLength(50)]
