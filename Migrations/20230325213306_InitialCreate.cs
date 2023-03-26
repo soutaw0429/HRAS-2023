@@ -2,6 +2,7 @@
 
 #nullable disable
 
+//This is auto-generated file after I ran migration. 
 namespace HRAS_2023.Migrations
 {
     /// <inheritdoc />

@@ -13,6 +13,7 @@ namespace HRAS_2023.Models
 
         [Required]
         [Key]
+        [StringLength(5)]
         public string StockID
         {
             get { return stockID; }

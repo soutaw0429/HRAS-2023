@@ -21,6 +21,7 @@ public class Patient
     public int ZIP {get; set;}
 
     [Required]
+    [StringLength(25)]
     public string? city {get; set;}
 
     [Required]

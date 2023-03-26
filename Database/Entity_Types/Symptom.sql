@@ -1,4 +1,4 @@
 CREATE TABLE Symptom 
 (
-	[Name] VARCHAR(50) PRIMARY KEY
+	[Name] VARCHAR(25) PRIMARY KEY
 );

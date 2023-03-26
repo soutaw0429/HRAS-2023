@@ -12,30 +12,27 @@ public class Staff
 
     [Required]
     [DataType(DataType.Date)]
-    public int BirthDate {get; set;}
+    public DateOnly BirthDate {get; set;}
 
     [Required]
-    [StringLength(50)]
-    public string? FirstName {get; set;}
+    [StringLength(20)]
+    public string FirstName {get; set;}
 
     [Required]
     [MaxLengthAttribute(1)]
     public char MiddleInitial {get; set;}
 
     [Required]
-    [StringLength(50)]
-    public string? LastName {get; set;}
+    [StringLength(30)]
+    public string LastName {get; set;}
     
 
     [Required]
     [DataType(DataType.Password)]
+    [StringLength(50)]
     public string? password {get; set;}
 
     [Required]
-    [StringLength(50)]
-    public string? userType {get; set;}
-
-    [Required]
-    [StringLength(50)]
-    public string? position {get; set;}
+    [StringLength(1)]
+    public char userType {get; set;}
 }
