@@ -22,9 +22,16 @@ public class LoginController : Controller
     {
         return View();
     }
-    public IActionResult ProcessLogin() 
+    public IActionResult ProcessLogin(Staff staffMember) 
     {
-        return View("Login");
+        if (staffMember.userName == "JohnDoe" && staffMember.password == "testLogin")
+        {
+            return View("LoginSuccess", staffMember);
+        }
+        else
+        {
+            return View("LoginFailure", staffMember);
+        }
 
         // Bellow is example of what will be implemented after service is created. 
         // StaffSecurity staff = new StaffSecurity();
