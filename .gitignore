@@ -406,3 +406,7 @@ ASALocalRun/
 
 # Local History for Visual Studio
 .localhistory/
+/Migrations/20230326201805_InitialCreate.cs
+/Migrations/20230326201805_InitialCreate.Designer.cs
+/Migrations/HRAS_2023ContextModelSnapshot.cs
+/Data/HRAS_2023Context.cs
