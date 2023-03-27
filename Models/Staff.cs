@@ -18,7 +18,8 @@ public class Staff
     public string? FirstName {get; set;}
 
     [Required]
-    [MaxLengthAttribute(1)]
+    // Changed by removing MaxLengthAttribute for Login test purposes only
+    // [MaxLengthAttribute(1)]
     public char MiddleInitial {get; set;}
 
     [Required]

@@ -26,11 +26,11 @@ public class LoginController : Controller
     {
         if (staffMember.userName == "JohnDoe" && staffMember.password == "testLogin")
         {
-            return View("LoginSuccess", staffMember);
+            return View("LoginSuccessTest", staffMember);
         }
         else
         {
-            return View("LoginFailure", staffMember);
+            return View("LoginFailureTest", staffMember);
         }
 
         // Bellow is example of what will be implemented after service is created. 
