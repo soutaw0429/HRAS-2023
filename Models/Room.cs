@@ -64,17 +64,5 @@ namespace HRAS_2023.Models
             get { return building; }
             set { building = value; }
         } 
-
-      /*  public Room(string _roomNumber, string _buildingName, string _designation, int _maxOccupancy, 
-            long _hourlyRate, string _floor, string _wing)
-        {
-            roomNumber = _roomNumber;
-            designation = _designation;
-            maxOccupancy = _maxOccupancy;
-            hourlyRate = _hourlyRate;
-            building.Name = _buildingName;
-            floor = _floor;
-            wing = _wing;
-        }*/
     }
 }

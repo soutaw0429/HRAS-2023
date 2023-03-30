@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿//using HRAS_2023.Data;
+using Microsoft.EntityFrameworkCore;
 //using HRAS.Context;
 //using HRAS.Interfaces;
 //using HRAS.Repository;
@@ -14,6 +15,9 @@ builder.Services.AddControllersWithViews();
 // Add database connection
 // builder.Services.AddDbContext<HRASContext>(options => options.UseSqlite(builder.Configuration.GetConnectionString("HRASContext")));
 
+/*builder.Services.AddDbContext<HRAS_2023Context>(options => 
+        options.UseSqlServer(builder.Configuration.GetConnectionString("HRAS_2023Context")));
+*/
 
 var app = builder.Build();
 

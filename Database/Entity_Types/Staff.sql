@@ -1,7 +1,5 @@
 CREATE TABLE Staff (
-    BirthDate DATE,
     FirstName VARCHAR(50),
-    MiddleInitial CHAR(1),
     LastName VARCHAR(50),
     UserName VARCHAR(25),
     [Password] VARCHAR(50),
