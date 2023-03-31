@@ -1,9 +1,7 @@
 CREATE TABLE Patient (
-    SSN VARCHAR(9) PRIMARY KEY,
-    Insurer VARCHAR(50),
-    [State] CHAR(2),
-    ZIP VARCHAR(10),
-    City VARCHAR(50),
-    StreetAddress VARCHAR(100),
-	VisitHistory_ChecksInDateTime DATETIME
+    SSN VARCHAR(9),
+    Insurer VARCHAR(5),
+    OrganDonor VARCHAR(1),
+    DNR_Status VARCHAR(1),
+    CONSTRAINT PK_Patient PRIMARY KEY (SSN)
 );
