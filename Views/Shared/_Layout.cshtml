@@ -11,15 +11,33 @@
     <header>
         <nav>
             <div>
+                <!--All buttons will move to warning page for now.-->
                 <!--Logo that goes to home page-->
+                <a asp-controller="Login" asp-action="WarningPage">
+                    <img class="" src="~/images/GSHAImg.jpg" />
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
                 <!--Create section with space for other buttons for -->
-                <!--Use list or table to seperate buttons-->
-                <!--Search button-->
-                <!--Check in buttton-->
-                <!--Diagnosis wizard button-->
-                <!--Inventory button-->
-                <!--Add space for logout button-->
-                <!--Logout button-->
+                <div>
+                    <!--Use list or table to seperate buttons-->
+                    <ul>
+                        <!--Search button-->
+                        <li></li>
+                        <!--Check in buttton-->
+                        <li></li>
+                        <!--Diagnosis wizard button-->
+                        <li></li>
+                        <!--Inventory button-->
+                        <li></li>
+                        <!--Add space for logout button-->
+                        <li></li>
+                        <!--Logout button-->
+                        <li></li>
+                    </ul>
+                </div>
             </div>
         </nav>
     </header>
