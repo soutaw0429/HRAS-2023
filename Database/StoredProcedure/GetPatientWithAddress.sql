@@ -1,4 +1,4 @@
-CREATE PROCEDURE patientAndAddress
+CREATE PROCEDURE GetPatientWithAddress
 AS
 BEGIN
 	SELECT
@@ -10,4 +10,4 @@ BEGIN
 END
 		
 
-EXEC patientAndAddress
+EXEC GetPatientWithAddress
