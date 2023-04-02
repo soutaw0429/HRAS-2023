@@ -12,6 +12,8 @@ namespace HRAS_2023.Models
         //What is that??
 
         [Required]
+        [Key]
+        [StringLength(5)]
         public string StockID
         {
             get { return stockID; }
@@ -42,13 +44,13 @@ namespace HRAS_2023.Models
         }
 
 
-        public InventoryItem(string _stockID, int _quantity, string _description, long _price)
+     /*   public InventoryItem(string _stockID, int _quantity, string _description, long _price)
         {
             stockID = _stockID;
             quantity = _quantity; ;
             description = _description; 
             price = _price;
-        }
+        }*/
 
     }
 }

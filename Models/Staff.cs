@@ -7,39 +7,23 @@ public class Staff
 {
     [Required]
     [Key]
-    public int id {get; set;}
+    [StringLength(25)]
+    public string userName { get; set; }
 
     [Required]
-    [DataType(DataType.Date)]
-    public int BirthDate {get; set;}
+    [StringLength(20)]
+    public string FirstName {get; set;}
 
     [Required]
-    [StringLength(50)]
-    public string? FirstName {get; set;}
-
-    [Required]
-    // Changed by removing MaxLengthAttribute for Login test purposes only
-    // [MaxLengthAttribute(1)]
-    public char MiddleInitial {get; set;}
-
-    [Required]
-    [StringLength(50)]
-    public string? LastName {get; set;}
+    [StringLength(30)]
+    public string LastName {get; set;}
     
     [Required]
-    [Key]
-    [StringLength(50)]
-    public string? userName {get; set;}
-
-    [Required]
     [DataType(DataType.Password)]
+    [StringLength(50)]
     public string? password {get; set;}
 
     [Required]
-    [StringLength(50)]
-    public string? userType {get; set;}
-
-    [Required]
-    [StringLength(50)]
-    public string? position {get; set;}
+    [StringLength(1)]
+    public char userType {get; set;}
 }
