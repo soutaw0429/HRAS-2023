@@ -3,6 +3,7 @@ CREATE TABLE Patient
     SSN VARCHAR(9),
     LastName VARCHAR(50),
     FirstName VARCHAR(25),
+    MiddleInitial CHAR(1),
     Sex CHAR(1),
     BirthDate DATETIME, 
     Insurer VARCHAR(5),
