@@ -1,9 +1,13 @@
 ﻿@{
-
-
+    Layout = null;
 }
 
 <style>
+
+    body {
+        margin: 0px;
+    }
+
     #search_box input {
         font-size: 20px;
         padding-left: 20px;
@@ -12,13 +16,14 @@
         background-image: url(https://cdn2.hubspot.net/hubfs/4004166/bioticresearch_website_assets/images/search_icon.png);
         background-repeat: no-repeat;
         background-position: right center;
+        border: 1px solid rgba(0,0,0,0.3);
     }
 
     #search_table {
         width: 90%;
         margin-left: auto;
         margin-right: auto;
-        margin-top: 50px;
+        margin-top: 100px;
         text-align: center;
     }
 
@@ -72,7 +77,7 @@
         <div id=search_box>
             <table id=search_table>
                 <td>
-                    <input id=box1 type="text" placeholder="Search by Name">
+                    <input id=box1 type="text" placeholder="Search by First Name">
                 </td>
                 <td>
                     <input id=box2 type="text" placeholder="Search by Last Name">
