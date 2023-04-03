@@ -1,3 +1,4 @@
+@model HRAS.Models.Staff
 @{
     ViewData["Title"] = "Login Page";
 }
@@ -57,11 +58,15 @@
 
 <div class="center2">
     <div class="center">
-        <form id="login">
+        <form asp-action="ProcessLogin">
             <h1>HRAS</h1>
             <div>
-                <p><input id="username" type="text" placeholder="Username" autofocus required></p>
-                <p><input id="password" type="password" placeholder="Password" required></p>
+                <div class="form-group">
+                    <input asp-for="userName" placeholder="Username">
+                </div>
+                <div class="form-group">
+                    <input asp-for="password" type="password" placeholder="Password">
+                </div>
             </div>
 
             <div>
