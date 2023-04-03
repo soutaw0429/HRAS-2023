@@ -1,23 +1,36 @@
 ﻿//using HRAS_2023.Data;
-using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using HRAS.Context;
 using HRAS.Interfaces;
 using HRAS.Repository;
 using HRAS.Services;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<ISecurityService, SecurityService>();
-builder.Services.AddScoped<ISearchService, SearchService>();
-builder.Services.AddScoped<IPatientRepository, PatientRepository>();
 builder.Services.AddScoped<IStaffRepository, StaffRepository>();
 
-// Add database connection
-builder.Services.AddDbContext<HRASContext>(options => options.UseSqlite(builder.Configuration.GetConnectionString("HRASContext")));
-// builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true).AddEntityFrameworkStores<HRASContext>();
+// Add database connection. This will be the main DB connection when the MSSql middleware connection has been granted
+// builder.Services.AddDbContext<HRASContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("HRASContext")));
+
+// This is the DB connection required for macos. It will be commented out on the repo. Do not remove these lines.
+// var serverVersion = new MySqlServerVersion(new Version(10,10,3));
+// builder.Services.AddDbContext<AuthDbContext>(options => options.UseMySql(builder.Configuration.GetConnectionString("HRASTestContext"), serverVersion));
+
+// These lines globally configure auth cookies. Do not remove these lines
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options =>{
+    // Cookie settings
+    options.Cookie.HttpOnly = true;
+    options.ExpireTimeSpan = TimeSpan.FromMinutes(5);
+
+    options.LoginPath = "/Login/Login";
+    options.AccessDeniedPath = "/Login/AccessDenied";
+    options.SlidingExpiration = true;
+});
 
 var app = builder.Build();
 
@@ -34,6 +47,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
 app.UseAuthorization();
 
 // Below Not needed since we can use action in LoginController to start application with Warning page. 
