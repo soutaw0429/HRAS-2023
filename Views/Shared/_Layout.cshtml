@@ -6,12 +6,13 @@
     <title>@ViewData["Title"] - HRAS</title>
     <link rel="stylesheet" href="~/lib/rewire.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/stylus/dist/new.css" asp-append-version="true" />
+    <!--Need css for navbar layout. Temp classes in elements-->
 </head>
 <body>
     <header>
         <nav>
             <div>
-                <!--All buttons will move to warning page for now.-->
+                <!--All buttons will move to warning page for now. Links will be updated as pages are created.-->
                 <!--Logo that goes to home page-->
                 <a asp-controller="Login" asp-action="WarningPage">
                     <img class="" src="~/images/GSHAImg.jpg" />
@@ -26,19 +27,19 @@
                     <ul>
                         <!--Search button-->
                         <li class="nav-item">
-                            <a>SEARCH</a>
+                            <a class ="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="WarningPage">SEARCH</a>
                         </li>
                         <!--Check in buttton-->
                         <li class="nav-item">
-                            <a>CHECK IN</a>
+                            <a class ="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="WarningPage">CHECK IN</a>
                         </li>
                         <!--Diagnosis wizard button-->
                         <li class="nav-item">
-                            <a>DIAGNOSIS WIZARD</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="WarningPage">DIAGNOSIS WIZARD</a>
                         </li>
                         <!--Inventory button-->
                         <li class="nav-item">
-                            <a>INVENTORY</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="WarningPage">INVENTORY</a>
                         </li>
                     </ul>
                 </div>
@@ -46,7 +47,7 @@
                 <div>
                     <!--Logout button-->
                     <li class="nav-item">
-                        <a>LOGOUT</a>
+                        <a class ="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="WarningPage">LOGOUT</a>
                     </li>                   
                 </div>
             </div>
