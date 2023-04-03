@@ -7,9 +7,9 @@ namespace HRAS_2023.Models
     {
         private DateTime checkInDateTime;
         private DateTime checkOutDateTime;
-        private List<InventoryItem> usedItems;
-        private List<string> symptoms;
-        private string diagnose;
+        private List<InventoryItem>? usedItems;
+        private List<string>? symptoms;
+        private string? diagnose;
 
         [Key]
         public DateTime CheckInDateTime
@@ -26,7 +26,7 @@ namespace HRAS_2023.Models
 
         public List<InventoryItem> UsedItems
         {
-            get { return usedItems; }
+            get { return usedItems!; }
             set { usedItems = value; }
         }
 /*
@@ -38,7 +38,7 @@ namespace HRAS_2023.Models
 */
         public string Diagnose
         {
-            get { return diagnose; }
+            get { return diagnose!; }
             set { diagnose = value; }
         }
     }

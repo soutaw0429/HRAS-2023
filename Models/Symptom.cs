@@ -4,12 +4,12 @@ namespace HRAS_2023.Models
 {
     public class Symptom
     {
-        private string symptom;
+        private string? symptom;
 
         [Key]
         public string SymptomName 
         {
-            get { return symptom; }
+            get { return symptom!; }
             set { symptom = value; } 
         }
     }

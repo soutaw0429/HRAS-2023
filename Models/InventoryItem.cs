@@ -4,9 +4,9 @@ namespace HRAS_2023.Models
 {
     public class InventoryItem
     {
-        private string stockID;
+        private string? stockID;
         private int quantity;
-        private string description;
+        private string? description;
         private long price;
         //From Spec doc feedback: "you need an allowance for "virtual" inventory". 
         //What is that??
@@ -16,7 +16,7 @@ namespace HRAS_2023.Models
         [StringLength(5)]
         public string StockID
         {
-            get { return stockID; }
+            get { return stockID!; }
             set { stockID = value; }
         }
 
@@ -31,7 +31,7 @@ namespace HRAS_2023.Models
         [Required]
         public string Description
         {
-            get { return description; }
+            get { return description!; }
             set { description = value; }
         }
 
