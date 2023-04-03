@@ -17,22 +17,18 @@ public class SecurityService : ISecurityService
 
     public Staff? authenticateUser(string username, string password)
     {
-        System.Diagnostics.Debug.WriteLine("Plain password is: " + password);
 
         string passwordHash = Convert.ToBase64String(hashPassword(password));
 
-        System.Diagnostics.Debug.WriteLine("Hashed password is: " + passwordHash);
 
         Staff? user = validateUser(username);
         if (user == null) {
-            System.Diagnostics.Debug.WriteLine("Validation be very broken");
             return null;
         }
 
         bool passResult = verifyPassword(password, user.password!);
 
         if (!passResult) {
-            System.Diagnostics.Debug.WriteLine("Password not verified");
             return null;
         }
         return user;
