@@ -18,8 +18,8 @@ builder.Services.AddScoped<IStaffRepository, StaffRepository>();
 // builder.Services.AddDbContext<HRASContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("HRASContext")));
 
 // This is the DB connection required for macos. It will be commented out on the repo. Do not remove these lines.
-// var serverVersion = new MySqlServerVersion(new Version(10,10,3));
-// builder.Services.AddDbContext<AuthDbContext>(options => options.UseMySql(builder.Configuration.GetConnectionString("HRASTestContext"), serverVersion));
+var serverVersion = new MySqlServerVersion(new Version(10,10,3));
+builder.Services.AddDbContext<AuthDbContext>(options => options.UseMySql(builder.Configuration.GetConnectionString("HRASTestContext"), serverVersion));
 
 // These lines globally configure auth cookies. Do not remove these lines
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options =>{
@@ -60,4 +60,3 @@ app.MapControllerRoute(
     pattern: "{controller=Login}/{action=WarningPage}/{id?}");
 
 app.Run();
-
