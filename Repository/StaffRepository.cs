@@ -1,5 +1,6 @@
 namespace HRAS.Repository;
 
+using System.Data.SqlClient;
 using System.Linq;
 using HRAS.Context;
 using HRAS.Interfaces;
@@ -18,5 +19,8 @@ public class StaffRepository : IStaffRepository
     {
         return _context.Staff
             .SingleOrDefault(staff => staff.userName!.Equals(username));
+
+        // var userIdParam = new SqlParameter("@UserName", username);
+        // return Staff.FromSqlRaw("EXEC FindPasswordByStaffUsername @UserName", username).FirstOrDefault();
     }
 }
