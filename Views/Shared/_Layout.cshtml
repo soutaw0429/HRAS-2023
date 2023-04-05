@@ -7,6 +7,17 @@
     <link rel="stylesheet" href="~/lib/rewire.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/stylus/dist/new.css" asp-append-version="true" />
     <!--Need css for navbar layout. Temp classes in elements-->
+    <!--Temp script for for navbar-->
+    <style>
+        .nav-pills .nav-link .active, .nav-pills .show > .nav-link {
+            color: #fff;
+            background-color: #1b6ec2;
+            border-color: #1861ac;
+        }
+        .nav-logout {
+            margin-left: 50px;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -46,7 +57,7 @@
                 <!--Add space for logout button-->
                 <div>
                     <!--Logout button-->
-                    <li class="nav-item">
+                    <li class="nav-logout">
                         <a class ="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="WarningPage">LOGOUT</a>
                     </li>                   
                 </div>
