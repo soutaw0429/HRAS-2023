@@ -3,6 +3,7 @@ Create table Room
 building_key varchar(30),
 [number] varchar(9),
 hourly_rate money,
+effective_date_time datetime, 
 wing varchar(24),
 [floor] varchar(4),
 designation varchar(2),
