@@ -9,94 +9,59 @@
     <!--Need css for navbar layout. Temp classes in elements-->
     <!--Temp script for for navbar-->
     <style>
-        .nav-pills .active, .nav-pills .show > .nav-link {
-            color: #fff;
-            background-color: #1b6ec2;
-            border-color: #1861ac;
-        }
-
-        .nav-link {
-            padding: 0 40px 0 20px;
-        }
-
-        .nav-logout {
-            margin-left: 50px;
-        }
-
-        .navbar-collapse {
-            flex-basis: 100%;
-            flex-grow: 1;
-            align-items: center;
-        }
-
         .navbar {
-            position: relative;
             display: flex;
-            flex-wrap: wrap;
+            position: relative;
             align-items: center;
-            justify-content: space-between;
             padding-top: 0.5rem;
             padding-bottom: 0.5rem;
         }
 
-            .navbar > .container,
-            .navbar > .container-fluid,
-            .navbar > .container-sm,
-            .navbar > .container-md,
-            .navbar > .container-lg,
-            .navbar > .container-xl,
-            .navbar > .container-xxl {
-                display: flex;
-                flex-wrap: inherit;
-                align-items: center;
-                justify-content: space-between;
-            }
-
-        .navbar-expand-sm {
-            flex-wrap: nowrap;
-            justify-content: flex-start;
+        .nav-logout {
+            padding-left: 10%;
         }
 
-            .navbar-expand-sm .navbar-nav {
-                flex-direction: row;
-            }
-
+        .nav-link {
+            text-align: center;
+            padding: 0 20px 0 20px;
+        }
     </style>
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
+        <nav>
+            <div class="navbar">
                 <!--All buttons will move to warning page for now. Links will be updated as pages are created.-->
                 <!--Logo that goes to home page-->
                 <a asp-controller="HomePage" asp-action="Index">
                     <img class="" src="~/images/GSHAImg.jpg" />
                 </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
                 <!--Create section with space for other buttons for -->
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <!--Use list or table to seperate buttons-->
-                    <!--Search button-->
+                <!--Use list or table to seperate buttons-->
+                <!--Search button-->
+                <div class="nav-link">
                     <a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="WarningPage">SEARCH</a>
-                    <!--Check in buttton-->
+                </div>
+                <!--Check in buttton-->
+                <div class="nav-link">
                     <a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="WarningPage">CHECK IN</a>
-                    <!--Diagnosis wizard button-->
+                </div>
+                <!--Diagnosis wizard button-->
+                <div class="nav-link">
                     <a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="WarningPage">DIAGNOSIS WIZARD</a>
-                    <!--Inventory button-->
+                </div>
+                <!--Inventory button-->
+                <div class="nav-link">
                     <a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="WarningPage">INVENTORY</a>
                 </div>
                 <!--Add space for logout button-->
-                <div>
+                <div class="nav-logout">
                     <!--Logout button-->
-                    <li class="nav-logout">
-                        <a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="WarningPage">LOGOUT</a>
-                    </li>
+                    <a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="WarningPage">LOGOUT</a>
                 </div>
             </div>
         </nav>
+
     </header>
     <div class="container-fluid">
         <main role="main" class="pb-3">
