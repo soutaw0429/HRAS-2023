@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using HRAS.Context;
 using HRAS.Interfaces;
-using HRAS.Repository;
+using HRAS.Logic;
 using HRAS.Services;
 using Microsoft.AspNetCore.Authentication.Cookies;
 
@@ -11,7 +11,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<ISecurityService, SecurityService>();
-builder.Services.AddScoped<IStaffRepository, StaffRepository>();
+builder.Services.AddScoped<IStaffLogic, StaffLogic>();
 
 // Add database connection. This will be the main DB connection when the MSSql middleware connection has been granted
 // builder.Services.AddDbContext<HRASContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("HRASContext")));
