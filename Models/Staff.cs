@@ -8,19 +8,19 @@ public class Staff
     [Required]
     [Key]
     [StringLength(25)]
-    public string userName { get; set; }
+    public string? userName { get; set; }
 
     [Required]
     [StringLength(20)]
-    public string FirstName {get; set;}
+    public string? FirstName {get; set;}
 
     [Required]
     [StringLength(30)]
-    public string LastName {get; set;}
+    public string? LastName {get; set;}
     
     [Required]
     [DataType(DataType.Password)]
-    [StringLength(50)]
+    [StringLength(128)]
     public string? password {get; set;}
 
     [Required]
