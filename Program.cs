@@ -14,7 +14,8 @@ builder.Services.AddScoped<ISecurityService, SecurityService>();
 builder.Services.AddScoped<IStaffLogic, StaffLogic>();
 
 // Add database connection. This will be the main DB connection when the MSSql middleware connection has been granted
-// builder.Services.AddDbContext<HRASContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("HRASContext")));
+ builder.Services.AddDbContext<AuthDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("HRASTestContext")));
+// Use the line above to run the project on Windows machine
 
 // This is the DB connection required for macos. It will be commented out on the repo. Do not remove these lines.
 // var serverVersion = new MySqlServerVersion(new Version(10,10,3));
