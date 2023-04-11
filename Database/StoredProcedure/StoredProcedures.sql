@@ -44,3 +44,48 @@ BEGIN
 	ORDER BY
 		Staff.LastName;
 END
+-
+
+
+Create Procedure GetInventoryItem
+	@StockId nchar(5)
+
+As
+Begin
+	Select *
+	From dbo.Inventory
+	Where stock_id = @StockId
+End
+Go
+
+
+
+Create Procedure UpdateInventory 
+	-- Add the parameters for the stored procedure here
+	@StockId nchar(5),
+	@Quantity nvarchar(5), 
+	@Description varchar(35),
+	@Size int,
+	@Price money
+As
+Begin
+	
+	If exists (Select 1 From[Inventory]
+	Where @StockId = stock_id)
+	Begin
+	Update Inventory Set
+	quantity = @Quantity
+	where @StockId = stock_id
+	End
+
+	Else
+	Begin
+	Insert Into Inventory(stock_id, quantity, description, size, price)
+	Values (@StockId, @Quantity, @Description, @Size, @Price)
+	End
+
+	Select *
+	From dbo.Inventory
+	Where stock_id = @StockId
+End
+Go
