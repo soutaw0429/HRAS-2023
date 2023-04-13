@@ -21,7 +21,8 @@ public class StaffLogic : IStaffLogic
         // return _context.Staff
         //     .SingleOrDefault(staff => staff.userName!.Equals(username));
 
-        var userIdParam = new SqlParameter("@UserName", username);
-        return Staff.FromSqlRaw("EXEC GetPasswordByUserName @UserName", username).FirstOrDefault();
+        //var userIdParam = new SqlParameter("@UserName", username);
+        //return Staff.FromSqlRaw("EXEC GetPasswordByUserName @UserName", username).FirstOrDefault();
+        return null;
     }
 }
