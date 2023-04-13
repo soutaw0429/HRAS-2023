@@ -20,8 +20,9 @@ public class StaffLogic : IStaffLogic
         // These methods need to be kept for my local use. Do not remove these lines
         // return _context.Staff
         //     .SingleOrDefault(staff => staff.userName!.Equals(username));
-
+        /*
         var userIdParam = new SqlParameter("@UserName", username);
-        return Staff.FromSqlRaw("EXEC GetPasswordByUserName @UserName", username).FirstOrDefault();
+        return Staff.FromSqlRaw("EXEC GetPasswordByUserName @UserName", username).FirstOrDefault();*/
+        return null;
     }
 }
