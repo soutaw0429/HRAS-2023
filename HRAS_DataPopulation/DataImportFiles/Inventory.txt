@@ -1,0 +1,777 @@
+0000114396ACE Wrap                           00100008315
+0000222252ACE Wrap                           01100009826
+0000318008ACE Wrap                           02100012232
+0000403363ACE Wrap                           02400013172
+0000524632Alcohol Wipe                       00100007887
+0000610610Alcohol Wipe                       00900011301
+0000728646Alcohol Wipe                       01700013752
+0000815238Arm Sling                          00100005751
+0000908061Arm Sling                          01100007340
+0001023670Arm Sling                          01300007528
+0001110082Athletic Supporter                 00100001241
+0001230362Athletic Supporter                 00300001999
+0001330268Athletic Supporter                 01300002405
+0001431593Athletic Supporter                 01500002527
+0001522140Athletic Supporter                 02400002824
+0001625658Back Brace                         00100004433
+0001726549Back Brace                         00700004911
+0001807183Back Brace                         01200005623
+0001919216Band-Aid                           00100002048
+0002026296Band-Aid                           00300003395
+0002110396Band-Aid                           01000004562
+0002231805Band-Aid                           01400005404
+0002331167Band-Aid                           01800006294
+0002419716Basin                              00100000549
+0002521724Basin                              00900000750
+0002601119Basin                              01300000780
+0002714990BD E-Z Scrub Brush                 00100003029
+0002801170BD E-Z Scrub Brush                 00200003266
+0002905436BD E-Z Scrub Brush                 01100004744
+0003007166Bedpan                             00100008413
+0003125330Betadine                           00100002049
+0003201720Betadine                           00700002944
+0003310706Biohazard Bag                      00100001978
+0003424294Biohazard Bag                      00300003005
+0003507776Biohazard Bag                      00800003286
+0003624527Biohazard Bag                      01100003946
+0003703078Biohazard Bag                      02000005502
+0003802338Biohazard Container                00100007229
+0003922030Biohazard Container                00500007454
+0004012312Biohazard Container                00800007571
+0004109704Biohazard Container                01600010206
+0004231805Blood Pressure Cuff                00100001170
+0004306794Blood Pressure Cuff                00500001466
+0004401798Needle (Bone Marrow Biopsy)        00100008922
+0004517187Needle (Bone Marrow Biopsy)        00700012998
+0004616233Needle (Bone Marrow Biopsy)        00900013740
+0004721851Needle (Bone Marrow Biopsy)        01400017268
+0004830661Cap (disposable)                   00100003750
+0004922071Cap (disposable)                   00900007063
+0005018717Cap (disposable)                   01100007954
+0005121531Cap (disposable)                   01500008567
+0005222734Cast Padding                       00100004184
+0005316479Cast Padding                       00200004928
+0005432086Cast Shoe (pair)                   00100001622
+0005520942Cast Shoe (pair)                   01000001683
+0005628990Cast Shoe (pair)                   01300001686
+0005721417Cast Shoe (pair)                   01700002051
+0005832063Cast Shoe (pair)                   01800002111
+0005925545Cautery Pen                        00100008770
+0006001650Cautery Pen                        00500014916
+0006111635Cautery Pen                        01300020377
+0006203693Cautery Pen                        01400021691
+0006328891Cautery Pen                        02300029577
+0006400946Cervical CollarChest Tube Drainage 00100008627
+0006513001Cervical CollarChest Tube Drainage 00700011784
+0006627037Cervical CollarChest Tube Drainage 01100012838
+0006730183Cervical CollarChest Tube Drainage 01300014264
+0006819730Chest Tube                         00100003965
+0006923519Chest Tube                         00900006007
+0007004206Chest Tube                         01000006583
+0007110917Chest Tube                         01700008957
+0007230150Chux Pad                           00100009403
+0007332088Chux Pad                           00800014216
+0007403160Cotton Ball                        00100000857
+0007521679Cotton Tip Applicator              00100009537
+0007613110Cotton Tip Applicator              00600011404
+0007723067Colostomy bag                      00100008883
+0007819941Colostomy bag                      00800015318
+0007913473Colostomy bag                      00900016491
+0008026360Colostomy bag                      01700016631
+0008100063Colostomy bag                      02500020894
+0008211506Crutch                             00100006565
+0008329487Crutch                             01000008219
+0008417488Crutch                             01400008315
+0008508670Diaper                             00100000362
+0008624061Diaper                             00500000426
+0008713769Gown (disposable)                  00100007472
+0008828027Gown (disposable)                  00900007817
+0008929671Gown (disposable)                  01700008428
+0009007194Gown (disposable)                  02000009674
+0009122976Drain (Jackson-Pratt)              00100003110
+0009226923Drain (Jackson-Pratt)              00400004899
+0009305996Dressing Pad                       00100009007
+0009408793Dressing Pad                       00400013391
+0009500847Dressing Pad                       01400015476
+0009622266Elbow Brace                        00100005885
+0009705848Elbow Brace                        00300006034
+0009808955Enteral Feeding Kit                00100001486
+0009910588Enteral Feeding Kit                00400002315
+0010000805Enteral Feeding Kit                00900003529
+0010120850ET Tube                            00100005671
+0010219080ET Tube                            01000006303
+0010311519ET Tube                            01200006572
+0010424926Fiberglass Casting Material        00100008565
+0010508701Fiberglass Casting Material        00900013802
+0010618502Fiberglass Casting Material        01700014166
+0010719769Fiberglass Casting Material        01800014218
+0010803215Fiberglass Casting Material        02600014516
+0010932748Foley Catheter                     00100001873
+0011002351Foley Catheter                     00200002001
+0011108115Foley Catheter                     00500002597
+0011213514Gel Foam Hemostatic Agent          00100009182
+0011330440Gel Foam Hemostatic Agent          00600012640
+0011417936Gloves (Nonsterile)                00100003235
+0011520858Gloves (Nonsterile)                00400005350
+0011625939Gloves (Nonsterile)                00600005402
+0011717369Gloves (Sterile)                   00100006633
+0011812002Gloves (Sterile)                   00500011313
+0011932689Gloves (Sterile)                   01000016019
+0012014538Glucometer Strip                   00100000688
+0012104359Glucometer Strip                   00800000802
+0012217722Glucometer Strip                   01700001198
+0012301184Glucometer Strip                   02600001545
+0012430120Glucometer (Ascensia)              00100005448
+0012502197Glucometer (Ascensia)              00400007552
+0012620833Glucometer (Ascensia)              00700010241
+0012713692Glucometer (Elite)                 00100001980
+0012831756Glucometer (Elite)                 00700003658
+0012915946Glucometer (BD Logic)              00100004365
+0013025670Glucometer (BD Logic)              00800007122
+0013127068Glucometer (One Touch)             00100007170
+0013210209Glucometer (One Touch)             00400009069
+0013304556Glucometer (One Touch)             01200013827
+0013419347Glucometer (One Touch)             02100015623
+0013500940Grounding Pad for Electrocautery   00100001351
+0013612682Grounding Pad for Electrocautery   00300001881
+0013716022Grounding Pad for Electrocautery   00900002566
+0013823589Hand Towel                         00100000759
+0013904124Hand Towel                         00500000825
+0014003184Hand Towel                         00700000826
+0014112885Hand Towel                         01400001006
+0014202186Hemoccult                          00100001751
+0014313528Hemoccult                          01100002965
+0014421848Hudson Tubing                      00100000592
+0014525038Hudson Tubing                      00800000949
+0014627872Hudson Tubing                      01600000967
+0014731400Hudson Tubing                      02100001128
+0014822587Hudson Tubing                      02900001423
+0014925166Hydrogen Peroxide                  00100000131
+0015017881Needle (Intraosseous)              00100008310
+0015116200Iodine Swab                        00100004698
+0015216636Iodine Swab                        00600007129
+0015332497Iodine Swab                        01100007702
+0015416143Iodine Swab                        01300008154
+0015515094IV Catheter                        00100008172
+0015601557IV Catheter                        01000012165
+0015720240IV Catheter                        02000016454
+0015818217IV Catheter                        02800016858
+0015912143IV Fluid (Normal Saline)           00100002916
+0016032407IV Fluid (Normal Saline)           01000004212
+0016111772IV Fluid (Normal Saline)           02000004888
+0016225783IV Fluid (Lactated Ringers)        00100001314
+0016329950IV Fluid (Lactated Ringers)        00200001942
+0016427326IV Fluid (Lactated Ringers)        00500002526
+0016506854IV Fluid (Lactated Ringers)        00600002885
+0016618697Knee Brace (Hinged)                00100005476
+0016703865Knee Immobilizer                   00100004420
+0016823895Knee Immobilizer                   00200006176
+0016915039Knee Immobilizer                   00300006644
+0017019239Knee sleeve                        00100005496
+0017104954Knee sleeve                        01000005857
+0017205362Knee sleeve                        01600006423
+0017305942Lab Coat                           00100008669
+0017430125Lancet                             00100006766
+0017501716Lancet                             00400008998
+0017608362Lancet                             00900013778
+0017726246Lancet                             01500015398
+0017821842Lancet                             01600016236
+0017914597Laryngascope Blade Handle          00100003365
+0018030731Laryngascope Blade Handle          00900004268
+0018118479Laryngascope Blade Handle          01500005082
+0018211753Laryngascope Blade Handle          02200005592
+0018304982Laryngascope Blade                 00100001228
+0018418014Liquid Soap                        00100003471
+0018527547Liquid Soap                        00900005683
+0018629172Liquid Soap                        01100006653
+0018703515Liquid Soap                        01700008003
+0018815886Lubrication Jelly                  00100001014
+0018900161Lubrication Jelly                  01000001118
+0019020843Lubrication Jelly                  01700001408
+0019127704Lubrication Jelly                  02300001445
+0019204431Lumbar Puncture Tray               00100001285
+0019304629Lumbar Puncture Tray               00200001376
+0019428437Lumbar Puncture Tray               00900002187
+0019526352Lumbar Puncture Tray               01300002808
+0019621181Mask (disposable)                  00100003104
+0019719442Mask (disposable)                  01100003730
+0019807564Mask (disposable)                  01500004578
+0019920017Mask (disposable)                  02400005621
+0020016728Mask (disposable)                  03000005981
+0020120513Microscopy Slide                   00100001355
+0020206734Microscopy Slide                   01000001389
+0020320043Microscopy Slide                   01400001543
+0020416897Microscopy Slide                   02300001622
+0020503547Nasogastric Tube                   00100005429
+0020609530Nasogastric Tube                   00700008728
+0020711703Nasogastric Tube                   01200009328
+0020819975Nasogastric Tube                   01300009912
+0020904127Nebulizer Tubing                   00100001483
+0021021612Nebulizer Tubing                   00400001684
+0021110619Nebulizer Tubing                   01200001908
+0021210609Nebulizer Tubing                   01500002132
+0021328615Nebulizer Tubing                   01800002404
+0021405901Nebulizer Machine                  00100002054
+0021531145Nebulizer Machine                  01100002711
+0021619689Nebulizer Machine                  01300003078
+0021725400Nebulizer Machine                  01800003263
+0021832539Nebulizer Machine                  02400003860
+0021907243O2 Mask                            00100003711
+0022011737O2 Mask                            01000004874
+0022103531O2 Mask                            01700006317
+0022207701O2 Nasal Prong                     00100003259
+0022322303O2 Nasal Prong                     00200003604
+0022402485O2 Nasal Prong                     00500005665
+0022528832O2 Pediatric Mask                  00100004237
+0022602153O2 Pediatric Mask                  00400005107
+0022700233O2 Pediatric Mask                  01400005687
+0022804336O2 Pediatric Mask                  02400007967
+0022917596O2 Pediatric Nasal Prong           00100000712
+0023023384O2 Pediatric Nasal Prong           01100001015
+0023108528O2 Pediatric Nasal Prong           01500001194
+0023232131O2 Pediatric Nasal Prong           02300001490
+0023315568O2 Tubing                          00100004337
+0023402065O2 Tubing                          00700004705
+0023525203O2 Tubing                          00900004938
+0023613848O2 Tubing                          01200005706
+0023725996Operation Warm Baby Kit            00100002645
+0023827277Operation Warm Baby Kit            00400002944
+0023906325Otoscope                           00100001297
+0024017320Otoscope                           00300001985
+0024106503Otoscope                           00400002414
+0024203946Speculum                           00100008195
+0024304357Speculum                           00900010220
+0024414692PAP Smear Kit                      00100004446
+0024504506PAP Smear Kit                      01100007408
+0024615167Paracentesis Tray                  00100009882
+0024700004Paracentesis Tray                  00900013940
+0024832277Paracentesis Tray                  01600018306
+0024926503Penrose Drain                      00100005790
+0025009919Penrose Drain                      00700008668
+0025111126Penrose Drain                      01600009009
+0025202578Penrose Drain                      02400010316
+0025326073Penrose Drain                      03300012268
+0025407534Plaster of Paris                   00100001739
+0025517970Plaster of Paris                   00500002786
+0025628558Plaster of Paris                   00900003497
+0025714143Plaster of Paris                   01100003849
+0025827288Plaster of London                  00100002342
+0025911470PPV Mask                           00100003633
+0026002385PPV Mask                           00200004962
+0026100684PPV Mask                           01200005326
+0026208960PPV Mask                           01400005911
+0026313741PPV Mask                           01700006525
+0026407614Ambu Bag                           00100006001
+0026503606Ambu Bag                           00400007166
+0026628629Ambu Bag                           01000009634
+0026727589Pulse Oximeter (O2 sat machine)    00100005521
+0026829498Pulse Oximeter (O2 sat machine)    01000005570
+0026926380Pulse Oximeter (O2 sat machine)    02000008278
+0027029120Pulse Oximeter (O2 sat machine)    02700009570
+0027108377Razor                              00100006623
+0027225993Razor                              00700006811
+0027301470Razor                              01500008053
+0027421724Razor                              02400008854
+0027518254Rolled Bandage                     00100000925
+0027622032Rolled Bandage                     00400001009
+0027721114Rolled Bandage                     01100001459
+0027810500Rolling Table                      00100002607
+0027920666Rolling Table                      00900003577
+0028026924Rolling Table                      01700004662
+0028113733Rolling Table                      02700004878
+0028215251Scalpel Blade                      00100002161
+0028322773Scalpel Blade                      01000003890
+0028404875Scalpel Blade                      01200004474
+0028516773Scalpel Blade                      01400004817
+0028605554Scalpel handle                     00100002447
+0028706125Scalpel handle                     01100004017
+0028815769Scalpel handle                     02100005636
+0028921200Scalpel handle                     03100006235
+0029028184Shoe Cover (disposable)            00100006027
+0029118466Shoe Cover (disposable)            01100009177
+0029206235Shoe Cover (disposable)            01300010281
+0029300319Shoe Cover (disposable)            01900013405
+0029409181Shoe Cover (disposable)            02500016567
+0029505865Shoulder Immobilizer               00100006098
+0029608185Skin Stapler (disposable)          00100000284
+0029708679Skin Stapler (disposable)          00700000508
+0029803622Skin Stapler (disposable)          01600000540
+0029907793Spinal Anesthesia Kit              00100000495
+0030016128Spinal Anesthesia Kit              00700000522
+0030127616Spinal Anesthesia Kit              01000000656
+0030224305Needle (Spinal)                    00100003620
+0030328321Stethoscope                        00100003082
+0030421799Stethoscope                        00600003572
+0030511142Stethoscope                        00800004194
+0030628819Stethoscope                        01300004574
+0030722475Stethoscope                        02300005014
+0030800798Sterile Rolled Gauze (kerlix)      00100001375
+0030907637Sterile Rolled Gauze (kerlix)      00600001755
+0031006835Sterile Rolled Gauze (kerlix)      00700001939
+0031117969Sterile Rolled Gauze (kerlix)      01500002239
+0031211756Sterile Rolled Gauze (kerlix)      01900002349
+0031308770Stool Container                    00100008734
+0031423152Stool Container                    00600013130
+0031513899Suction Tubing                     00100004770
+0031602035Suction Yankauer Tips              00100005698
+0031700105Suction Yankauer Tips              00400006309
+0031820353Suction Yankauer Tips              01200008874
+0031927193Suction Yankauer Tips              01500009574
+0032008195Supplemental Feeding Kit           00100006551
+0032116218Supplemental Feeding Kit           00700006713
+0032223163Supplemental Feeding Kit           01300009437
+0032316766Surgical Drape                     00100001437
+0032422479Surgical Drape                     00300001765
+0032503599Surgical Gown                      00100002928
+0032604748Surgical Gown                      00600005158
+0032716248Suture (Chromic)                   00100009351
+0032827836Suture (Chromic)                   00700010593
+0032928992Suture (Chromic)                   01000011534
+0033006528Suture (Absorbable)                00100007151
+0033118184Suture (Absorbable)                00200007833
+0033206212Suture (Absorbable)                00400008785
+0033321369Suture (Absorbable)                01400013511
+0033405458Suture (Non-Absorbable             00100001217
+0033513832Suture (Non-Absorbable             00600001703
+0033604540Suture (Non-Absorbable             00800001803
+0033729203Syringe                            00100000527
+0033817555Syringe                            00300000755
+0033922219Tape                               00100000326
+0034002216Tape                               00700000376
+0034129451Tape                               01700000420
+0034210489Thoracentesis Tray                 00100002458
+0034326847Thoracentesis Tray                 00300003028
+0034429310Thoracentesis Tray                 00900003547
+0034524394Thoracentesis Tray                 01000003569
+0034614509Tongue Depressor                   00100000458
+0034726237Tongue Depressor                   00800000467
+0034802784Tourniquet                         00100006450
+0034918211Ultrasound Gel                     00100004139
+0035003075Ultrasound Gel                     00800006518
+0035118515Ultrasound Gel                     01200007693
+0035221942Urinal (portable)                  00100000433
+0035319858Urinary Bag                        00100004980
+0035410108Urine Container                    00100002158
+0035502388Urine Dipstick                     00100005433
+0035613230Urine Dipstick                     00700007710
+0035719199Urine Dipstick                     01100010469
+0035810621Urine Dipstick                     01200011285
+0035927778Urine Dipstick                     01400012196
+0036018754Vacutainer                         00100005663
+0036107146Vacutainer                         00800006346
+0036220888Vacutainer                         01000007188
+0036304760Vacutainer                         02000009470
+0036427810Vacutainer                         02900011930
+0036507778Walking Boot (pair)                00100006490
+0036618615Walking Boot (pair)                00600008437
+0036702460Wet Wipe                           00100004241
+0036817743Wet Wipe                           00300005063
+0036930964Wet Wipe                           01300008542
+0037025012Wheelchair                         00100001067
+0037127186Wheelchair                         00500001451
+0037215523Wrist Brace                        00100001497
+0037301895Wrist Brace                        00200001505
+0037404303Zip Lock Snack Bag                 00100001530
+0037515691Zip Lock Snack Bag                 01000002277
+0037627237Zip Lock Snack Bag                 01700002544
+0037707297Zip Lock Snack Bag                 02100002714
+0037802935Zip Lock Snack Bag                 02900003228
+0037912026sphygmomanometer                   00100003931
+0038006227sphygmomanometer                   00400004529
+0038122339sphygmomanometer                   01100005175
+0038216714sphygmomanometer                   02100006330
+0038332681sphygmomanometer                   02500006587
+0038409200surgical light                     00100009276
+0038529997surgical light                     00900015946
+0038625170surgical light                     01500016156
+0038732129surgical light                     01800018176
+0038800744stretcher                          00100007097
+0038923637stretcher                          00200008601
+0039026616stretcher                          00700009553
+0039108773anesthesia machine                 00100002740
+0039223100anesthesia machine                 01100002817
+0039319001anesthesia machine                 01300002828
+0039418663defibrillator                      00100001072
+0039510294defibrillator                      01000001928
+0039605469defibrillator                      01900002559
+0039716533defibrillator                      02600002907
+0039825714defibrillator                      03000002987
+0039912216morphine                           00100009993
+0040019271morphine                           01000011027
+0040128782fentanyl                           00100004575
+0040212550fentanyl                           00300005822
+0040329613hydromorphone                      00100002504
+0040426359hydromorphone                      00300003822
+0040515460hydromorphone                      00500004455
+0040628916merperidine                        00100007091
+0040704116merperidine                        00200010615
+0040825520merperidine                        01200011490
+0040927437merperidine                        02000014303
+0041005645oxycodone                          00100002174
+0041132696oxycodone                          00200002699
+0041200925oxycodone                          01100003120
+0041317718midazolam                          00100002016
+0041417231Benzocaine                         00100009472
+0041522181Benzocaine                         00800016806
+0041611869Lidocaine                          00100006627
+0041712233Lidocaine                          00400011373
+0041829492Lidocaine                          01400015825
+0041918326Lidocaine                          01700017286
+0042014965Lidocaine                          02400019136
+0042110248mepivicaine                        00100002190
+0042201006mepivicaine                        00700002674
+0042316446mepivicaine                        01500002901
+0042424599mepivicaine                        02300003334
+0042521929mepivicaine                        03100003872
+0042603308bupivicaine                        00100009630
+0042732751bupivicaine                        00300015196
+0042803795bupivicaine                        00900018974
+0042917722bupivicaine                        01100021431
+0043012486bupivicaine                        01500025243
+0043100365ropivicaine                        00100005107
+0043210335ropivicaine                        00700006358
+0043305012ropivicaine                        01100007101
+0043426969ropivicaine                        01400007621
+0043525349ropivicaine                        02000008458
+0043623246Succinylcholine                    00100007159
+0043704493Succinylcholine                    00400012513
+0043806432Succinylcholine                    00500012684
+0043920553Vecuronium                         00100006570
+0044029102Vecuronium                         00900006955
+0044127378Vecuronium                         01600009365
+0044215046Vecuronium                         02600010165
+0044314859Vecuronium                         03400011985
+0044410930rocuronium                         00100005814
+0044503100rocuronium                         00800007619
+0044616735cisatracurium                      00100000795
+0044723372Propofol                           00100009234
+0044830835Propofol                           00200009714
+0044923678Propofol                           01100009889
+0045024200Ketamine                           00100009408
+0045109462Etomidate                          00100004142
+0045200941Etomidate                          00500004924
+0045304257Acetaminophen                      00100007214
+0045413795Acetaminophen                      00300007757
+0045511103Acetaminophen                      01200010666
+0045603488Sevoflurane                        00100000272
+0045700380Sevoflurane                        00200000337
+0045827326Sevoflurane                        01100000482
+0045909527Desflurane                         00100006843
+0046017048Desflurane                         00500008852
+0046116699Desflurane                         01000010901
+0046211635Desflurane                         01800011298
+0046312527Isoflurane                         00100003568
+0046409259Isoflurane                         00600006270
+0046532114Isoflurane                         01500008535
+0046611152Isoflurane                         02300010287
+0046702709forceps                            00100008576
+0046804603bandaid                            00100004270
+0046902075gauze                              00100003840
+0047019344gauze                              01000004109
+0047131781gauze                              01600004542
+0047203447gauze                              02300005748
+0047318340gauze                              03300006631
+0047417345surgical tape                      00100001822
+0047503761surgical tape                      00900002868
+0047615887surgical tape                      01400002993
+0047709669surgical tape                      01800003081
+0047819896surgical tape                      02500003282
+0047929747tweezers                           00100001462
+0048016020tweezers                           00900002119
+0048129685tweezers                           01300002326
+0048230766tweezers                           02100002871
+0048330637saw                                00100009805
+0048405886saw                                00900012933
+0048509177saw                                01100014631
+0048602211scalpel                            00100006773
+0048715534scalpel                            00900009428
+0048827347thread                             00100007668
+0048918702cotton swab                        00100001647
+0049032123cotton swab                        00400002399
+0049108321X-ray                              00100005959
+0049205947X-ray                              00200008411
+0049325453X-ray film                         00100009795
+0049416571chloroform                         00100005127
+0049510232chloroform                         00700007658
+0049605896chloroform                         01100008011
+0049703179formaldehyde                       00100003858
+0049805210formaldehyde                       00300004416
+0049913897formaldehyde                       01200005326
+0050024652isopropyl alcohol                  00100003134
+0050101003isopropyl alcohol                  00900004936
+0050225836isopropyl alcohol                  01300005707
+0050329473isopropyl alcohol                  01900006910
+0050412876ammonia                            00100006049
+0050511059ammonia                            00800010193
+0050608203smelling salt                      00100005588
+0050709758smelling salt                      01100008163
+0050825175smelling salt                      01900008366
+0050900417catheter                           00100008601
+0051021292catheter                           00400011787
+0051119464catheter                           00700012292
+0051208674catheter                           01500013138
+0051311636intravenous tubing                 00100005158
+0051409920intravenous tubing                 00700008005
+0051506546intravenous tubing                 01100009970
+0051611503intravenous tubing                 01800010675
+0051727859glucose solution                   00100000811
+0051830475glucose solution                   01100000876
+0051912300glucose solution                   01500001087
+0052021619glucose solution                   02100001142
+0052122702glucose solution                   02700001157
+0052205371plasma                             00100008088
+0052307516plasma                             00500011944
+0052403057plasma                             01400011967
+0052502997O blood                            00000004523
+0052631936A blood                            00000000465
+0052700963B blood                            00000005723
+0052808206O+ blood                           00000016527
+0052923497A- blood                           00000004379
+0053017906B- blood                           00000006980
+0053121771A+ blood                           00000005573
+0053216506B+ blood                           00000015527
+0053303499AB blood                           00000017469
+0053414187AB- blood                          00000002631
+0053500078COVID-19 vaccine                   00000046927
+0053600739alopecia areata vaccine            00000034376
+0053700614macular degeneration vaccine       00000040227
+0053800814multiple sclerosis vaccine         00000022800
+0053900773Parkinson's disease vaccine        00000000570
+0054000543cobra bite poisoning vaccine       00000034270
+0054100349spider bite poisoning vaccine      00000000176
+0054200195electric eel shock vaccine         00000004289
+0054300893lycanthropy vaccine                00000011891
+0054400863cardiac arrhythmia vaccine         00000027241
+0054500944cystic fibrosis vaccine            00000012925
+0054600266pregnancy vaccine                  00000049679
+0054700234stroke vaccine                     00000017914
+0054800706common cold vaccine                00000042551
+0054900052influenza vaccine                  00000045508
+0055000550malaria vaccine                    00000009577
+0055100795encephalitis vaccine               00000044781
+0055200442yellow fever vaccine               00000029552
+0055300091cholecystitis vaccine              00000032247
+0055400040cholelithiasis vaccine             00000038332
+0055500946appendicitis vaccine               00000009414
+0055600366pulmonary tuberculosis vaccine     00000007508
+0055700862overextended stomach vaccine       00000033436
+0055800153sciatica vaccine                   00000025779
+0055900207dysentery vaccine                  00000026516
+0056000685bubonic plague vaccine             00000044967
+0056100027septicemia vaccine                 00000009301
+0056200886ulcer vaccine                      00000014441
+0056300350bullet wound vaccine               00000035637
+0056400705syphilis vaccine                   00000001759
+0056500713malnutrition vaccine               00000028079
+0056600496psychosomatism vaccine             00000024171
+0056700919narcolepsy vaccine                 00000006637
+0056800282typhoid fever vaccine              00000044667
+0056900378whooping cough vaccine             00000020098
+0057000212diptheria vaccine                  00000046349
+0057100189elephantiasis vaccine              00000010877
+0057200164congestive heart failure vaccine   00000040058
+0057300608enterocolitis vaccine              00000004974
+0057400919enteritis vaccine                  00000022933
+0057500105cirrhosis of the liver vaccine     00000029795
+0057600355dengue vaccine                     00000002934
+0057700892delirium tremens vaccine           00000027797
+0057800189mononucleosis vaccine              00000046386
+0057900983gout vaccine                       00000020882
+0058000501goitre vaccine                     00000049798
+0058100899polio vaccine                      00000022241
+0058200260rabies vaccine                     00000034700
+0058300394scrofula vaccine                   00000046421
+0058400223tetanus vaccine                    00000040916
+0058500994meningitis vaccine                 00000033603
+0058600268gangrene vaccine                   00000031332
+0058700668leprosy vaccine                    00000038161
+0058800932necrosis vaccine                   00000036136
+0058900356neuralgia vaccine                  00000018981
+0059000601asthma vaccine                     00000003570
+0059100009streptococcal tonsillitis vaccine  00000000623
+0059200482rickets vaccine                    00000024656
+0059300521scarlet fever vaccine              00000043780
+0059400699shingles vaccine                   00000019975
+0059500636brain tumor vaccine                00000005455
+0059600079pneumonia vaccine                  00000013729
+0059700714bronchitis vaccine                 00000001294
+0059800508stress disorder vaccine            00000047640
+0059900098attention deficit disorder vaccine 00000037652
+0060000100chicken pox vaccine                00000019716
+0060100626measles vaccine                    00000035298
+0060200851mumps vaccine                      00000003198
+0060300654arthritis vaccine                  00000010781
+0060400376ebola vaccine                      00000017449
+0060500631pink eye vaccine                   00000018636
+0060600809avian flu vaccine                  00000041580
+0060700461traumatic brain injury vaccine     00000004702
+0060800615epilepsy vaccine                   00000020300
+0060900474hepatitis vaccine                  00000033107
+0061000089diabetes vaccine                   00000022631
+0061100172salmonella vaccine                 00000033761
+0061200203chlamydia vaccine                  00000049141
+0061300427scabies vaccine                    00000027204
+0061400020lyme disease vaccine               00000038661
+0061500215acute psychosis vaccine            00000017790
+0061600588depression vaccine                 00000014538
+0061700105anthrax infection vaccine          00000023245
+0061800742aortic aneurysm vaccine            00000021552
+0061900891amyotrophic lateral sclerosis vacci00000002916
+0062000115hookworm infestation vaccine       00000048403
+0062100001anaplasmosis vaccine               00000017834
+0062200482AIDS vaccine                       00000001108
+0062300566blood clot vaccine                 00000029545
+0062400828body lice vaccine                  00000012326
+0062500021black lung disease vaccine         00000041272
+0062600708botulism vaccine                   00000032442
+0062700342mad cow disease vaccine            00000015663
+0062800005herpes B vaccine                   00000036659
+0062900151shingles vaccine                   00000003590
+0063000048ricketts vaccine                   00000047467
+0063100439Rocky Mountain Spotted Fever vaccin00000005989
+0063200809Ramsay-Hunt syndrome vaccine       00000035845
+0063300774ringworm vaccine                   00000015628
+0063400693rubella vaccine                    00000009276
+0063500802lead poisoning vaccine             00000012697
+0063600289Legionnaire disease vaccine        00000032106
+0063700833lupus vaccine                      00000041995
+0063800872lymphatic filariasis vaccine       00000032243
+0063900818trypanosomiasis vaccine            00000021884
+0064000012toxoplasmosis vaccine              00000030020
+0064100746traumatic brain injury vaccine     00000018897
+0064200398trichinosis vaccine                00000011563
+0064300065Ramsay-Hunt syndrome vaccine       00000043075
+0064400966Bells palsy vaccine                00000006844
+0064500133cardiac arrest vaccine             00000007822
+0064600064Aarskog Syndrome vaccine           00000021096
+0064700883Abetalipoproteinemia vaccine       00000037093
+0064800999Achalasia vaccine                  00000030532
+0064900161Acoustic Neuroma vaccine           00000021197
+0065000406anemia vaccine                     00000045805
+0065100856Anencephaly vaccine                00000031960
+0065200220retinal detachment vaccine         00000000808
+0065300109Antithrombin Deficiency vaccine    00000024928
+0065400365Yaws vaccine                       00000048466
+0065503848syringe                            00100004196
+0065600323syringe                            00200005809
+0065704287syringe                            01000006692
+0065809946syringe                            02000008780
+00659VIRTLnose procedure                     32703299000
+00660VIRTLlips procedure                     20002323200
+00661VIRTLtooth procedure                    36101313200
+00662VIRTLankle procedure                    11600953300
+00663VIRTLleft eye procedure                 52000422600
+00664VIRTLright eye procedure                03502416600
+00665VIRTLeyes procedure                     33001540300
+00666VIRTLleft leg procedure                 57001006000
+00667VIRTLright leg procedure                42501664500
+00668VIRTLlegs procedure                     41701914600
+00669VIRTLcollarbone procedure               31603170600
+00670VIRTLtibia procedure                    36500821300
+00671VIRTLfibia procedure                    61501297800
+00672VIRTLglands procedure                   36603163500
+00673VIRTLheart procedure                    31001133500
+00674VIRTLbrain procedure                    07202191300
+00675VIRTLhead procedure                     05101996700
+00676VIRTLkidney procedure                   21801632400
+00677VIRTLliver procedure                    20602304200
+00678VIRTLspleen procedure                   55703110900
+00679VIRTLthroat procedure                   50202392500
+00680VIRTLbiceps procedure                   49901494300
+00681VIRTLtriceps procedure                  15002624500
+00682VIRTLglutes procedure                   35902907800
+00683VIRTLthumb procedure                    06501926300
+00684VIRTLindex finger procedure             22703051900
+00685VIRTLfingers procedure                  13700068800
+00686VIRTLwrist procedure                    29802005600
+00687VIRTLneck procedure                     48100647500
+00688VIRTLskull procedure                    03102371300
+00689VIRTLmandible procedure                 16601754700
+00690VIRTLskin procedure                     10901511600
+00691VIRTLlungs procedure                    36202300100
+00692VIRTLtoes procedure                     55700100000
+00693VIRTLscalp procedure                    58901143900
+00694VIRTLfingernails procedure              21301693200
+00695VIRTLtoenails procedure                 22100614200
+00696VIRTLhair procedure                     55502605800
+00697VIRTLjoints procedure                   34301402900
+00698VIRTLguts procedure                     29702503400
+00699VIRTLchest procedure                    52500413100
+00700VIRTLfeet procedure                     18502226500
+00701VIRTLpelvis procedure                   04301488800
+00702VIRTLgenitals procedure                 09202876100
+00703VIRTLpancreas procedure                 47701447100
+00704VIRTLprostate procedure                 25102165900
+00705VIRTLgums procedure                     09600667800
+00706VIRTLstomach procedure                  04202070600
+0070707895thermometer                        00100004607
+0070826394thermometer                        00600006730
+0070911554stethoscope                        00100000239
+0071024868stethoscope                        00600000375
+0071124329pharmaceutical placebo             00100003707
+0071204527pharmaceutical placebo             00200004507
+0071304229duct tape                          00100003485
+0071420472dialysis machine                   00100005026
+0071529822dialysis machine                   00300007307
+0071617590dialysis machine                   00400008910
+0071712207dialysis machine                   00600009397
+0071832410dialysis machine                   00700010367
+0071927393iron lung                          00100007400
+0072028338electricity                        00100008143
+0072117994electricity                        01100014368
+0072207790electricity                        01500015062
+0072321993electricity                        01800015684
+0072415855electricity                        01900015813
+0072526003water                              00100004714
+0072620951water                              00500006863
+0072712013water                              01200007936
+0072812961oxygen                             00100000094
+0072914466oxygen                             00800000149
+0073031231oxygen                             01700000194
+0073131449surgical mask                      00100004784
+0073212848surgical mask                      00700008084
+0073303644surgical mask                      01100010181
+0073405983surgical mask                      01900012534
+0073513814surgical mask                      02100013184
+0073627422allegra                            00100005676
+0073717131aspirin                            00100001060
+0073819517AZT                                00100001121
+0073904620botox                              00100009504
+0074000862cisplatin                          00100008460
+0074119305crixivan                           00100004252
+0074223781cyclosporine                       00100009876
+0074312935digoxin                            00100002683
+0074412647erythropoietin                     00100000252
+0074507034ether                              00100005828
+0074624373fentanyl                           00100000377
+0074705860fluoride                           00100007748
+0074809462fosamax                            00100008448
+0074913938hydrocortisone                     00100000981
+0075026922insulin                            00100000214
+0075115505isoniazid                          00100007093
+0075231435ivermectin                         00100004228
+0075319817l-dopa                             00100000123
+0075400365librium                            00100007512
+0075507268lovastatin                         00100004199
+0075614216marijuana                          00100002732
+00757268296-mercaptopurine                   00100003166
+0075814292methadone                          00100000280
+0075913641morphine                           00100005158
+0076011992oxytocin                           00100002634
+0076120790penicillin                         00100009167
+0076213350phenobarbital                      00100006590
+0076322586premarin                           00100009716
+0076431442prontosil                          00100004002
+0076502943prozac                             00100008031
+0076632548quinine                            00100001332
+0076710613ritalin                            00100005452
+0076826525rituxan                            00100003018
+0076931764RU-486                             00100000713
+0077002501salbutamol                         00100002573
+0077102794salvarsan                          00100005450
+0077230550tagamet                            00100004789
+0077301415taxol                              00100007959
+0077414018thalidomide                        00100003879
+0077525588thorazine                          00100005384
+0077625135thyroxine                          00100003074
+0077713927vioxx                              00100006856
