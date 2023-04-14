@@ -1,6 +1,8 @@
 ﻿using System.Data;
+using Microsoft.Data.SqlClient;
 
-internal class Program
+
+class Program
 {
     private static void Main(string[] args)
     {
