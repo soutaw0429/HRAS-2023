@@ -2,7 +2,7 @@
 using Microsoft.Data.SqlClient;
 
 
-class Program
+class DataPopulate
 {
     private static void Main(string[] args)
     {
