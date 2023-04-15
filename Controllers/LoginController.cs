@@ -39,7 +39,7 @@ public class LoginController : Controller
 
         var claims = new List<Claim>
         {
-            new Claim(ClaimTypes.Name, result.userName),
+            new Claim(ClaimTypes.Name, result.userName!),
             new Claim("Fullname",  result.FirstName + result.LastName),
             new Claim(ClaimTypes.Role, "Administrator"),
         };

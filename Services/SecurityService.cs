@@ -8,41 +8,24 @@ using HRAS.Models;
 public class SecurityService : ISecurityService
 {
     private readonly int _iterations = 300000;
-    private readonly IStaffRepository _staffRepository;
+    private readonly IStaffLogic _staffLogic;
 
-    public SecurityService(IStaffRepository staffRepository)
+    public SecurityService(IStaffLogic staffLogic)
     {
-        _staffRepository = staffRepository;
+        _staffLogic = staffLogic;
     }
 
     public Staff? authenticateUser(string username, string password)
     {
-        System.Diagnostics.Debug.WriteLine("Plain password is: " + password);
-
         string passwordHash = Convert.ToBase64String(hashPassword(password));
 
-        System.Diagnostics.Debug.WriteLine("Hashed password is: " + passwordHash);
-
-        Staff? user = validateUser(username);
-        if (user == null) {
-            System.Diagnostics.Debug.WriteLine("Validation be very broken");
-            return null;
-        }
+        Staff? user = _staffLogic.findUserByCredentials(username);
+        if (user == null) return null;
 
         bool passResult = verifyPassword(password, user.password!);
 
-        if (!passResult) {
-            System.Diagnostics.Debug.WriteLine("Password not verified");
-            return null;
-        }
+        if (!passResult) return null;
         return user;
-    }
-
-    private Staff? validateUser(string username)
-    {
-        Staff? staff = _staffRepository.findUserByCredentials(username);
-        if (staff == null) return null;
-        return staff;
     }
 
     private byte[] hashPassword(string password)
@@ -124,5 +107,5 @@ public class SecurityService : ISecurityService
         buffer[offset + 3] = (byte)(value >> 0);
     }
 
-    public void logout(HttpContext context) {context.Response.Redirect($"/");}
+    // public void logout(HttpContext context) {context.Response.Redirect($"/");}
 }
