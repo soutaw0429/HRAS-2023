@@ -38,9 +38,11 @@ Required Setup Instructions (on a local machine):
     7) Enable SQLCMD mode by clicking on the "SQLCMD Mode" button in the toolbar.
        The "SQLCMD Mode" button is usually located on the rightmost side of the SQL Editor Toolbar.
        Visual Studio might highlight all the lines that start with ':r' command to show that these are SQLCMD commands.
-    8) Click 'Execute' button on the upper leftmost side of the SQL Editor Toolbar. The 'Execute' button looks 
+    8) Select lines 1 through 14.
+    9) Click 'Execute' button on the upper leftmost side of the SQL Editor Toolbar. The 'Execute' button looks 
        like a green triangle. 
        You can execute all the SQLCMD script by pressing CTRL+SHIFT+E.
+    10) Select line 15 and click execute.
 
     If at this point the 'Connect' window appears, then the DatabaseSetup.sql file requires additional connection,
     even though your SQL Server Explorer is connected. Follow these steps:

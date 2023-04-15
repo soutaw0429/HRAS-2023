@@ -12,4 +12,4 @@
 :r "Database\Relationship_types\ChecksOut.sql"
 :r "Database\Relationship_types\Diagnoses.sql"
 :r "Database\Relationship_types\Modifies.sql"
-:r "Database\StoredProcedures\StoredProcedures.sql"  --Uncomment this line when the Stored Procedures are checked and ready to go!
+:r "Database\StoredProcedure\StoredProcedures.sql"  --Uncomment this line when the Stored Procedures are checked and ready to go!
