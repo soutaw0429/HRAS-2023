@@ -14,7 +14,7 @@ public class StaffLogic : IStaffLogic
     public StaffLogic(AuthDbContext context)
     {
         _context = context;
-    } 
+    }
 
     public Staff? findUserByCredentials(string username)
     {

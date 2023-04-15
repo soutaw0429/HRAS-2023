@@ -38,9 +38,11 @@ Required Setup Instructions (on a local machine):
     7) Enable SQLCMD mode by clicking on the "SQLCMD Mode" button in the toolbar.
        The "SQLCMD Mode" button is usually located on the rightmost side of the SQL Editor Toolbar.
        Visual Studio might highlight all the lines that start with ':r' command to show that these are SQLCMD commands.
-    8) Click 'Execute' button on the upper leftmost side of the SQL Editor Toolbar. The 'Execute' button looks 
+    8) Select lines 1 through 14.
+    9) Click 'Execute' button on the upper leftmost side of the SQL Editor Toolbar. The 'Execute' button looks 
        like a green triangle. 
        You can execute all the SQLCMD script by pressing CTRL+SHIFT+E.
+    10) Select line 15 and click execute.
 
     If at this point the 'Connect' window appears, then the DatabaseSetup.sql file requires additional connection,
     even though your SQL Server Explorer is connected. Follow these steps:
@@ -50,6 +52,15 @@ Required Setup Instructions (on a local machine):
     3) Choose the authentication type. Insert the User Name and Password if the authentication requires so.
     4) In the 'Database Name' dropdown menu choose the database you want to work with.
     5) Click 'Connect'.
+
+Data Population
+    1) Navigate to the 'HRAS_DataPopulation' project in the HRAS_2023 Solution
+    2) Right click on the HRAS_2023.csproj file and click 'Set As Startup Project'
+    3) Open the 'DataPopulate.cs' file
+    4) Set up your connection string as a string value for 'connectionString' variable in the 'Main' method. 
+    5) Run the project by clicking on the Run button
+
+This will populate the 'Staff' table for testing purposes for the Beta Release.
 
 Usage:
     
