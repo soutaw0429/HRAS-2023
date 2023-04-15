@@ -226,7 +226,11 @@ class DataPopulate
                             rowsAffected += insertCommand.ExecuteNonQuery();
                         }
                     }
-
+                    rowCount++;
+                    if (rowCount>=15)
+                    {
+                        break;  //artificial constraint to allow only 15 rows of insertion into the table
+                    }
                 }
             }
             // output the number of rows affected
