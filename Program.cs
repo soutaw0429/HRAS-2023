@@ -1,4 +1,3 @@
-﻿//using HRAS_2023.Data;
 using Microsoft.EntityFrameworkCore;
 using HRAS.Context;
 using HRAS.Interfaces;
@@ -6,7 +5,8 @@ using HRAS.Logic;
 using HRAS.Services;
 using Microsoft.AspNetCore.Authentication.Cookies;
 
-DataPopulate builder = WebApplication.CreateBuilder(args);
+// Do not change this line, this builds the web app
+var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
@@ -14,7 +14,7 @@ builder.Services.AddScoped<ISecurityService, SecurityService>();
 builder.Services.AddScoped<IStaffLogic, StaffLogic>();
 
 // Add database connection. This will be the main DB connection when the MSSql middleware connection has been granted
- builder.Services.AddDbContext<AuthDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("HRASTestContext")));
+builder.Services.AddDbContext<AuthDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("HRASTestContext")));
 // Use the line above to run the project on Windows machine
 
 // This is the DB connection required for macos. It will be commented out on the repo. Do not remove these lines.
