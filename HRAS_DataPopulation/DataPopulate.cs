@@ -175,16 +175,11 @@ class DataPopulate
 
     public static void WriteIntoStaffTable()
     {
-        //C:\Users\Hayk Arzumanyan\source\repos\DatabasePopulationForHRAS\DatabasePopulationForHRAS\DataImportFiles\
-        string filePath = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName,
-            "$(SolutionDir)DataImportFiles\\Users.txt");
-        //filePath = "C:\\Users\\Hayk Arzumanyan\\source\\repos\\DatabasePopulationForHRAS\\DatabasePopulationForHRAS\\DataImportFiles\\Users.txt";
         string currentDirectory = Directory.GetCurrentDirectory();
-        //returns C:\\Users\\Hayk Arzumanyan\\source\\repos\\HRAS_2023\\HRAS_DataPopulation\\bin\\Debug\\net7.0
         currentDirectory = Directory.GetParent(currentDirectory).FullName;
         currentDirectory = Directory.GetParent(currentDirectory).FullName;
         currentDirectory = Directory.GetParent(currentDirectory).FullName;
-        filePath = currentDirectory + "\\DataImportFiles\\Users.txt";
+        string filePath = currentDirectory + "\\DataImportFiles\\Users.txt";
         string[] lines = File.ReadAllLines(filePath);
         int rowsAffected = 0;
 
