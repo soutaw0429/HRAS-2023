@@ -6,13 +6,14 @@ class DataPopulate
 {
     private static void Main(string[] args)
     {
+        string connectionString = "Data Source=DATABASE\\CSCI3400011030;Initial Catalog=HRAS_2023_test;User ID=HRAS_test_2023;Password=12345;";
 
-        Console.WriteLine("Populating the Staff Table");
+        Console.WriteLine("Populating the Staff Table with limited rows for testing purposes");
         //ReadFromMedicalRecordsTxt();
         //ReadFromInventoryTxt();
         //ReadFromRoomsTxt();
         //ReadFromUsersTxt();
-        WriteIntoStaffTable();
+        WriteIntoStaffTable(connectionString);
         //WriteIntoInventoryTable();
         //WriteIntoVisitHistory();
         //WriteIntoPatient();
@@ -173,19 +174,20 @@ class DataPopulate
         }
     }
 
-    public static void WriteIntoStaffTable()
+    public static void WriteIntoStaffTable(string connectionString)
     {
-        string currentDirectory = Directory.GetCurrentDirectory();
+        string currentDirectory = Directory.GetCurrentDirectory(); //gets the current default working directory of VS
+
+        //moves up in the directory by 3 levels
         currentDirectory = Directory.GetParent(currentDirectory).FullName;
         currentDirectory = Directory.GetParent(currentDirectory).FullName;
         currentDirectory = Directory.GetParent(currentDirectory).FullName;
-        string filePath = currentDirectory + "\\DataImportFiles\\Users.txt";
+        string filePath = currentDirectory + "\\DataImportFiles\\Users.txt"; //specifies where the target file is located
         string[] lines = File.ReadAllLines(filePath);
         int rowsAffected = 0;
 
-        string connectionString = "desktop-rmqlafu\\sqlexpress.TestDB.dbo";
-        connectionString = "Data Source=desktop-rmqlafu\\sqlexpress;Initial Catalog=TestDB;Integrated Security=True; Trusted_Connection=True;TrustServerCertificate=True;";
-
+        //string connectionString = "desktop-rmqlafu\\sqlexpress.TestDB.dbo"; //database\csci3400011030.HRAS_2023_test.dbo
+        //connectionString = "Data Source=DATABASE\\CSCI3400011030;Initial Catalog=HRAS_2023_test;User ID=HRAS_test_2023;Password=12345;";
         using (SqlConnection connection = new SqlConnection(connectionString))
         {
             int rowCount = 0;
