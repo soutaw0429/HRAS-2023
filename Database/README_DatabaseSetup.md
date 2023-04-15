@@ -51,6 +51,15 @@ Required Setup Instructions (on a local machine):
     4) In the 'Database Name' dropdown menu choose the database you want to work with.
     5) Click 'Connect'.
 
+Data Population
+    1) Navigate to the 'HRAS_DataPopulation' project in the HRAS_2023 Solution
+    2) Right click on the HRAS_2023.csproj file and click 'Set As Startup Project'
+    3) Open the 'DataPopulate.cs' file
+    4) Set up your connection string as a string value for 'connectionString' variable in the 'Main' method. 
+    5) Run the project by clicking on the Run button
+
+This will populate the 'Staff' table for testing purposes for the Beta Release.
+
 Usage:
     
     This setup allows the HRAS project to have all the necessary components for it to function.
@@ -65,4 +74,3 @@ Troubleshooting:
 Conclusion:
 
     Congratulations, you have successfully set up an MSSQL database for the HRAS Project! 
-    You can now begin populating the database by (***Add text here when Hayk's db populating project is inside this repo!***).
