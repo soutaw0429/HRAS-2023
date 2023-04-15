@@ -1,0 +1,42 @@
+# HRAS_2023
+Central Repo for the HRAS project for CSCI 340 in Spring 2023. DO NOT MESS AROUND HERE!
+
+Hospital Records Access System (HRAS) is a C# web project for CSCI 340. This README is to help with setup and use of HRAS
+
+System Requirements
+------------
+
+Windows:
+* Visual Studio 2022, with .NET 7.0 support (.NET 6.0 Is not supported)
+* MSSQL Server Management Studio
+* All default Visual Studio web extensions
+
+Web Browser:
+* Firefox 110 (Preferred)
+* Brave or Google Chrome (** Chromium based browsers sometimes have an issue with locally verified HTTPS keys and so need to be constantly security risk accepted)
+
+
+Installation
+-------------
+
+1) Read this readme
+2) Clone the url using HTTPS
+3) Run through the entire Database setup, following README_DatabaseSetup
+4) Modify the following line with your local database connection string in appsettings.json, line 12.
+        server=database\\csci3400011030;uid=HRAS_test_2023;pwd=12345;database=HRAS_test_2023;TrustServerCertificate=True;Trusted_Connection=True;
+   Your connection string may vary, but will look similar to the line above
+5) Build the web application
+6) Click accept risk on the first page
+7) Login in with the following credentials username: test, password: Password123!
+8) A login failed page will be displayed
+
+
+Security Issues
+---------------
+
+Any security issues with this code or repo, please contact either Josh, Hayk or Dr. Rosenberg
+
+Any Questions?
+--------
+
+Contact Josh or Hayk
