@@ -8,8 +8,6 @@ class DataPopulate
     
     private static void Main(string[] args)
     {
-        //sstring connectionString = "Data Source=DATABASE\\CSCI3400011030;Initial Catalog=HRAS_2023_test;User ID=HRAS_test_2023;Password=12345;";
-
         Console.WriteLine("Populating the Staff Table with limited rows for testing purposes");
         //ReadFromMedicalRecordsTxt();
         //ReadFromInventoryTxt();
@@ -193,6 +191,7 @@ class DataPopulate
         using (SqlConnection connection = new SqlConnection(connectionString))
         {
             int rowCount = 0;
+            int rowsAffected = 0;
             connection.Open();
             string insertSql = "INSERT INTO Staff (FirstName, LastName, UserName, Password, UserType, Position) VALUES (@p1, @p2, @p3, @p4, @p5, @p6)";
             string selectSql = "SELECT COUNT(*) FROM Staff WHERE UserName = @key";
@@ -227,11 +226,6 @@ class DataPopulate
                             insertCommand.Parameters.AddWithValue("@p6", 'J');//the position is not received from the data files
                             rowsAffected += insertCommand.ExecuteNonQuery();
                         }
-                    }
-                    rowCount++;
-                    if (rowCount>=15)
-                    {
-                        break;  //artificial constraint to allow only 15 rows of insertion into the table
                     }
                 }
             }
