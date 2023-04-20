@@ -208,7 +208,6 @@ class DataPopulate
                         rowCount = (int)selectCommand.ExecuteScalar();
                         if (rowCount > 0)
                         {
-                            Console.WriteLine(userName + " username exists in db\n");
                             rowCount = 0;
                         }
                         else
@@ -365,7 +364,6 @@ class DataPopulate
                         patientSSN = line.Substring(77, 9).Trim();
                         if (patientSSN == null)
                         {
-                            Console.WriteLine("Null SSN Found!");
                             continue;
                         }
                         selectCommand.Parameters.AddWithValue("@key", patientSSN);
@@ -436,7 +434,6 @@ class DataPopulate
                         rowCount = (int)selectCommand.ExecuteScalar();
                         if (rowCount > 0)
                         {
-                            //Console.WriteLine(buildingName + " building already exists in db\n");
                             rowCount = 0;
                         }
                         else
@@ -514,24 +511,9 @@ class DataPopulate
 
                             }
                             rowCount = 0;
-                            //continue;
                         }
                         else
                         {
-                            Console.WriteLine("\nLine length: " + line.Length);
-                            Console.WriteLine("\nRoom No.: " + line.Substring(0, 9));
-                            Console.WriteLine("Hourly Rate: " + line.Substring(9, 3).Trim() + "." + line.Substring(13, 2));
-                            Console.WriteLine("Effective Date Time: " + line.Substring(14, 2) + "/" + line.Substring(16, 2) + "/" + line.Substring(18, 4) + "-" + line.Substring(22, 2) + ":" + line.Substring(24, 2));
-                            Console.WriteLine("Wing: " + line.Substring(26, 24));
-                            Console.WriteLine("Floor: " + line.Substring(50, 4));
-                            Console.WriteLine("Building: " + line.Substring(54, 30));
-                            Console.WriteLine("Designation: " + line.Substring(84, 2));
-                            Console.WriteLine("Max Occupancy: " + line.Substring(86, 2)); //based on the given data files, should be .Substring(86,2)
-
-                            //hourlyRate = line.Substring(9, 3).Trim() + "." + line.Substring(12, 2);
-                            //effectiveDateTime = line.Substring(14, 2) + "/" + line.Substring(16, 2) + "/" + line.Substring(18, 4) + "-" + line.Substring(22, 2) + ":" + line.Substring(24, 2);
-                            //effectiveDateTime = line.Substring(18, 4) + "/" + line.Substring(14, 2) + "/" + line.Substring(16, 2) + " " + line.Substring(22, 2) + ":" + line.Substring(24, 2);
-
                             wing = line.Substring(26, 24).Trim();
                             floor = line.Substring(50, 4).Trim();
                             designation = line.Substring(84, 2).Trim();
