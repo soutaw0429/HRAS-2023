@@ -287,21 +287,15 @@ class DataPopulate
 
     public static void WriteIntoVisitHistory()
     {
-        string[] lines = File.ReadAllLines("C:\\Users\\Hayk Arzumanyan\\Desktop\\DataFiles\\MedicalRecords.txt");
+        string[] lines = ReadFromTextFile("Inventory.txt");
         string patientSSN, diagnosis, notes, checkInDateTime, checkOutDateTime;
-        //DateTime checkInDateTime, checkOutDateTime;
         int rowsAffected = 0;
-
-        string connectionString = "desktop-rmqlafu\\sqlexpress.TestDB.dbo";
-        connectionString = "Data Source=desktop-rmqlafu\\sqlexpress;Initial Catalog=TestDB;Integrated Security=True; Trusted_Connection=True;TrustServerCertificate=True;";
 
         using (SqlConnection connection = new SqlConnection(connectionString))
         {
             int rowCount = 0;
             connection.Open();
-            //string insertSql = "INSERT INTO VisitHistory (patient_SSN, CheckInDateTime, CheckOutDateTime, Diagnosis, Notes) VALUES (@p1, (CONVERT(datetime, @p2, 120), (CONVERT(datetime, @p3, 120), @p4, @p5)";
             string insertSql = "INSERT INTO VisitHistory (patient_SSN, CheckInDateTime, CheckOutDateTime, Diagnosis, Notes) VALUES (@p1, @p2, @p3, @p4, @p5)";
-
             string selectSql = "SELECT COUNT(*) FROM VisitHistory WHERE patient_SSN = @key";
 
             foreach (string line in lines)
@@ -320,7 +314,6 @@ class DataPopulate
                         }
                         else
                         {
-                            //(CONVERT(datetime, '2023-02-05 10:30:00', 120)
                             checkInDateTime = line.Substring(98, 4) + "-" + line.Substring(94, 2) + "-" + line.Substring(96, 2) + " "
                                                                         + line.Substring(102, 2) + ":" + line.Substring(104, 2) + ":00";
                             checkOutDateTime = line.Substring(110, 4) + "-" + line.Substring(106, 2) + "-" + line.Substring(108, 2) + " "
