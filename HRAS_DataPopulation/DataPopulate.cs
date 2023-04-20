@@ -22,6 +22,17 @@ class DataPopulate
         //WriteIntoSymptom();
     }
 
+    public static string [] ReadFromTextFile(string fileName)
+    {
+        string currentDirectory = Directory.GetCurrentDirectory(); //gets the current default working directory of VS
+        currentDirectory = Directory.GetParent(currentDirectory).FullName;
+        currentDirectory = Directory.GetParent(currentDirectory).FullName;
+        currentDirectory = Directory.GetParent(currentDirectory).FullName;
+        string filePath = currentDirectory + "\\DataImportFiles\\"+fileName; //specifies where the target file is located
+        string[] lines = File.ReadAllLines(filePath);
+        return lines;
+    }
+
     public static void ReadFromMedicalRecordsTxt()
     {
         /*using (StreamReader reader = new StreamReader("C:\\Users\\Hayk Arzumanyan\\Desktop\\DataFiles2\\MedicalRecords.txt"))
@@ -175,16 +186,7 @@ class DataPopulate
     }
 
     public static void WriteIntoStaffTable(string connectionString)
-    {
-        string currentDirectory = Directory.GetCurrentDirectory(); //gets the current default working directory of VS
-
-        //moves up in the directory by 3 levels
-        currentDirectory = Directory.GetParent(currentDirectory).FullName;
-        currentDirectory = Directory.GetParent(currentDirectory).FullName;
-        currentDirectory = Directory.GetParent(currentDirectory).FullName;
-        string filePath = currentDirectory + "\\DataImportFiles\\Users.txt"; //specifies where the target file is located
-        string[] lines = File.ReadAllLines(filePath);
-        int rowsAffected = 0;
+    { 
 
         //string connectionString = "desktop-rmqlafu\\sqlexpress.TestDB.dbo"; //database\csci3400011030.HRAS_2023_test.dbo
         //connectionString = "Data Source=DATABASE\\CSCI3400011030;Initial Catalog=HRAS_2023_test;User ID=HRAS_test_2023;Password=12345;";
