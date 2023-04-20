@@ -237,7 +237,7 @@ class DataPopulate
 
     public static void WriteIntoInventoryTable()
     {
-        string[] lines = File.ReadAllLines("C:\\Users\\Hayk Arzumanyan\\Desktop\\DataFiles\\Inventory.txt");
+        string[] lines = ReadFromTextFile("Inventory.txt");
         string stockID, quantity, description, size, price;
         int rowsAffected = 0;
 
