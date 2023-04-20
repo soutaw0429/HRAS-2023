@@ -287,7 +287,7 @@ class DataPopulate
 
     public static void WriteIntoVisitHistory()
     {
-        string[] lines = ReadFromTextFile("Inventory.txt");
+        string[] lines = ReadFromTextFile("MedicalRecords.txt");
         string patientSSN, diagnosis, notes, checkInDateTime, checkOutDateTime;
         int rowsAffected = 0;
 
@@ -340,7 +340,7 @@ class DataPopulate
 
     public static void WriteIntoPatient()
     {
-        string[] lines = File.ReadAllLines("C:\\Users\\Hayk Arzumanyan\\Desktop\\DataFiles\\MedicalRecords.txt");
+        string[] lines = ReadFromTextFile("MedicalRecords.txt");
 
         string patientSSN, lastName, firstName, middleInitial, sex, birthDate, insurer, organDonor, dnrStatus;
         //DateTime checkInDateTime, checkOutDateTime;
