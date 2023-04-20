@@ -259,7 +259,6 @@ class DataPopulate
                         rowCount = (int)selectCommand.ExecuteScalar();
                         if (rowCount > 0)
                         {
-                            Console.WriteLine(stockID + " product exists in db\n");
                             rowCount = 0;
                         }
                         else
