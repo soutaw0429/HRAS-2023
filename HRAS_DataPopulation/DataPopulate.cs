@@ -4,16 +4,18 @@ using Microsoft.Data.SqlClient;
 
 class DataPopulate
 {
+    public const string connectionString = "Data Source=desktop-rmqlafu\\sqlexpress;Initial Catalog=TestDB;Integrated Security=True; Trusted_Connection=True;TrustServerCertificate=True;";
+    
     private static void Main(string[] args)
     {
-        string connectionString = "Data Source=DATABASE\\CSCI3400011030;Initial Catalog=HRAS_2023_test;User ID=HRAS_test_2023;Password=12345;";
+        //sstring connectionString = "Data Source=DATABASE\\CSCI3400011030;Initial Catalog=HRAS_2023_test;User ID=HRAS_test_2023;Password=12345;";
 
         Console.WriteLine("Populating the Staff Table with limited rows for testing purposes");
         //ReadFromMedicalRecordsTxt();
         //ReadFromInventoryTxt();
         //ReadFromRoomsTxt();
         //ReadFromUsersTxt();
-        WriteIntoStaffTable(connectionString);
+        WriteIntoStaffTable();
         //WriteIntoInventoryTable();
         //WriteIntoVisitHistory();
         //WriteIntoPatient();
@@ -22,7 +24,7 @@ class DataPopulate
         //WriteIntoSymptom();
     }
 
-    public static string [] ReadFromTextFile(string fileName)
+    public static string[] ReadFromTextFile(string fileName)
     {
         string currentDirectory = Directory.GetCurrentDirectory(); //gets the current default working directory of VS
         currentDirectory = Directory.GetParent(currentDirectory).FullName;
@@ -185,11 +187,9 @@ class DataPopulate
         }
     }
 
-    public static void WriteIntoStaffTable(string connectionString)
-    { 
-
-        //string connectionString = "desktop-rmqlafu\\sqlexpress.TestDB.dbo"; //database\csci3400011030.HRAS_2023_test.dbo
-        //connectionString = "Data Source=DATABASE\\CSCI3400011030;Initial Catalog=HRAS_2023_test;User ID=HRAS_test_2023;Password=12345;";
+    public static void WriteIntoStaffTable()
+    {
+        string[] lines = ReadFromTextFile("User.txt");
         using (SqlConnection connection = new SqlConnection(connectionString))
         {
             int rowCount = 0;
@@ -246,9 +246,6 @@ class DataPopulate
         string[] lines = File.ReadAllLines("C:\\Users\\Hayk Arzumanyan\\Desktop\\DataFiles\\Inventory.txt");
         string stockID, quantity, description, size, price;
         int rowsAffected = 0;
-
-        string connectionString = "desktop-rmqlafu\\sqlexpress.TestDB.dbo";
-        connectionString = "Data Source=desktop-rmqlafu\\sqlexpress;Initial Catalog=TestDB;Integrated Security=True; Trusted_Connection=True;TrustServerCertificate=True;";
 
         using (SqlConnection connection = new SqlConnection(connectionString))
         {
