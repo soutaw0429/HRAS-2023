@@ -453,13 +453,9 @@ class DataPopulate
 
     public static void WriteIntoRoom()
     {
-
-        string[] lines = File.ReadAllLines("C:\\Users\\Hayk Arzumanyan\\Desktop\\DataFiles2\\Rooms.txt");
+        string[] lines = ReadFromTextFile("Rooms.txt");
         string buildingName, roomNumber, hourlyRate, effectiveDateTime, wing, floor, designation, maxOccupancy;
         int rowsAffected = 0;
-
-        string connectionString = "desktop-rmqlafu\\sqlexpress.TestDB.dbo";
-        connectionString = "Data Source=desktop-rmqlafu\\sqlexpress;Initial Catalog=TestDB;Integrated Security=True; Trusted_Connection=True;TrustServerCertificate=True;";
 
         using (SqlConnection connection = new SqlConnection(connectionString))
         {
@@ -529,10 +525,6 @@ class DataPopulate
                             insertCommand.Parameters.AddWithValue("@p8", maxOccupancy);
 
                             rowsAffected += insertCommand.ExecuteNonQuery();
-                            if (rowsAffected > 10)
-                            {
-                                break;
-                            }
                         }
                     }
 
