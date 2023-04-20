@@ -338,21 +338,14 @@ class DataPopulate
     public static void WriteIntoPatient()
     {
         string[] lines = ReadFromTextFile("MedicalRecords.txt");
-
         string patientSSN, lastName, firstName, middleInitial, sex, birthDate, insurer, organDonor, dnrStatus;
-        //DateTime checkInDateTime, checkOutDateTime;
         int rowsAffected = 0;
-
-        string connectionString = "desktop-rmqlafu\\sqlexpress.TestDB.dbo";
-        connectionString = "Data Source=desktop-rmqlafu\\sqlexpress;Initial Catalog=TestDB;Integrated Security=True; Trusted_Connection=True;TrustServerCertificate=True;";
 
         using (SqlConnection connection = new SqlConnection(connectionString))
         {
             int rowCount = 0;
             connection.Open();
-            //string insertSql = "INSERT INTO VisitHistory (patient_SSN, CheckInDateTime, CheckOutDateTime, Diagnosis, Notes) VALUES (@p1, (CONVERT(datetime, @p2, 120), (CONVERT(datetime, @p3, 120), @p4, @p5)";
             string insertSql = "INSERT INTO Patient (SSN, LastName, FirstName, MiddleInitial, Sex, BirthDate, Insurer, OrganDonor, DNR_Status) VALUES (@p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9)";
-
             string selectSql = "SELECT COUNT(*) FROM Patient WHERE SSN = @key";
 
             foreach (string line in lines)
@@ -370,8 +363,6 @@ class DataPopulate
                         rowCount = (int)selectCommand.ExecuteScalar();
                         if (rowCount > 0)
                         {
-                            //comment out this when running
-                            //Console.WriteLine("A patient with SSN: " + patientSSN + " already exists in db\n");
                             rowCount = 0;
                         }
                         else
