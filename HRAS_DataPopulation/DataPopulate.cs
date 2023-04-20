@@ -408,12 +408,9 @@ class DataPopulate
 
     public static void WriteIntoBuilding()
     {
-        string[] lines = File.ReadAllLines("C:\\Users\\Hayk Arzumanyan\\Desktop\\DataFiles\\Rooms.txt");
+        string[] lines = ReadFromTextFile("Rooms.txt");
         string buildingName;
         int rowsAffected = 0;
-
-        string connectionString = "desktop-rmqlafu\\sqlexpress.TestDB.dbo";
-        connectionString = "Data Source=desktop-rmqlafu\\sqlexpress;Initial Catalog=TestDB;Integrated Security=True; Trusted_Connection=True;TrustServerCertificate=True;";
 
         using (SqlConnection connection = new SqlConnection(connectionString))
         {
