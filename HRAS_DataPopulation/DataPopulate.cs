@@ -4,8 +4,30 @@ using Microsoft.Data.SqlClient;
 
 class DataPopulate
 {
-    public const string connectionString = "Data Source=desktop-rmqlafu\\sqlexpress;Initial Catalog=TestDB;Integrated Security=True; Trusted_Connection=True;TrustServerCertificate=True;";
-    
+    //Dr. Rosenberg's local connectionString 
+    //public const string connectionString = "";
+
+    //Hayk's Macbook's local Connection String
+    //public const string connectionString = "Data Source=desktop-rmqlafu\\sqlexpress;Initial Catalog=TestDB;Integrated Security=True; Trusted_Connection=True;TrustServerCertificate=True;";
+
+    //Hayk's MS Surface's local connectionString
+    public const string connectionString = "Data Source=tablet-t67o2o99\\sqlexpress;Initial Catalog=TestDB;Integrated Security=True; Trusted_Connection=True;TrustServerCertificate=True;";
+
+    //Keep adding your connection strings here and comment out other developer's
+    //connection strings when running this on your local machine:
+
+    //Haozhong's local connectionString 
+    //public const string connectionString = "";
+
+    //Josh's local connectionString 
+    //public const string connectionString = "";
+
+    //Sota's local connectionString 
+    //public const string connectionString = "";
+
+    //Siwon's local connectionString 
+    //public const string connectionString = "";
+
     private static void Main(string[] args)
     {
         Console.WriteLine("Populating the Staff Table with limited rows for testing purposes");
@@ -187,7 +209,7 @@ class DataPopulate
 
     public static void WriteIntoStaffTable()
     {
-        string[] lines = ReadFromTextFile("User.txt");
+        string[] lines = ReadFromTextFile("Users.txt");
         using (SqlConnection connection = new SqlConnection(connectionString))
         {
             int rowCount = 0;
