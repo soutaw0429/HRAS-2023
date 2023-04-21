@@ -4,22 +4,58 @@ using Microsoft.Data.SqlClient;
 
 class DataPopulate
 {
+    //Dr. Rosenberg's local connectionString 
+    //public const string connectionString = "";
+
+    //Hayk's Macbook's local Connection String
+    //public const string connectionString = "Data Source=desktop-rmqlafu\\sqlexpress;Initial Catalog=TestDB;Integrated Security=True; Trusted_Connection=True;TrustServerCertificate=True;";
+
+    //Hayk's MS Surface's local connectionString
+    public const string connectionString = "Data Source=tablet-t67o2o99\\sqlexpress;Initial Catalog=TestDB;Integrated Security=True; Trusted_Connection=True;TrustServerCertificate=True;";
+
+    //Keep adding your connection strings here and comment out other developer's
+    //connection strings when running this on your local machine:
+
+    //Haozhong's local connectionString 
+    //public const string connectionString = "";
+
+    //Josh's local connectionString 
+    //public const string connectionString = "";
+
+    //Sota's local connectionString 
+    //public const string connectionString = "";
+
+    //Kevin's local connectionString 
+    //public const string connectionString = "";
+
+    //Siwon's local connectionString 
+    //public const string connectionString = "";
+
     private static void Main(string[] args)
     {
-        string connectionString = "Data Source=DATABASE\\CSCI3400011030;Initial Catalog=HRAS_2023_test;User ID=HRAS_test_2023;Password=12345;";
-
         Console.WriteLine("Populating the Staff Table with limited rows for testing purposes");
         //ReadFromMedicalRecordsTxt();
         //ReadFromInventoryTxt();
         //ReadFromRoomsTxt();
         //ReadFromUsersTxt();
-        WriteIntoStaffTable(connectionString);
+        WriteIntoStaffTable();
         //WriteIntoInventoryTable();
         //WriteIntoVisitHistory();
         //WriteIntoPatient();
         //WriteIntoBuilding();
         //WriteIntoRoom();
         //WriteIntoSymptom();
+    }
+
+    public static string[] ReadFromTextFile(string fileName)
+    {
+        string currentDirectory = Directory.GetCurrentDirectory(); //gets the current default working directory of VS
+        currentDirectory = Directory.GetParent(currentDirectory).FullName;
+        currentDirectory = Directory.GetParent(currentDirectory).FullName;
+        currentDirectory = Directory.GetParent(currentDirectory).FullName;
+        string filePath = currentDirectory + "\\DataImportFiles\\"+fileName; //specifies where the target file is located
+        string[] lines = File.ReadAllLines(filePath);
+        return lines;
     }
 
     public static void ReadFromMedicalRecordsTxt()
@@ -174,23 +210,13 @@ class DataPopulate
         }
     }
 
-    public static void WriteIntoStaffTable(string connectionString)
+    public static void WriteIntoStaffTable()
     {
-        string currentDirectory = Directory.GetCurrentDirectory(); //gets the current default working directory of VS
-
-        //moves up in the directory by 3 levels
-        currentDirectory = Directory.GetParent(currentDirectory).FullName;
-        currentDirectory = Directory.GetParent(currentDirectory).FullName;
-        currentDirectory = Directory.GetParent(currentDirectory).FullName;
-        string filePath = currentDirectory + "\\DataImportFiles\\Users.txt"; //specifies where the target file is located
-        string[] lines = File.ReadAllLines(filePath);
-        int rowsAffected = 0;
-
-        //string connectionString = "desktop-rmqlafu\\sqlexpress.TestDB.dbo"; //database\csci3400011030.HRAS_2023_test.dbo
-        //connectionString = "Data Source=DATABASE\\CSCI3400011030;Initial Catalog=HRAS_2023_test;User ID=HRAS_test_2023;Password=12345;";
+        string[] lines = ReadFromTextFile("Users.txt");
         using (SqlConnection connection = new SqlConnection(connectionString))
         {
             int rowCount = 0;
+            int rowsAffected = 0;
             connection.Open();
             string insertSql = "INSERT INTO Staff (FirstName, LastName, UserName, Password, UserType, Position) VALUES (@p1, @p2, @p3, @p4, @p5, @p6)";
             string selectSql = "SELECT COUNT(*) FROM Staff WHERE UserName = @key";
@@ -207,7 +233,6 @@ class DataPopulate
                         rowCount = (int)selectCommand.ExecuteScalar();
                         if (rowCount > 0)
                         {
-                            Console.WriteLine(userName + " username exists in db\n");
                             rowCount = 0;
                         }
                         else
@@ -226,11 +251,6 @@ class DataPopulate
                             rowsAffected += insertCommand.ExecuteNonQuery();
                         }
                     }
-                    rowCount++;
-                    if (rowCount>=15)
-                    {
-                        break;  //artificial constraint to allow only 15 rows of insertion into the table
-                    }
                 }
             }
             // output the number of rows affected
@@ -241,12 +261,9 @@ class DataPopulate
 
     public static void WriteIntoInventoryTable()
     {
-        string[] lines = File.ReadAllLines("C:\\Users\\Hayk Arzumanyan\\Desktop\\DataFiles\\Inventory.txt");
+        string[] lines = ReadFromTextFile("Inventory.txt");
         string stockID, quantity, description, size, price;
         int rowsAffected = 0;
-
-        string connectionString = "desktop-rmqlafu\\sqlexpress.TestDB.dbo";
-        connectionString = "Data Source=desktop-rmqlafu\\sqlexpress;Initial Catalog=TestDB;Integrated Security=True; Trusted_Connection=True;TrustServerCertificate=True;";
 
         using (SqlConnection connection = new SqlConnection(connectionString))
         {
@@ -266,7 +283,6 @@ class DataPopulate
                         rowCount = (int)selectCommand.ExecuteScalar();
                         if (rowCount > 0)
                         {
-                            Console.WriteLine(stockID + " product exists in db\n");
                             rowCount = 0;
                         }
                         else
@@ -294,21 +310,15 @@ class DataPopulate
 
     public static void WriteIntoVisitHistory()
     {
-        string[] lines = File.ReadAllLines("C:\\Users\\Hayk Arzumanyan\\Desktop\\DataFiles\\MedicalRecords.txt");
+        string[] lines = ReadFromTextFile("MedicalRecords.txt");
         string patientSSN, diagnosis, notes, checkInDateTime, checkOutDateTime;
-        //DateTime checkInDateTime, checkOutDateTime;
         int rowsAffected = 0;
-
-        string connectionString = "desktop-rmqlafu\\sqlexpress.TestDB.dbo";
-        connectionString = "Data Source=desktop-rmqlafu\\sqlexpress;Initial Catalog=TestDB;Integrated Security=True; Trusted_Connection=True;TrustServerCertificate=True;";
 
         using (SqlConnection connection = new SqlConnection(connectionString))
         {
             int rowCount = 0;
             connection.Open();
-            //string insertSql = "INSERT INTO VisitHistory (patient_SSN, CheckInDateTime, CheckOutDateTime, Diagnosis, Notes) VALUES (@p1, (CONVERT(datetime, @p2, 120), (CONVERT(datetime, @p3, 120), @p4, @p5)";
             string insertSql = "INSERT INTO VisitHistory (patient_SSN, CheckInDateTime, CheckOutDateTime, Diagnosis, Notes) VALUES (@p1, @p2, @p3, @p4, @p5)";
-
             string selectSql = "SELECT COUNT(*) FROM VisitHistory WHERE patient_SSN = @key";
 
             foreach (string line in lines)
@@ -322,12 +332,10 @@ class DataPopulate
                         rowCount = (int)selectCommand.ExecuteScalar();
                         if (rowCount > 0)
                         {
-                            Console.WriteLine("A patient with SSN: " + patientSSN + " already exists in db\n");
                             rowCount = 0;
                         }
                         else
                         {
-                            //(CONVERT(datetime, '2023-02-05 10:30:00', 120)
                             checkInDateTime = line.Substring(98, 4) + "-" + line.Substring(94, 2) + "-" + line.Substring(96, 2) + " "
                                                                         + line.Substring(102, 2) + ":" + line.Substring(104, 2) + ":00";
                             checkOutDateTime = line.Substring(110, 4) + "-" + line.Substring(106, 2) + "-" + line.Substring(108, 2) + " "
@@ -354,22 +362,15 @@ class DataPopulate
 
     public static void WriteIntoPatient()
     {
-        string[] lines = File.ReadAllLines("C:\\Users\\Hayk Arzumanyan\\Desktop\\DataFiles\\MedicalRecords.txt");
-
+        string[] lines = ReadFromTextFile("MedicalRecords.txt");
         string patientSSN, lastName, firstName, middleInitial, sex, birthDate, insurer, organDonor, dnrStatus;
-        //DateTime checkInDateTime, checkOutDateTime;
         int rowsAffected = 0;
-
-        string connectionString = "desktop-rmqlafu\\sqlexpress.TestDB.dbo";
-        connectionString = "Data Source=desktop-rmqlafu\\sqlexpress;Initial Catalog=TestDB;Integrated Security=True; Trusted_Connection=True;TrustServerCertificate=True;";
 
         using (SqlConnection connection = new SqlConnection(connectionString))
         {
             int rowCount = 0;
             connection.Open();
-            //string insertSql = "INSERT INTO VisitHistory (patient_SSN, CheckInDateTime, CheckOutDateTime, Diagnosis, Notes) VALUES (@p1, (CONVERT(datetime, @p2, 120), (CONVERT(datetime, @p3, 120), @p4, @p5)";
             string insertSql = "INSERT INTO Patient (SSN, LastName, FirstName, MiddleInitial, Sex, BirthDate, Insurer, OrganDonor, DNR_Status) VALUES (@p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9)";
-
             string selectSql = "SELECT COUNT(*) FROM Patient WHERE SSN = @key";
 
             foreach (string line in lines)
@@ -381,15 +382,12 @@ class DataPopulate
                         patientSSN = line.Substring(77, 9).Trim();
                         if (patientSSN == null)
                         {
-                            Console.WriteLine("Null SSN Found!");
                             continue;
                         }
                         selectCommand.Parameters.AddWithValue("@key", patientSSN);
                         rowCount = (int)selectCommand.ExecuteScalar();
                         if (rowCount > 0)
                         {
-                            //comment out this when running
-                            //Console.WriteLine("A patient with SSN: " + patientSSN + " already exists in db\n");
                             rowCount = 0;
                         }
                         else
@@ -426,12 +424,9 @@ class DataPopulate
 
     public static void WriteIntoBuilding()
     {
-        string[] lines = File.ReadAllLines("C:\\Users\\Hayk Arzumanyan\\Desktop\\DataFiles\\Rooms.txt");
+        string[] lines = ReadFromTextFile("Rooms.txt");
         string buildingName;
         int rowsAffected = 0;
-
-        string connectionString = "desktop-rmqlafu\\sqlexpress.TestDB.dbo";
-        connectionString = "Data Source=desktop-rmqlafu\\sqlexpress;Initial Catalog=TestDB;Integrated Security=True; Trusted_Connection=True;TrustServerCertificate=True;";
 
         using (SqlConnection connection = new SqlConnection(connectionString))
         {
@@ -452,7 +447,6 @@ class DataPopulate
                         rowCount = (int)selectCommand.ExecuteScalar();
                         if (rowCount > 0)
                         {
-                            //Console.WriteLine(buildingName + " building already exists in db\n");
                             rowCount = 0;
                         }
                         else
@@ -472,13 +466,9 @@ class DataPopulate
 
     public static void WriteIntoRoom()
     {
-
-        string[] lines = File.ReadAllLines("C:\\Users\\Hayk Arzumanyan\\Desktop\\DataFiles2\\Rooms.txt");
+        string[] lines = ReadFromTextFile("Rooms.txt");
         string buildingName, roomNumber, hourlyRate, effectiveDateTime, wing, floor, designation, maxOccupancy;
         int rowsAffected = 0;
-
-        string connectionString = "desktop-rmqlafu\\sqlexpress.TestDB.dbo";
-        connectionString = "Data Source=desktop-rmqlafu\\sqlexpress;Initial Catalog=TestDB;Integrated Security=True; Trusted_Connection=True;TrustServerCertificate=True;";
 
         using (SqlConnection connection = new SqlConnection(connectionString))
         {
@@ -530,24 +520,9 @@ class DataPopulate
 
                             }
                             rowCount = 0;
-                            //continue;
                         }
                         else
                         {
-                            Console.WriteLine("\nLine length: " + line.Length);
-                            Console.WriteLine("\nRoom No.: " + line.Substring(0, 9));
-                            Console.WriteLine("Hourly Rate: " + line.Substring(9, 3).Trim() + "." + line.Substring(13, 2));
-                            Console.WriteLine("Effective Date Time: " + line.Substring(14, 2) + "/" + line.Substring(16, 2) + "/" + line.Substring(18, 4) + "-" + line.Substring(22, 2) + ":" + line.Substring(24, 2));
-                            Console.WriteLine("Wing: " + line.Substring(26, 24));
-                            Console.WriteLine("Floor: " + line.Substring(50, 4));
-                            Console.WriteLine("Building: " + line.Substring(54, 30));
-                            Console.WriteLine("Designation: " + line.Substring(84, 2));
-                            Console.WriteLine("Max Occupancy: " + line.Substring(86, 2)); //based on the given data files, should be .Substring(86,2)
-
-                            //hourlyRate = line.Substring(9, 3).Trim() + "." + line.Substring(12, 2);
-                            //effectiveDateTime = line.Substring(14, 2) + "/" + line.Substring(16, 2) + "/" + line.Substring(18, 4) + "-" + line.Substring(22, 2) + ":" + line.Substring(24, 2);
-                            //effectiveDateTime = line.Substring(18, 4) + "/" + line.Substring(14, 2) + "/" + line.Substring(16, 2) + " " + line.Substring(22, 2) + ":" + line.Substring(24, 2);
-
                             wing = line.Substring(26, 24).Trim();
                             floor = line.Substring(50, 4).Trim();
                             designation = line.Substring(84, 2).Trim();
@@ -563,10 +538,6 @@ class DataPopulate
                             insertCommand.Parameters.AddWithValue("@p8", maxOccupancy);
 
                             rowsAffected += insertCommand.ExecuteNonQuery();
-                            if (rowsAffected > 10)
-                            {
-                                break;
-                            }
                         }
                     }
 
@@ -580,11 +551,8 @@ class DataPopulate
     public static void WriteIntoSymptom()
     {
 
-        string[] lines = File.ReadAllLines("C:\\Users\\Hayk Arzumanyan\\Desktop\\DataFiles2\\MedicalRecords.txt");
+        string[] lines = ReadFromTextFile("MedicalRecords.txt");
         int rowsAffected = 0;
-
-        string connectionString = "desktop-rmqlafu\\sqlexpress.TestDB.dbo";
-        connectionString = "Data Source=desktop-rmqlafu\\sqlexpress;Initial Catalog=TestDB;Integrated Security=True; Trusted_Connection=True;TrustServerCertificate=True;";
 
         using (SqlConnection connection = new SqlConnection(connectionString))
         {
