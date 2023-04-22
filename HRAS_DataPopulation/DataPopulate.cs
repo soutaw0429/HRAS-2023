@@ -45,7 +45,8 @@ class DataPopulate
         WriteIntoVisitHistory();
         WriteIntoSymptom();
         WriteIntoStaffTable();
-        WriteIntoInventoryTable();    
+        WriteIntoInventoryTable();
+        WriteIntoHome();
         
     }
 
@@ -597,6 +598,63 @@ class DataPopulate
                         }
                     }
 
+                }
+            }
+            Console.WriteLine($"\n{rowsAffected} rows inserted.");
+            connection.Close();
+
+        }
+    }
+
+    public static void WriteIntoHome()
+    {
+        string[] lines = ReadFromTextFile("MedicalRecords.txt");
+        string patientKey, streetAddress1, streetAddress2, city, state, zip;
+        int rowsAffected = 0;
+
+        using (SqlConnection connection = new SqlConnection(connectionString))
+        {
+            int rowCount = 0;
+            connection.Open();
+            string insertSql = "INSERT INTO Home (Patient_Key, StreetAddress_Line_1, StreetAddress_Line_2, City, State, ZIP) " +
+                                "VALUES (@p1, @p2, @p3, @p4, @p5, @p6)";
+            string selectSql = "SELECT COUNT(*) FROM Home WHERE Patient_Key = @key";
+
+            foreach (string line in lines)
+            {
+                using (SqlCommand selectCommand = new SqlCommand(selectSql, connection))
+                {
+                    using (SqlCommand insertCommand = new SqlCommand(insertSql, connection))
+                    {
+                        patientKey = line.Substring(77, 9).Trim();
+                        selectCommand.Parameters.AddWithValue("@key", patientKey);
+                        rowCount = (int)selectCommand.ExecuteScalar();
+                        if (rowCount > 0)
+                        {
+                            rowCount = 0;
+                        }
+                        else
+                        {
+                            streetAddress1 = line.Substring(492, 35).Trim();
+                            streetAddress2 = line.Substring(527, 35).Trim();
+                            city = line.Substring(562, 25).Trim();
+                            state = line.Substring(587, 2).Trim();
+                            zip = line.Substring(589, 5).Trim();
+
+                            insertCommand.Parameters.AddWithValue("@p1", patientKey);
+                            insertCommand.Parameters.AddWithValue("@p2", streetAddress1);
+                            insertCommand.Parameters.AddWithValue("@p3", streetAddress2);
+                            insertCommand.Parameters.AddWithValue("@p4", city);
+                            insertCommand.Parameters.AddWithValue("@p5", state);
+                            insertCommand.Parameters.AddWithValue("@p6", zip);
+                            rowsAffected += insertCommand.ExecuteNonQuery();
+                        }
+                    }
+
+                }
+                if (rowsAffected>15)
+                {
+                    break;
                 }
             }
             Console.WriteLine($"\n{rowsAffected} rows inserted.");
