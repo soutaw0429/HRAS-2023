@@ -38,13 +38,15 @@ class DataPopulate
         //ReadFromInventoryTxt();
         //ReadFromRoomsTxt();
         //ReadFromUsersTxt();
+
+        WriteIntoBuilding();
+        WriteIntoRoom();
+        WriteIntoPatient();
+        WriteIntoVisitHistory();
+        WriteIntoSymptom();
         WriteIntoStaffTable();
-        //WriteIntoInventoryTable();
-        //WriteIntoVisitHistory();
-        //WriteIntoPatient();
-        //WriteIntoBuilding();
-        //WriteIntoRoom();
-        //WriteIntoSymptom();
+        WriteIntoInventoryTable();    
+        
     }
 
     public static string[] ReadFromTextFile(string fileName)
