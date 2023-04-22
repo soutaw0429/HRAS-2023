@@ -10,6 +10,7 @@
     <!--Temp script for for navbar-->
     <style>
         .navbar {
+            font-size: large;
             display: flex;
             position: relative;
             align-items: center;
@@ -18,7 +19,8 @@
         }
 
         .home-logo {
-            margin-right: 25%;
+            margin-right: 23%;
+            padding-left: 10px;
         }
 
         .nav-logout {
@@ -28,6 +30,11 @@
         .nav-link {
             text-align: center;
             margin: 0 20px 0 20px;
+        }
+
+        .privacy {
+            position: absolute;
+            bottom: 5px;
         }
     </style>
 </head>
@@ -60,12 +67,12 @@
 
     </header>
     <div class="container-fluid">
-        <main role="main" class="pb-3">
+        <main role="main">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="">
+    <footer class="privacy">
         <div class="container">
             &copy; 2023 - HRAS - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
