@@ -8,10 +8,10 @@ class DataPopulate
     //public const string connectionString = "";
 
     //Hayk's Macbook's local Connection String
-    public const string connectionString = "Data Source=desktop-rmqlafu\\sqlexpress;Initial Catalog=TestDB;Integrated Security=True; Trusted_Connection=True;TrustServerCertificate=True;";
+    //public const string connectionString = "Data Source=desktop-rmqlafu\\sqlexpress;Initial Catalog=TestDB;Integrated Security=True; Trusted_Connection=True;TrustServerCertificate=True;";
 
     //Hayk's MS Surface's local connectionString
-    //public const string connectionString = "Data Source=tablet-t67o2o99\\sqlexpress;Initial Catalog=TestDB;Integrated Security=True; Trusted_Connection=True;TrustServerCertificate=True;";
+    public const string connectionString = "Data Source=tablet-t67o2o99\\sqlexpress;Initial Catalog=TestDB;Integrated Security=True; Trusted_Connection=True;TrustServerCertificate=True;";
 
     //Keep adding your connection strings here and comment out other developer's
     //connection strings when running this on your local machine:
@@ -651,10 +651,6 @@ class DataPopulate
                         }
                     }
 
-                }
-                if (rowsAffected>15)
-                {
-                    break;
                 }
             }
             Console.WriteLine($"\n{rowsAffected} rows inserted.");
