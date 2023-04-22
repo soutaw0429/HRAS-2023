@@ -38,13 +38,13 @@ class DataPopulate
         //ReadFromInventoryTxt();
         //ReadFromRoomsTxt();
         //ReadFromUsersTxt();
-        WriteIntoStaffTable();
+        //WriteIntoStaffTable();
         //WriteIntoInventoryTable();
-        //WriteIntoVisitHistory();
         //WriteIntoPatient();
-        //WriteIntoBuilding();
-        //WriteIntoRoom();
-        //WriteIntoSymptom();
+        //WriteIntoVisitHistory();
+        WriteIntoBuilding();
+        WriteIntoRoom();
+        WriteIntoSymptom();
     }
 
     public static string[] ReadFromTextFile(string fileName)
@@ -254,7 +254,7 @@ class DataPopulate
                 }
             }
             // output the number of rows affected
-            Console.WriteLine($"\n{rowsAffected} rows inserted.");
+            Console.WriteLine($"\n{rowsAffected} rows inserted into Staff.");
             connection.Close();
         }
     }
@@ -303,7 +303,7 @@ class DataPopulate
 
                 }
             }
-            Console.WriteLine($"\n{rowsAffected} rows inserted.");
+            Console.WriteLine($"\n{rowsAffected} rows inserted into Inventory.");
             connection.Close();
         }
     }
@@ -354,7 +354,7 @@ class DataPopulate
 
                 }
             }
-            Console.WriteLine($"\n{rowsAffected} rows inserted.");
+            Console.WriteLine($"\n{rowsAffected} rows inserted into VisitHistory.");
             connection.Close();
 
         }
@@ -417,7 +417,7 @@ class DataPopulate
 
                 }
             }
-            Console.WriteLine($"\n{rowsAffected} rows inserted.");
+            Console.WriteLine($"\n{rowsAffected} rows inserted into Patient.");
             connection.Close();
         }
     }
