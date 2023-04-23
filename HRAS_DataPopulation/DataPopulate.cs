@@ -33,20 +33,23 @@ class DataPopulate
 
     private static void Main(string[] args)
     {
-        Console.WriteLine("Populating the Staff Table with limited rows for testing purposes");
-        //ReadFromMedicalRecordsTxt();
-        //ReadFromInventoryTxt();
-        //ReadFromRoomsTxt();
-        //ReadFromUsersTxt();
-
-        //WriteIntoBuilding();
-        //WriteIntoRoom();
-        //WriteIntoPatient();
-        //WriteIntoVisitHistory();
-        //WriteIntoSymptom();
-        //WriteIntoStaffTable();
-        //WriteIntoInventoryTable();
-        //WriteIntoHome();
+        Console.WriteLine("Populating the Building Table");
+        WriteIntoBuilding();
+        Console.WriteLine("Populating the Room Table");
+        WriteIntoRoom();
+        Console.WriteLine("Populating the Patient Table");
+        WriteIntoPatient();
+        Console.WriteLine("Populating the VisitHistory Table");
+        WriteIntoVisitHistory();
+        Console.WriteLine("Populating the Symptom Table");
+        WriteIntoSymptom();
+        Console.WriteLine("Populating the Staff Table");
+        WriteIntoStaffTable();
+        Console.WriteLine("Populating the Inventory Table");
+        WriteIntoInventoryTable();
+        Console.WriteLine("Populating the Home Table");
+        WriteIntoHome();
+        Console.WriteLine("Populating the Presents Table");
         WriteIntoPresents();
 
     }
