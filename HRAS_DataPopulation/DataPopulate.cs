@@ -667,7 +667,6 @@ class DataPopulate
 
     public static void WriteIntoPresents()
     {
-
         string[] lines = ReadFromTextFile("MedicalRecords.txt");
         string patientKey, visitHistoryCheckInDateTime;
         int rowsAffected = 0;
@@ -683,7 +682,6 @@ class DataPopulate
 
             foreach (string line in lines)
             {
-
                 symptoms[0] = line.Substring(162, 25).Trim();
                 symptoms[1] = line.Substring(187, 25).Trim();
                 symptoms[2] = line.Substring(212, 25).Trim();
@@ -719,10 +717,6 @@ class DataPopulate
                         }
                     }
 
-                }
-                if (rowsAffected == 15)
-                {
-                    break;
                 }
             }
             Console.WriteLine($"\n{rowsAffected} rows inserted.");
