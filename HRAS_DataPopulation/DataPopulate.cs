@@ -46,8 +46,9 @@ class DataPopulate
         //WriteIntoSymptom();
         //WriteIntoStaffTable();
         //WriteIntoInventoryTable();
-        WriteIntoHome();
-        
+        //WriteIntoHome();
+        WriteIntoPresents();
+
     }
 
     public static string[] ReadFromTextFile(string fileName)
@@ -56,7 +57,7 @@ class DataPopulate
         currentDirectory = Directory.GetParent(currentDirectory).FullName;
         currentDirectory = Directory.GetParent(currentDirectory).FullName;
         currentDirectory = Directory.GetParent(currentDirectory).FullName;
-        string filePath = currentDirectory + "\\DataImportFiles\\"+fileName; //specifies where the target file is located
+        string filePath = currentDirectory + "\\DataImportFiles\\" + fileName; //specifies where the target file is located
         string[] lines = File.ReadAllLines(filePath);
         return lines;
     }
@@ -322,7 +323,7 @@ class DataPopulate
             int rowCount = 0;
             connection.Open();
             string insertSql = "INSERT INTO VisitHistory (patient_SSN, CheckInDateTime, CheckOutDateTime, Diagnosis, Notes) VALUES (@p1, @p2, @p3, @p4, @p5)";
-            string selectSql = "SELECT COUNT(*) FROM VisitHistory WHERE patient_SSN = @key";
+            string selectSql = "SELECT COUNT(*) FROM VisitHistory WHERE patient_SSN = @key AND CheckInDateTime = @checkInDateTime";
 
             foreach (string line in lines)
             {
@@ -331,7 +332,11 @@ class DataPopulate
                     using (SqlCommand insertCommand = new SqlCommand(insertSql, connection))
                     {
                         patientSSN = line.Substring(77, 9).Trim();
+                        checkInDateTime = line.Substring(98, 4) + "-" + line.Substring(94, 2) + "-" + line.Substring(96, 2) + " "
+                                                                        + line.Substring(102, 2) + ":" + line.Substring(104, 2) + ":00";
+
                         selectCommand.Parameters.AddWithValue("@key", patientSSN);
+                        selectCommand.Parameters.AddWithValue("@checkInDateTime", checkInDateTime);
                         rowCount = (int)selectCommand.ExecuteScalar();
                         if (rowCount > 0)
                         {
@@ -339,8 +344,6 @@ class DataPopulate
                         }
                         else
                         {
-                            checkInDateTime = line.Substring(98, 4) + "-" + line.Substring(94, 2) + "-" + line.Substring(96, 2) + " "
-                                                                        + line.Substring(102, 2) + ":" + line.Substring(104, 2) + ":00";
                             checkOutDateTime = line.Substring(110, 4) + "-" + line.Substring(106, 2) + "-" + line.Substring(108, 2) + " "
                                                                         + line.Substring(114, 2) + ":" + line.Substring(116, 2) + ":00";
                             diagnosis = line.Substring(312, 75).Trim();
@@ -651,6 +654,72 @@ class DataPopulate
                         }
                     }
 
+                }
+            }
+            Console.WriteLine($"\n{rowsAffected} rows inserted.");
+            connection.Close();
+
+        }
+    }
+
+    public static void WriteIntoPresents()
+    {
+
+        string[] lines = ReadFromTextFile("MedicalRecords.txt");
+        string patientKey, visitHistoryCheckInDateTime;
+        int rowsAffected = 0;
+
+        using (SqlConnection connection = new SqlConnection(connectionString))
+        {
+            int rowCount = 0;
+            connection.Open();
+            string insertSql = "INSERT INTO Presents (Symptom_Name, Patient_SSN, VisitHistory_CheckInDateTime) " +
+                                "VALUES (@p1, @p2, @p3)";
+            string selectSql = "SELECT COUNT(*) FROM Presents WHERE Symptom_Name = @symptom AND Patient_SSN = @patientSSN AND VisitHistory_CheckInDateTime = @checkInDateTime";
+            string[] symptoms = new string[6];
+
+            foreach (string line in lines)
+            {
+
+                symptoms[0] = line.Substring(162, 25).Trim();
+                symptoms[1] = line.Substring(187, 25).Trim();
+                symptoms[2] = line.Substring(212, 25).Trim();
+                symptoms[3] = line.Substring(237, 25).Trim();
+                symptoms[4] = line.Substring(262, 25).Trim();
+                symptoms[5] = line.Substring(287, 25).Trim();
+
+                foreach (string symptom in symptoms)
+                {
+                    using (SqlCommand selectCommand = new SqlCommand(selectSql, connection))
+                    {
+                        using (SqlCommand insertCommand = new SqlCommand(insertSql, connection))
+                        {
+                            patientKey = line.Substring(77, 9).Trim();
+                            visitHistoryCheckInDateTime = line.Substring(98, 4) + "/" + line.Substring(94, 2) + "/" + line.Substring(96, 2) + " " + line.Substring(102, 2) + ":" + line.Substring(104, 2);
+
+                            selectCommand.Parameters.AddWithValue("@patientSSN", patientKey);
+                            selectCommand.Parameters.AddWithValue("@symptom", symptom);
+                            selectCommand.Parameters.AddWithValue("@checkInDateTime", visitHistoryCheckInDateTime);
+                            rowCount = (int)selectCommand.ExecuteScalar();
+                            if (rowCount > 0)
+                            {
+                                rowCount = 0;
+                            }
+                            else
+                            {
+                                insertCommand.Parameters.AddWithValue("@p1", symptom);
+                                insertCommand.Parameters.AddWithValue("@p2", patientKey);
+                                insertCommand.Parameters.AddWithValue("@p3", visitHistoryCheckInDateTime);
+                                rowsAffected += insertCommand.ExecuteNonQuery();
+
+                            }
+                        }
+                    }
+
+                }
+                if (rowsAffected == 15)
+                {
+                    break;
                 }
             }
             Console.WriteLine($"\n{rowsAffected} rows inserted.");
