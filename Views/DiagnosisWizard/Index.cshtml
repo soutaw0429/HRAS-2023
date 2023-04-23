@@ -1,0 +1,113 @@
+﻿
+@{
+
+}
+
+<style>
+    body {
+        background-image: url('../images/LoginBackground.jpg');
+        margin: 0 auto;
+        background-color: #6de8c1;
+    }
+
+    .diagnosis_wizard {
+        padding-top: 100px;
+    }
+
+    .questions {
+        width: 50%;
+        height: 200px;
+        display: inline-block;
+        horizontal-align: top;
+        border-right: 1px solid blue;
+    }
+
+    .questions_table {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .yes_or_no_row {
+        text-align: right;
+    }
+
+    .question, .possible_diagnosis_query {
+        background-color: white;
+        font-size: 22px;
+        padding: 10px;
+        padding-right: 150px;
+    }
+
+    .diagnosis {
+        background-color: #5fd4e3;
+        font-size: 20px;
+        padding: 10px;
+        border: 1px solid black;
+    }
+
+    .empty_row {
+        padding: 10px;
+    }
+
+    .possible_diagnosis {
+        display: inline-block;
+        width: 50%;
+        height:;
+        horizontal-align: top;
+        position: absolute;
+    }
+
+    .btn {
+        border: none;
+        background-color: inherit;
+        padding: 14px 28px;
+        font-style: bold;
+        font-size: 16px;
+        cursor: pointer;
+        display: inline-block;
+        color: grey;
+    }
+
+    .yes:visited {
+        color: #00ff00;
+    }
+
+    .no {
+    }
+
+    .diagnosis_table {
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>
+
+
+<div class="diagnosis_wizard">
+    <div class="questions">
+        <table class="questions_table">
+            <tr>
+                <td class="question">Do you have a sore throat?</td>
+            </tr>
+            <tr>
+                <td class="yes_or_no_row">
+                    <button class="btn yes">YES</button>
+                    <button class="btn no">NO</button>
+                </td>
+            </tr>
+        </table>
+    </div><div class="possible_diagnosis">
+        <table class="diagnosis_table">
+            <tr>
+                <td class="possible_diagnosis_query">Possible Diagnosis:</td>
+            </tr>
+            <tr>
+                <td class="empty_row"></td>
+            </tr>
+            <tr>
+                <td class="diagnosis">
+                    cold------80%
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
