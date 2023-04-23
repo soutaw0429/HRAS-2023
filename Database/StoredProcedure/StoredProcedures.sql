@@ -44,3 +44,14 @@ BEGIN
 	ORDER BY
 		Staff.LastName;
 END
+
+CREATE PROCEDURE GetSymptomFrequency
+AS
+BEGIN
+    SELECT [NAME], COUNT(*) AS frequency
+    FROM Symptom
+    GROUP BY [NAME]
+    ORDER BY frequency DESC;
+END
+
+EXEC GetSymptomFrequency;
