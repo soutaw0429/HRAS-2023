@@ -34,7 +34,7 @@ public class LoginController : Controller
         var result = _security.authenticateUser(collection?["userName"]!, collection?["password"]!);
 
         if (result == null) {
-            return View("LoginFailureTest");
+            return View("Login");
         }
 
         var claims = new List<Claim>
@@ -56,7 +56,7 @@ public class LoginController : Controller
        
         _logger.LogInformation("User {Staff} logged in at {Time}.", result.userName, DateTime.UtcNow);
 
-        return View("LoginSuccessTest");
+        return RedirectToAction("Index", "HomePage");
     }
 
     public async Task<IActionResult> ProcessLogout()
