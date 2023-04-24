@@ -8,7 +8,7 @@ System Requirements
 
 Windows:
 * Visual Studio 2022, with .NET 7.0 support (.NET 6.0 Is not supported)
-* MSSQL Server Management Studio
+* MSSQL Server Management Studio 19
 * All default Visual Studio web extensions
 
 Web Browser:
@@ -19,22 +19,23 @@ Web Browser:
 Installation
 -------------
 
-1) Read this readme
-2) Clone the url using HTTPS
+1) Ensure the version of HRAS_2023 is v0.0.-b2. If not download the latest release at: https://github.com/CSCI340Spring2022/HRAS_2023/releases
+2) Read this readme
 3) Run through the entire Database setup, following README_DatabaseSetup
 4) Modify the following line with your local database connection string in appsettings.json, line 12.
         server=database\\csci3400011030;uid=HRAS_test_2023;pwd=12345;database=HRAS_test_2023;TrustServerCertificate=True;Trusted_Connection=True;
    Your connection string may vary, but will look similar to the line above
 5) Build the web application
-6) Click accept risk on the first page
-7) Login in with the following credentials username: test, password: Password123!
-8) A login failed page will be displayed
+6) Run the web application
+7) Click Acknowledge risk on the first page
+8) Login in with the following credentials username: CalhounK329998, password: sgwdzsmdczkorxm
+9) The homepage will be displayed to the user
 
 
 Security Issues
 ---------------
 
-Any security issues with this code or repo, please contact either Josh, Hayk or Dr. Rosenberg
+Any security issues with this application please contact either Josh, Hayk or Dr. Rosenberg
 
 Any Questions?
 --------
