@@ -1,7 +1,6 @@
 Create table StaysIn
 (
 isAdmitted BIT,
-leftTheRoomDateTime DateTime,
 room_building_name varchar(30),
 room_number varchar(9),
 visitHistory_patientSSN varchar(9), 
