@@ -48,10 +48,10 @@ END
 CREATE PROCEDURE GetSymptomFrequency
 AS
 BEGIN
-    SELECT [NAME], COUNT(*) AS frequency
-    FROM Symptom
-    GROUP BY [NAME]
+    SELECT Symptom_Name, COUNT(*) AS frequency
+    FROM Present
+	Inner Join VisitHistory On Present.SSN = VisitHistory.Patient_SSN
+	Inner Join Symptom On Present.Symptom_Name = Symptom.[Name]
+    GROUP BY Symptom_Name
     ORDER BY frequency DESC;
 END
-
-EXEC GetSymptomFrequency;
