@@ -1,0 +1,80 @@
+﻿
+@{
+}
+
+<style>
+    body {
+        background-color: #152238;
+    }
+
+    .Assign_To_Patient {
+        color: white;
+        text-align: center;
+    }
+
+    .item_info {
+        padding-top: 150px;
+        font-size: 55px;
+    }
+
+    .item_table {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+        .item_table td:first-child {
+            padding-right: 100px;
+        }
+
+    .summary {
+        padding-top: 80px;
+        font-size: 40px;
+    }
+
+    .summary_table {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+        .summary_table td {
+            width: 500px;
+            padding-bottom: 30px;
+        }
+
+    .finish_deploying {
+        background-color: black;
+        border: none;
+        color: white;
+        padding: 13px 50px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        cursor: pointer;
+        margin-bottom: 5%;
+        font-size: 24px;
+    }
+</style>
+
+<div class="Assign_To_Patient">
+    <div class="item_info">
+        <table class="item_table">
+            <tr>
+                <td>item_name</td>
+                <td>xN</td>
+            </tr>
+        </table>
+    </div>
+    <div class="summary">
+        <table class="summary_table">
+            <tr>
+                <td>These items were added to [person's] Bill</td>
+            </tr>
+            <tr>
+                <td>
+                    <button class="finish_deploying">Finish Deploying</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
