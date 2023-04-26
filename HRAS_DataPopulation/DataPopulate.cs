@@ -7,11 +7,14 @@ class DataPopulate
     //Dr. Rosenberg's local connectionString 
     //public const string connectionString = "";
 
+    //MCS Server's connectionString 
+    public const string connectionString = "Data Source=database\\csci3400011030;Persist Security Info=True;User ID=HRAS_test_2023;Password=12345";
+
     //Hayk's Macbook's local Connection String
     //public const string connectionString = "Data Source=desktop-rmqlafu\\sqlexpress;Initial Catalog=TestDB;Integrated Security=True; Trusted_Connection=True;TrustServerCertificate=True;";
 
     //Hayk's MS Surface's local connectionString
-    public const string connectionString = "Data Source=tablet-t67o2o99\\sqlexpress;Initial Catalog=TestDB;Integrated Security=True; Trusted_Connection=True;TrustServerCertificate=True;";
+    //public const string connectionString = "Data Source=tablet-t67o2o99\\sqlexpress;Initial Catalog=TestDB;Integrated Security=True; Trusted_Connection=True;TrustServerCertificate=True;";
 
     //Keep adding your connection strings here and comment out other developer's
     //connection strings when running this on your local machine:
@@ -43,8 +46,8 @@ class DataPopulate
         WriteIntoVisitHistory();
         Console.WriteLine("Populating the Symptom Table");
         WriteIntoSymptom();
-        Console.WriteLine("Populating the Staff Table");
-        WriteIntoStaffTable();
+        //Console.WriteLine("Populating the Staff Table");
+        //WriteIntoStaffTable();
         Console.WriteLine("Populating the Inventory Table");
         WriteIntoInventoryTable();
         Console.WriteLine("Populating the Home Table");
@@ -724,5 +727,5 @@ class DataPopulate
 
         }
     }
-    public static void WriteIntoStaysIn()
+    public static void WriteIntoStaysIn() { }
 }
