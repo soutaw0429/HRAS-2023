@@ -8,7 +8,7 @@ class DataPopulate
     //public const string connectionString = "";
 
     //MCS Server's connectionString 
-    public const string connectionString = "Data Source=database\\csci3400011030;Persist Security Info=True;User ID=HRAS_test_2023;Password=12345";
+    public const string connectionString = "Data Source=DATABASE\\CSCI3400011030;Initial Catalog=HRAS_2023_test;Persist Security Info=True;User ID=HRAS_test_2023;Password=12345;TrustServerCertificate=True;";
 
     //Hayk's Macbook's local Connection String
     //public const string connectionString = "Data Source=desktop-rmqlafu\\sqlexpress;Initial Catalog=TestDB;Integrated Security=True; Trusted_Connection=True;TrustServerCertificate=True;";
