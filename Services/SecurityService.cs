@@ -15,10 +15,14 @@ public class SecurityService : ISecurityService
         _staffLogic = staffLogic;
     }
 
+    public string batchHashPassword(string password)
+    {
+        // This is the method you need to call Hayk
+        return Convert.ToBase64String(hashPassword(password));
+    }
+
     public Staff? authenticateUser(string username, string password)
     {
-        string passwordHash = Convert.ToBase64String(hashPassword(password));
-
         Staff? user = _staffLogic.findUserByCredentials(username);
         if (user == null) return null;
 
@@ -59,7 +63,7 @@ public class SecurityService : ISecurityService
 
         if (decodedHashPass.Length == 0) return false;
         
-        return verifyHashedPass(decodedHashPass, password, out int iterCount, out KeyDerivationPrf prf) ? true : false ;
+        return verifyHashedPass(decodedHashPass, password, out int iterCount, out KeyDerivationPrf prf)
     }
 
     private static bool verifyHashedPass(byte[] decodedHashPass, string password, out int iterCount, out KeyDerivationPrf prf)
