@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System.Collections;
+using System.Data;
 using Microsoft.Data.SqlClient;
 
 
@@ -36,24 +37,27 @@ class DataPopulate
 
     private static void Main(string[] args)
     {
-        Console.WriteLine("Populating the Building Table");
-        WriteIntoBuilding();
-        Console.WriteLine("Populating the Room Table");
-        WriteIntoRoom();
-        Console.WriteLine("Populating the Patient Table");
-        WriteIntoPatient();
-        Console.WriteLine("Populating the VisitHistory Table");
-        WriteIntoVisitHistory();
-        Console.WriteLine("Populating the Symptom Table");
-        WriteIntoSymptom();
-        //Console.WriteLine("Populating the Staff Table");
-        //WriteIntoStaffTable();
-        Console.WriteLine("Populating the Inventory Table");
-        WriteIntoInventoryTable();
-        Console.WriteLine("Populating the Home Table");
-        WriteIntoHome();
-        Console.WriteLine("Populating the Presents Table");
-        WriteIntoPresents();
+        //Console.WriteLine("Populating the Building Table\n");
+        //WriteIntoBuilding();
+        //Console.WriteLine("Populating the Room Table\n");
+        //WriteIntoRoom();
+        //Console.WriteLine("Populating the Patient Table\n");
+        //WriteIntoPatient();
+        //Console.WriteLine("Populating the VisitHistory Table\n");
+        //WriteIntoVisitHistory();
+        //Console.WriteLine("Populating the Symptom Table\n");
+        //WriteIntoSymptom();
+        ////Console.WriteLine("Populating the Staff Table");
+        ////WriteIntoStaffTable();
+        //Console.WriteLine("Populating the Inventory Table\n");
+        //WriteIntoInventoryTable();
+        //Console.WriteLine("Populating the Home Table\n");
+        //WriteIntoHome();
+        //Console.WriteLine("Populating the Presents Table\n");
+        //WriteIntoPresents();
+        Console.WriteLine("Populating the StaysIn Table\n");
+        WriteIntoStaysIn();
+
 
     }
 
@@ -75,7 +79,7 @@ class DataPopulate
             reader.ReadLine();
         }*/
 
-        string[] lines = File.ReadAllLines("C:\\Users\\Hayk Arzumanyan\\Desktop\\DataFiles\\MedicalRecords.txt");
+        string[] lines = ReadFromTextFile("MedicalRecords.txt");
         int x = 0;
         foreach (string line in lines)
         {
@@ -727,5 +731,65 @@ class DataPopulate
 
         }
     }
-    public static void WriteIntoStaysIn() { }
+
+    public static void WriteIntoStaysIn()
+    {
+
+        string[] lines = ReadFromTextFile("MedicalRecords.txt");
+        string buildingName, roomNumber, patientSSN, checkInDateTime;
+        bool isAdmitted = false; //The input files contain only checked out patients so isAdmitted will be false for all of them
+
+        int rowsAffected = 0;
+
+        using (SqlConnection connection = new SqlConnection(connectionString))
+        {
+            int rowCount = 0;
+            connection.Open();
+            string insertSql = "INSERT INTO StaysIn (isAdmitted, room_building_name, room_number, visitHistory_patientSSN, visitHistory_checkInDateTime)" +
+                                    "VALUES(@isAdmitted, @buildingName, @roomNumber, @SSN, @checkInDateTime)";
+            string selectSql = "SELECT COUNT(*) FROM StaysIn WHERE visitHistory_patientSSN = @patientSSN AND visitHistory_checkInDateTime = @checkInDateTime " +
+                                    "AND room_building_name = @buildingName AND room_number = @roomNumber";
+
+            foreach (string line in lines)
+            {
+                using (SqlCommand selectCommand = new SqlCommand(selectSql, connection))
+                {
+                    using (SqlCommand insertCommand = new SqlCommand(insertSql, connection))
+                    {
+                        patientSSN = line.Substring(77, 9).Trim();
+                        checkInDateTime = line.Substring(98, 4) + "/" + line.Substring(94, 2) + "/" + line.Substring(96, 2) + " " + line.Substring(102, 2) + ":" + line.Substring(104, 2);
+                        buildingName = line.Substring(132, 30).Trim();
+                        roomNumber = line.Substring(123, 9).Trim();
+
+                        selectCommand.Parameters.AddWithValue("@patientSSN", patientSSN);
+                        selectCommand.Parameters.AddWithValue("@buildingName", buildingName);
+                        selectCommand.Parameters.AddWithValue("@roomNumber", roomNumber);
+                        selectCommand.Parameters.AddWithValue("@checkInDateTime", checkInDateTime);
+                        rowCount = (int)selectCommand.ExecuteScalar();
+                        if (rowCount > 0)
+                        {
+                            rowCount = 0;
+                        }
+                        else
+                        {
+                            insertCommand.Parameters.AddWithValue("@isAdmitted", isAdmitted);
+                            insertCommand.Parameters.AddWithValue("@buildingName", buildingName);
+                            insertCommand.Parameters.AddWithValue("@roomNumber", roomNumber);
+                            insertCommand.Parameters.AddWithValue("@SSN", patientSSN);
+                            insertCommand.Parameters.AddWithValue("@checkInDateTime", checkInDateTime);
+                            rowsAffected += insertCommand.ExecuteNonQuery();
+                        }
+                    }
+
+                }
+                if (rowsAffected >=15)
+                {
+                    break;
+                }
+            }
+            Console.WriteLine($"\n{rowsAffected} rows inserted.");
+            connection.Close();
+
+        }
+    }
 }
