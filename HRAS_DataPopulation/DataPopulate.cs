@@ -782,10 +782,6 @@ class DataPopulate
                     }
 
                 }
-                if (rowsAffected >=15)
-                {
-                    break;
-                }
             }
             Console.WriteLine($"\n{rowsAffected} rows inserted.");
             connection.Close();
