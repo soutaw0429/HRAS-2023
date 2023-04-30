@@ -62,8 +62,8 @@ public class SecurityService : ISecurityService
         byte[] decodedHashPass = Convert.FromBase64String(hashPass);
 
         if (decodedHashPass.Length == 0) return false;
-        
-        return verifyHashedPass(decodedHashPass, password, out int iterCount, out KeyDerivationPrf prf)
+
+        return verifyHashedPass(decodedHashPass, password, out int iterCount, out KeyDerivationPrf prf);
     }
 
     private static bool verifyHashedPass(byte[] decodedHashPass, string password, out int iterCount, out KeyDerivationPrf prf)
