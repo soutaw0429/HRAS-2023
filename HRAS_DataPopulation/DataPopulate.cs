@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System.Collections;
+using System.Data;
 using Microsoft.Data.SqlClient;
 
 
@@ -7,11 +8,14 @@ class DataPopulate
     //Dr. Rosenberg's local connectionString 
     //public const string connectionString = "";
 
+    //MCS Server's connectionString 
+    public const string connectionString = "Data Source=DATABASE\\CSCI3400011030;Initial Catalog=HRAS_2023_test;Persist Security Info=True;User ID=HRAS_test_2023;Password=12345;TrustServerCertificate=True;";
+
     //Hayk's Macbook's local Connection String
     //public const string connectionString = "Data Source=desktop-rmqlafu\\sqlexpress;Initial Catalog=TestDB;Integrated Security=True; Trusted_Connection=True;TrustServerCertificate=True;";
 
     //Hayk's MS Surface's local connectionString
-    public const string connectionString = "Data Source=tablet-t67o2o99\\sqlexpress;Initial Catalog=TestDB;Integrated Security=True; Trusted_Connection=True;TrustServerCertificate=True;";
+    //public const string connectionString = "Data Source=tablet-t67o2o99\\sqlexpress;Initial Catalog=TestDB;Integrated Security=True; Trusted_Connection=True;TrustServerCertificate=True;";
 
     //Keep adding your connection strings here and comment out other developer's
     //connection strings when running this on your local machine:
@@ -33,18 +37,27 @@ class DataPopulate
 
     private static void Main(string[] args)
     {
-        Console.WriteLine("Populating the Staff Table with limited rows for testing purposes");
-        //ReadFromMedicalRecordsTxt();
-        //ReadFromInventoryTxt();
-        //ReadFromRoomsTxt();
-        //ReadFromUsersTxt();
-        //WriteIntoStaffTable();
-        //WriteIntoInventoryTable();
-        //WriteIntoPatient();
-        //WriteIntoVisitHistory();
+        Console.WriteLine("Populating the Building Table\n");
         WriteIntoBuilding();
+        Console.WriteLine("Populating the Room Table\n");
         WriteIntoRoom();
+        Console.WriteLine("Populating the Patient Table\n");
+        WriteIntoPatient();
+        Console.WriteLine("Populating the VisitHistory Table\n");
+        WriteIntoVisitHistory();
+        Console.WriteLine("Populating the Symptom Table\n");
         WriteIntoSymptom();
+        Console.WriteLine("Populating the Staff Table");
+        WriteIntoStaffTable();
+        Console.WriteLine("Populating the Inventory Table\n");
+        WriteIntoInventoryTable();
+        Console.WriteLine("Populating the Home Table\n");
+        WriteIntoHome();
+        Console.WriteLine("Populating the Presents Table\n");
+        WriteIntoPresents();
+        Console.WriteLine("Populating the StaysIn Table\n");
+        WriteIntoStaysIn();
+
     }
 
     public static string[] ReadFromTextFile(string fileName)
@@ -53,7 +66,7 @@ class DataPopulate
         currentDirectory = Directory.GetParent(currentDirectory).FullName;
         currentDirectory = Directory.GetParent(currentDirectory).FullName;
         currentDirectory = Directory.GetParent(currentDirectory).FullName;
-        string filePath = currentDirectory + "\\DataImportFiles\\"+fileName; //specifies where the target file is located
+        string filePath = currentDirectory + "\\DataImportFiles\\" + fileName; //specifies where the target file is located
         string[] lines = File.ReadAllLines(filePath);
         return lines;
     }
@@ -65,7 +78,7 @@ class DataPopulate
             reader.ReadLine();
         }*/
 
-        string[] lines = File.ReadAllLines("C:\\Users\\Hayk Arzumanyan\\Desktop\\DataFiles\\MedicalRecords.txt");
+        string[] lines = ReadFromTextFile("MedicalRecords.txt");
         int x = 0;
         foreach (string line in lines)
         {
@@ -319,7 +332,7 @@ class DataPopulate
             int rowCount = 0;
             connection.Open();
             string insertSql = "INSERT INTO VisitHistory (patient_SSN, CheckInDateTime, CheckOutDateTime, Diagnosis, Notes) VALUES (@p1, @p2, @p3, @p4, @p5)";
-            string selectSql = "SELECT COUNT(*) FROM VisitHistory WHERE patient_SSN = @key";
+            string selectSql = "SELECT COUNT(*) FROM VisitHistory WHERE patient_SSN = @key AND CheckInDateTime = @checkInDateTime";
 
             foreach (string line in lines)
             {
@@ -328,7 +341,11 @@ class DataPopulate
                     using (SqlCommand insertCommand = new SqlCommand(insertSql, connection))
                     {
                         patientSSN = line.Substring(77, 9).Trim();
+                        checkInDateTime = line.Substring(98, 4) + "-" + line.Substring(94, 2) + "-" + line.Substring(96, 2) + " "
+                                                                        + line.Substring(102, 2) + ":" + line.Substring(104, 2) + ":00";
+
                         selectCommand.Parameters.AddWithValue("@key", patientSSN);
+                        selectCommand.Parameters.AddWithValue("@checkInDateTime", checkInDateTime);
                         rowCount = (int)selectCommand.ExecuteScalar();
                         if (rowCount > 0)
                         {
@@ -336,8 +353,6 @@ class DataPopulate
                         }
                         else
                         {
-                            checkInDateTime = line.Substring(98, 4) + "-" + line.Substring(94, 2) + "-" + line.Substring(96, 2) + " "
-                                                                        + line.Substring(102, 2) + ":" + line.Substring(104, 2) + ":00";
                             checkOutDateTime = line.Substring(110, 4) + "-" + line.Substring(106, 2) + "-" + line.Substring(108, 2) + " "
                                                                         + line.Substring(114, 2) + ":" + line.Substring(116, 2) + ":00";
                             diagnosis = line.Substring(312, 75).Trim();
@@ -592,6 +607,176 @@ class DataPopulate
                                 insertCommand.Parameters.AddWithValue("@name", symptom);
                                 rowsAffected += insertCommand.ExecuteNonQuery();
                             }
+                        }
+                    }
+
+                }
+            }
+            Console.WriteLine($"\n{rowsAffected} rows inserted.");
+            connection.Close();
+
+        }
+    }
+
+    public static void WriteIntoHome()
+    {
+        string[] lines = ReadFromTextFile("MedicalRecords.txt");
+        string patientKey, streetAddress1, streetAddress2, city, state, zip;
+        int rowsAffected = 0;
+
+        using (SqlConnection connection = new SqlConnection(connectionString))
+        {
+            int rowCount = 0;
+            connection.Open();
+            string insertSql = "INSERT INTO Home (Patient_Key, StreetAddress_Line_1, StreetAddress_Line_2, City, State, ZIP) " +
+                                "VALUES (@p1, @p2, @p3, @p4, @p5, @p6)";
+            string selectSql = "SELECT COUNT(*) FROM Home WHERE Patient_Key = @key";
+
+            foreach (string line in lines)
+            {
+                using (SqlCommand selectCommand = new SqlCommand(selectSql, connection))
+                {
+                    using (SqlCommand insertCommand = new SqlCommand(insertSql, connection))
+                    {
+                        patientKey = line.Substring(77, 9).Trim();
+                        selectCommand.Parameters.AddWithValue("@key", patientKey);
+                        rowCount = (int)selectCommand.ExecuteScalar();
+                        if (rowCount > 0)
+                        {
+                            rowCount = 0;
+                        }
+                        else
+                        {
+                            streetAddress1 = line.Substring(492, 35).Trim();
+                            streetAddress2 = line.Substring(527, 35).Trim();
+                            city = line.Substring(562, 25).Trim();
+                            state = line.Substring(587, 2).Trim();
+                            zip = line.Substring(589, 5).Trim();
+
+                            insertCommand.Parameters.AddWithValue("@p1", patientKey);
+                            insertCommand.Parameters.AddWithValue("@p2", streetAddress1);
+                            insertCommand.Parameters.AddWithValue("@p3", streetAddress2);
+                            insertCommand.Parameters.AddWithValue("@p4", city);
+                            insertCommand.Parameters.AddWithValue("@p5", state);
+                            insertCommand.Parameters.AddWithValue("@p6", zip);
+                            rowsAffected += insertCommand.ExecuteNonQuery();
+                        }
+                    }
+
+                }
+            }
+            Console.WriteLine($"\n{rowsAffected} rows inserted.");
+            connection.Close();
+
+        }
+    }
+
+    public static void WriteIntoPresents()
+    {
+        string[] lines = ReadFromTextFile("MedicalRecords.txt");
+        string patientKey, visitHistoryCheckInDateTime;
+        int rowsAffected = 0;
+
+        using (SqlConnection connection = new SqlConnection(connectionString))
+        {
+            int rowCount = 0;
+            connection.Open();
+            string insertSql = "INSERT INTO Presents (Symptom_Name, Patient_SSN, VisitHistory_CheckInDateTime) " +
+                                "VALUES (@p1, @p2, @p3)";
+            string selectSql = "SELECT COUNT(*) FROM Presents WHERE Symptom_Name = @symptom AND Patient_SSN = @patientSSN AND VisitHistory_CheckInDateTime = @checkInDateTime";
+            string[] symptoms = new string[6];
+
+            foreach (string line in lines)
+            {
+                symptoms[0] = line.Substring(162, 25).Trim();
+                symptoms[1] = line.Substring(187, 25).Trim();
+                symptoms[2] = line.Substring(212, 25).Trim();
+                symptoms[3] = line.Substring(237, 25).Trim();
+                symptoms[4] = line.Substring(262, 25).Trim();
+                symptoms[5] = line.Substring(287, 25).Trim();
+
+                foreach (string symptom in symptoms)
+                {
+                    using (SqlCommand selectCommand = new SqlCommand(selectSql, connection))
+                    {
+                        using (SqlCommand insertCommand = new SqlCommand(insertSql, connection))
+                        {
+                            patientKey = line.Substring(77, 9).Trim();
+                            visitHistoryCheckInDateTime = line.Substring(98, 4) + "/" + line.Substring(94, 2) + "/" + line.Substring(96, 2) + " " + line.Substring(102, 2) + ":" + line.Substring(104, 2);
+
+                            selectCommand.Parameters.AddWithValue("@patientSSN", patientKey);
+                            selectCommand.Parameters.AddWithValue("@symptom", symptom);
+                            selectCommand.Parameters.AddWithValue("@checkInDateTime", visitHistoryCheckInDateTime);
+                            rowCount = (int)selectCommand.ExecuteScalar();
+                            if (rowCount > 0)
+                            {
+                                rowCount = 0;
+                            }
+                            else
+                            {
+                                insertCommand.Parameters.AddWithValue("@p1", symptom);
+                                insertCommand.Parameters.AddWithValue("@p2", patientKey);
+                                insertCommand.Parameters.AddWithValue("@p3", visitHistoryCheckInDateTime);
+                                rowsAffected += insertCommand.ExecuteNonQuery();
+
+                            }
+                        }
+                    }
+
+                }
+            }
+            Console.WriteLine($"\n{rowsAffected} rows inserted.");
+            connection.Close();
+
+        }
+    }
+
+    public static void WriteIntoStaysIn()
+    {
+
+        string[] lines = ReadFromTextFile("MedicalRecords.txt");
+        string buildingName, roomNumber, patientSSN, checkInDateTime;
+        bool isAdmitted = false; //The input files contain only checked out patients so isAdmitted will be false for all of them
+
+        int rowsAffected = 0;
+
+        using (SqlConnection connection = new SqlConnection(connectionString))
+        {
+            int rowCount = 0;
+            connection.Open();
+            string insertSql = "INSERT INTO StaysIn (isAdmitted, room_building_name, room_number, visitHistory_patientSSN, visitHistory_checkInDateTime)" +
+                                    "VALUES(@isAdmitted, @buildingName, @roomNumber, @SSN, @checkInDateTime)";
+            string selectSql = "SELECT COUNT(*) FROM StaysIn WHERE visitHistory_patientSSN = @patientSSN AND visitHistory_checkInDateTime = @checkInDateTime " +
+                                    "AND room_building_name = @buildingName AND room_number = @roomNumber";
+
+            foreach (string line in lines)
+            {
+                using (SqlCommand selectCommand = new SqlCommand(selectSql, connection))
+                {
+                    using (SqlCommand insertCommand = new SqlCommand(insertSql, connection))
+                    {
+                        patientSSN = line.Substring(77, 9).Trim();
+                        checkInDateTime = line.Substring(98, 4) + "/" + line.Substring(94, 2) + "/" + line.Substring(96, 2) + " " + line.Substring(102, 2) + ":" + line.Substring(104, 2);
+                        buildingName = line.Substring(132, 30).Trim();
+                        roomNumber = line.Substring(123, 9).Trim();
+
+                        selectCommand.Parameters.AddWithValue("@patientSSN", patientSSN);
+                        selectCommand.Parameters.AddWithValue("@buildingName", buildingName);
+                        selectCommand.Parameters.AddWithValue("@roomNumber", roomNumber);
+                        selectCommand.Parameters.AddWithValue("@checkInDateTime", checkInDateTime);
+                        rowCount = (int)selectCommand.ExecuteScalar();
+                        if (rowCount > 0)
+                        {
+                            rowCount = 0;
+                        }
+                        else
+                        {
+                            insertCommand.Parameters.AddWithValue("@isAdmitted", isAdmitted);
+                            insertCommand.Parameters.AddWithValue("@buildingName", buildingName);
+                            insertCommand.Parameters.AddWithValue("@roomNumber", roomNumber);
+                            insertCommand.Parameters.AddWithValue("@SSN", patientSSN);
+                            insertCommand.Parameters.AddWithValue("@checkInDateTime", checkInDateTime);
+                            rowsAffected += insertCommand.ExecuteNonQuery();
                         }
                     }
 
