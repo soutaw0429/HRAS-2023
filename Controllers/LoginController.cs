@@ -1,12 +1,12 @@
+namespace HRAS_2023.Controllers;
+
 using System.Diagnostics;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
-using HRAS.Interfaces;
-using HRAS.Models;
-
-namespace HRAS.Controllers;
+using HRAS_2023.Interfaces;
+using HRAS_2023.Models;
 
 public class LoginController : Controller
 {

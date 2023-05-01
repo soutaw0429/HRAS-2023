@@ -1,7 +1,6 @@
-namespace HRAS.Models;
+namespace HRAS_2023.Models;
 
 using System.ComponentModel.DataAnnotations;
-using Microsoft.EntityFrameworkCore;
 
 public class Staff
 {
