@@ -1,8 +1,8 @@
-﻿using System.Diagnostics;
-using Microsoft.AspNetCore.Mvc;
-using HRAS.Models;
+﻿namespace HRAS_2023.Controllers;
 
-namespace HRAS.Controllers;
+using System.Diagnostics;
+using Microsoft.AspNetCore.Mvc;
+using HRAS_2023.Models;
 
 public class AuthController : Controller
 {
