@@ -111,3 +111,26 @@ img {
   visibility: visible;
   opacity: 1;
 }
+.navbar {
+    font-size: large;
+    display: flex;
+    position: relative;
+    align-items: center;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+.home-logo {
+    margin-right: 23%;
+    padding-left: 10px;
+}
+.nav-logout {
+    padding-left: 10%;
+}
+.nav-link {
+    text-align: center;
+    margin: 0 20px 0 20px;
+}
+.privacy {
+    position: relative;
+    bottom: -6px;
+}
