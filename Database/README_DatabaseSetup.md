@@ -48,8 +48,6 @@ Data Population
     4) Set up your connection string as a string value for 'connectionString' variable in the 'Main' method. 
     5) Run the project by clicking on the Run button
 
-This will populate the 'Staff' table for testing purposes for the Beta Release.
-
 Usage:
     
     This setup allows the HRAS project to have all the necessary components for it to function.
