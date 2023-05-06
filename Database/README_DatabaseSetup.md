@@ -13,16 +13,6 @@ Prerequisites:
 
 Required Setup Instructions (on a local machine):
 
-    Create a Database using MSSQL SSMS:
-    1) Open MSSQL Server Management Studio and connect to the server.
-    2) In the Object Explorer, expand the server instance and right-click on "Databases".
-    3) Select "New Database" and enter a name for the new database.
-    4) Configure any additional options as needed, such as data and log file locations and sizes.
-    5) Click "OK" to create the database. 
-       Move to Step 6.
-
-    - OR -
-
     Create a Database using Visual Studio:
     1) Click on the 'SQL' menu in the Visual Studio's main toolbar. The 'Connect' window will appear. 
     2) Clock on 'Connect' in the 'Connection' sub-menu.
