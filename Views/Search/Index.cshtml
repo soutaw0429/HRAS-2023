@@ -3,11 +3,6 @@
 }
 
 <style>
-
-    body {
-        margin: 0px;
-    }
-
     .search_box input {
         font-size: 20px;
         padding-left: 20px;
@@ -33,7 +28,7 @@
         margin-bottom: 60px;
     }
 
-    .button {
+    .search_button {
         background-color: black;
         border: none;
         color: white;
@@ -76,31 +71,33 @@
     }
 </style>
 
-<div class=search_page>
-    <div class=search_bar>
-        <div class=search_box>
-            <table class=search_table>
-                <td>
-                    <input class=box1 type="text" placeholder="Search by First Name">
-                </td>
-                <td>
-                    <input class=box2 type="text" placeholder="Search by Last Name">
-                </td>
-                <td>
-                    <input class=box3 type="text" placeholder="Search by SSN">
-                </td>
-                <td>
-                    <input class=box4 type="text" placeholder="Search by Room #">
-                </td>
+<div class="search_page">
+    <div class="search_bar">
+        <div class="search_box">
+            <table class="search_table">
+                <tr>
+                    <td>
+                        <input class="box1" type="search" placeholder="Search by First Name">
+                    </td>
+                    <td>
+                        <input class="box2" type="search" placeholder="Search by Last Name">
+                    </td>
+                    <td>
+                        <input class="box3" type="search" placeholder="Search by SSN">
+                    </td>
+                    <td>
+                        <input class="box4" type="search" placeholder="Search by Room #">
+                    </td>
+                </tr>
             </table>
         </div>
-        <div class=find_button>
-            <button class=button> Find </button>
+        <div class="find_button">
+            <button class="search_button"> Find </button>
         </div>
     </div>
-    <div class=search_info>
-        <div class=first_search_info>
-            <table class=first_info_table>
+    <div class="search_info">
+        <div class="first_search_info">
+            <table class="first_info_table">
                 <tr>
                     <td class="first_row">Last Name: </td>
                     <td>First Name: </td>
@@ -116,9 +113,10 @@
                 <tr>
                     <td>DNR Status:</td>
                 </tr>
+            </table>
         </div>
-        <div class=second_search_info>
-            <table class=second_info_table>
+        <div class="second_search_info">
+            <table class="second_info_table">
                 <tr>
                     <td>Street Address 1:</td>
                     <td>Street Address 2:</td>
