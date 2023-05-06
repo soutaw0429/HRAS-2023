@@ -21,7 +21,7 @@ Required Setup Instructions (on a local machine):
     5) Choose the authentication type. Insert the User Name and Password if the authentication requires so.
     6) In the 'Database Name' dropdown menu choose the database you want to work with.
     7) Click 'Connect'.
-    8) Open the DatabaseSetup.sql file located in "HRAS_2023\Database\" folder in Visual Studio environment.
+    8) Open the DatabaseSetup.sql file located in "HRAS_2023\Database\" folder through Visual Studio.
     9) Enable SQLCMD mode by clicking on the "SQLCMD Mode" button in the toolbar.
        The "SQLCMD Mode" button is usually located on the rightmost side of the SQL Editor Toolbar.
        Visual Studio might highlight all the lines that start with ':r' command to show that these are SQLCMD commands.
