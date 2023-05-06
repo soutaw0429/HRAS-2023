@@ -268,10 +268,6 @@ class DataPopulate
                         }
                     }
                 }
-                if (rowsAffected >= 15)
-                {
-                    break;
-                }
             }
             // output the number of rows affected
             Console.WriteLine($"\n{rowsAffected} rows inserted into Staff.");
