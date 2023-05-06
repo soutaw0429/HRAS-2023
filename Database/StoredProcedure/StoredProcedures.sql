@@ -44,3 +44,26 @@ BEGIN
 	ORDER BY
 		Staff.LastName;
 END
+
+CREATE PROCEDURE GetSymptomFrequency
+AS
+BEGIN
+    SELECT Symptom_Name, COUNT(*) AS frequency
+    FROM Present
+	Inner Join VisitHistory On Present.SSN = VisitHistory.Patient_SSN
+	Inner Join Symptom On Present.Symptom_Name = Symptom.[Name]
+    GROUP BY Symptom_Name
+    ORDER BY frequency DESC;
+END
+
+Create Procedure FindPatientSSNBySymptom
+	@Symptom_Name varchar(25)
+As
+Begin
+	Select Presents.Patient_SSN, Symptom_Name
+	From Presents
+	Inner Join VisitHistory On Presents.Patient_SSN = VisitHistory.Patient_SSN
+	Inner Join Symptom On Presents.Symptom_Name = Symptom.[Name]
+	Where Symptom_Name = @Symptom_Name
+End
+
