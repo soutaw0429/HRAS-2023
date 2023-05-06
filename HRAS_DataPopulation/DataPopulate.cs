@@ -261,7 +261,7 @@ class DataPopulate
                             insertCommand.Parameters.AddWithValue("@p1", firstName);
                             insertCommand.Parameters.AddWithValue("@p2", lastName);
                             insertCommand.Parameters.AddWithValue("@p3", userName);
-                            insertCommand.Parameters.AddWithValue("@p4", password);
+                            insertCommand.Parameters.AddWithValue("@p4", hashedPassword);
                             insertCommand.Parameters.AddWithValue("@p5", userType);
                             insertCommand.Parameters.AddWithValue("@p6", 'J');//the position is not received from the data files
                             rowsAffected += insertCommand.ExecuteNonQuery();
