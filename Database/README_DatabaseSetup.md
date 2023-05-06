@@ -21,7 +21,7 @@ Required Setup Instructions (on a local machine):
     5) Choose the authentication type. Insert the User Name and Password if the authentication requires so.
     6) In the 'Database Name' dropdown menu choose the database you want to work with.
     7) Click 'Connect'.
-    8) Open the DatabaseSetup.sql file located in "HRAS_2023\Database\" folder.
+    8) Open the DatabaseSetup.sql file located in "HRAS_2023\Database\" folder in Visual Studio environment.
     9) Enable SQLCMD mode by clicking on the "SQLCMD Mode" button in the toolbar.
        The "SQLCMD Mode" button is usually located on the rightmost side of the SQL Editor Toolbar.
        Visual Studio might highlight all the lines that start with ':r' command to show that these are SQLCMD commands.
@@ -41,6 +41,7 @@ Required Setup Instructions (on a local machine):
     5) Click 'Connect'.
 
 Data Population
+
     1) Navigate to the 'HRAS_DataPopulation' project in the HRAS_2023 Solution
     2) Right click on the HRAS_2023.csproj file and click 'Set As Startup Project'
     3) Open the 'DataPopulate.cs' file
