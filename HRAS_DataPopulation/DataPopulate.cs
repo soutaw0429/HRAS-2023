@@ -38,26 +38,26 @@ class DataPopulate
 
     private static void Main(string[] args)
     {
-        //Console.WriteLine("Populating the Building Table\n");
-        //WriteIntoBuilding();
-        //Console.WriteLine("Populating the Room Table\n");
-        //WriteIntoRoom();
-        //Console.WriteLine("Populating the Patient Table\n");
-        //WriteIntoPatient();
-        //Console.WriteLine("Populating the VisitHistory Table\n");
-        //WriteIntoVisitHistory();
-        //Console.WriteLine("Populating the Symptom Table\n");
-        //WriteIntoSymptom();
+        Console.WriteLine("Populating the Building Table\n");
+        WriteIntoBuilding();
+        Console.WriteLine("Populating the Room Table\n");
+        WriteIntoRoom();
+        Console.WriteLine("Populating the Patient Table\n");
+        WriteIntoPatient();
+        Console.WriteLine("Populating the VisitHistory Table\n");
+        WriteIntoVisitHistory();
+        Console.WriteLine("Populating the Symptom Table\n");
+        WriteIntoSymptom();
         Console.WriteLine("Populating the Staff Table");
         WriteIntoStaffTable();
-        //Console.WriteLine("Populating the Inventory Table\n");
-        //WriteIntoInventoryTable();
-        //Console.WriteLine("Populating the Home Table\n");
-        //WriteIntoHome();
-        //Console.WriteLine("Populating the Presents Table\n");
-        //WriteIntoPresents();
-        //Console.WriteLine("Populating the StaysIn Table\n");
-        //WriteIntoStaysIn();
+        Console.WriteLine("Populating the Inventory Table\n");
+        WriteIntoInventoryTable();
+        Console.WriteLine("Populating the Home Table\n");
+        WriteIntoHome();
+        Console.WriteLine("Populating the Presents Table\n");
+        WriteIntoPresents();
+        Console.WriteLine("Populating the StaysIn Table\n");
+        WriteIntoStaysIn();
 
     }
 
