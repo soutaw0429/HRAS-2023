@@ -134,3 +134,59 @@ img {
     position: relative;
     bottom: -6px;
 }
+.search_box input {
+    font-size: 20px;
+    padding-left: 20px;
+    width: 300px;
+    height: 40px;
+    background-image: url(https://cdn2.hubspot.net/hubfs/4004166/bioticresearch_website_assets/images/search_icon.png);
+    background-repeat: no-repeat;
+    background-position: right center;
+    border: 1px solid rgba(0,0,0,0.3);
+}
+.search_table {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 100px;
+    text-align: center;
+}
+.search_find_button {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 60px;
+}
+.search_button {
+    background-color: black;
+    border: none;
+    color: white;
+    padding: 10px 35px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+.search_info {
+    padding-top: 60px;
+    background-color: #B9B6B7;
+    position: relative;
+}
+.first_info_table, .second_info_table {
+    font-weight: bold;
+    width: 87%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.search_info td {
+    padding: 20px;
+}
+.search_first_row {
+    width: 50%
+}
+.second_info_table {
+    border-top: 1px solid black;
+}
+.first_info_table {
+    padding-bottom: 30px;
+}
