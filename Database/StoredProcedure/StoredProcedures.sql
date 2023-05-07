@@ -67,3 +67,20 @@ Begin
 	Where Symptom_Name = @Symptom_Name
 End
 
+CREATE PROCEDURE GetTableNearFiftyPercent
+AS
+BEGIN
+    SELECT *
+          FROM   (
+		  SELECT TOP 5 * 
+		  FROM Symptom
+          WHERE  (select AVG(Symptom.Frequency) from Symptom) > Symptom.Frequency
+		  ORDER  BY Symptom.Frequency DESC) Symptom
+    UNION ALL
+    SELECT *
+          FROM   (
+		  SELECT TOP 5 * 
+		  FROM Symptom
+          WHERE  (select AVG(Symptom.Frequency) from Symptom) <= Symptom.Frequency
+		  ORDER  BY Symptom.Frequency ASC) Symptom
+END
