@@ -5,61 +5,65 @@
 <style>
 	body {
 		margin: 0px;
+		height: 1006
 	}
 
-	#inventory_page {
+	.inventory_page {
 		margin-top: 50px;
+		padding-bottom: 100px;
 	}
 
-	#inventory {
+	.inventory {
 		display: inline-block;
 		width: 80%;
 	}
 
 
-	#first_row {
+	.first_row {
 		height: 50px;
 	}
 
-	#search input {
+	.search input {
 		font-size: 20px;
 		padding-left: 20px;
 		height: 35px;
 		border: 1px solid rgba(0,0,0,0.3);
 	}
 
-	#search_table {
+	.search_table {
 		width: 80%;
 		margin-left: auto;
 		margin-right: auto;
 	}
 
-		#search_table td {
+		.search_table td {
+			font-size: 20px;
+			color: gray;
 		}
 
-	#quantity {
+	.quantity {
 		width: 5%;
 	}
 
-	#id_box {
+	.id_box {
 		width: 85%;
 	}
 
-	#name_box {
+	.name_box {
 		width: 85%;
 	}
 
-	#quantity_box {
+	.quantity_box {
 		width: 65%;
 	}
 
-	#add_item {
+	.add_item {
 		padding: 20px;
 		text-align: right;
 		padding-right: 5%;
 	}
 
-	#add_another_item {
+	.add_another_item {
 		background-color: #d7d7db;
 		border: none;
 		color: black;
@@ -72,51 +76,52 @@
 		font-weight: bold;
 	}
 
-	#information {
+	.information {
 		margin-top: 50px;
 	}
 
-	#info_table {
+	.info_table {
 		margin-left: 10%;
 		margin-right: 10%;
 		text-align: left;
 	}
 
-		#info_table th {
+		.info_table th {
 			font-size: 18px;
 			padding-bottom: 10px;
 		}
 
-		#info_table td {
+		.info_table td {
+			color: gray;
 			padding-top: 10px;
 			padding-bottom: 10px;
 		}
 
-	#item_id {
+	.item_id {
 		width: 15%;
 	}
 
-	#item_name {
+	.item_name {
 		width: 30%;
 	}
 
-	#item_price {
+	.item_price {
 		width: 15%;
 	}
 
-	#item_stock_count {
+	.item_stock_count {
 		width: 40%;
 	}
 
-	#item_deploy {
+	.item_deploy {
 		width: 20%;
 	}
 
-	#deploy {
+	.deploy {
 		background-color: #d7d7db;
 		border: none;
 		color: black;
-		padding: 10px 30px;
+		padding: 10px 40px;
 		text-align: center;
 		text-decoration: none;
 		display: inline-block;
@@ -125,40 +130,42 @@
 		font-weight: bold;
 	}
 
-	#patients_cart {
+	.patients_cart {
 		background-color: grey;
 		display: inline-block;
 		width: 20%;
-		height: 100%;
 		vertical-align: top;
 	}
 
-	#cart {
+	.cart {
 		margin-left: auto;
 		margin-right: auto;
-		width: 80%;
+		/*width: 80%;*/
+		padding-left: 10%;
 		color: white;
 		overflow: scroll;
+		overflow-x: hidden;
 	}
 
-	#patients_cart td {
+	.patients_cart td {
 		font-size: 30px;
+		width: 135px
 	}
 
-		#patients_cart td:nth-child(2) {
+		.patients_cart td:nth-child(2) {
 			text-align: right;
 		}
 
-	#patients_cart_text {
+	.patients_cart_text {
 		font-size: 40px;
 		text-align: center;
 	}
 
-	#assign_to_patient {
+	.assign_to_patient {
 		text-align: center;
 	}
 
-	#assign {
+	.assign {
 		background-color: black;
 		border: none;
 		color: white;
@@ -173,57 +180,62 @@
 		margin: 5%;
 	}
 </style>
-<div id=inventory_page>
-	<div id=inventory>
-		<div id=search>
-			<table id=search_table>
-				<tr id=first_row>
+<div class=inventory_page>
+	<div class=inventory>
+		<div class=search>
+			<table class=search_table>
+				<tr class=first_row>
 					<td>PRODUCT ID</td>
 					<td>NAME </td>
 					<td>QUANTITY</td>
 				</tr>
 				<tr>
 					<td>
-						<input id=id_box type="text">
+						<input class=id_box type="text">
 					</td>
 					<td>
-						<input id=name_box type="text">
+						<input class=name_box type="text">
 					</td>
-					<td id=quantity>
-						<input id=quantity_box type="text">
+					<td class=quantity>
+						<input class=quantity_box type="text">
 					</td>
 				</tr>
 			</table>
 		</div>
-		<div id=add_item>
-			<button id=add_another_item>
+		<div class=add_item>
+			<button class=add_another_item>
 				ADD ANOTHER ITEM
 			</button>
 		</div>
-		<div id=information>
-			<table id=info_table>
+		<div class=information>
+			<table class=info_table>
 				<tr>
-					<th id=item_id>Item ID</th>
-					<th id=item_name>Name</th>
-					<th id=item_price>Price</th>
-					<th id=item_stock_count>Stock Count</th>
-					<th id=item_deploy>Deploy</th>
+					<th class=item_id>Item ID</th>
+					<th class=item_name>Name</th>
+					<th class=item_price>Price</th>
+					<th class=item_stock_count>Stock Count</th>
+					<th class=item_deploy>Deploy</th>
 				</tr>
 				<tr>
 					<td>######</td>
 					<td>ABCDEF</td>
 					<td>$</td>
-					<td>##</td>
-					<td><button id=deploy>Deploy</button></td>
+					<td>###</td>
+					<td><button class=deploy>Deploy</button></td>
+				</tr>
+				<tr>
+					<td>######</td>
+					<td>GHIJKL</td>
+					<td>$</td>
+					<td>###</td>
+					<td><button class=deploy>Deploy</button></td>
 				</tr>
 			</table>
 		</div>
-	</div><div id=patients_cart>
-		<div id=lists>
-			<table id=cart>
-				<tr>
-					<th colspan="2" id=patients_cart_text>Patients Cart</th>
-				</tr>
+	</div><div class=patients_cart>
+		<h1 style="color:white">Patients Cart</h1>
+		<div class="cart">
+			<table>
 				<tr>
 					<td> Item </td>
 					<td> x1 </td>
@@ -302,8 +314,8 @@
 				</tr>
 			</table>
 		</div>
-		<div id=assign_to_patient>
-			<button id=assign>ASSIGN TO PATIENT</button>
+		<div class=assign_to_patient>
+			<button class=assign>ASSIGN TO PATIENT</button>
 		</div>
 	</div>
 </div>

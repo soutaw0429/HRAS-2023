@@ -1,57 +1,15 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-<style>
-    h1 {
-        text-align: center;
-        padding: 30px;
-        font-family: "Arial Black", sans-serif;
-    }
 
-    table, th, td {
-        font-weight: 600;
-        font-size: x-large;
-    }
-
-    th, td {
-        padding: 20px;
-    }
-
-    th {
-        font-style: oblique;
-    }
-
-    td {
-        vertical-align: top;
-    }
-
-    #homepage {
-        background-color: rgb(162, 183, 250);
-        padding-bottom: 85px;
-    }
-
-    #table {
-        width: 90%;
-        border-top: 1px solid black;
-        margin-left: auto;
-        margin-right: auto;
-        font-family: "Arial Black", sans-serif;
-    }
-
-    #first_column {
-        width: 30%;
-    }
-
-</style>
-
-<div id="homepage">
-    <h1>
+<div class="homepage">
+    <h1 class="home_h1">
         HRAS's Main Navigation
     </h1>
 
-    <table id="table">
-        <tr>
-            <th id="first_column">Page</th>
+    <table class="home_table">
+        <tr class="row_head">
+            <th class="home_first_column">Page</th>
             <th>Description</th>
         </tr>
         <tr>

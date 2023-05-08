@@ -44,3 +44,42 @@ BEGIN
 	ORDER BY
 		Staff.LastName;
 END
+
+Create Procedure GetPatientWithAddressByRoomNumber
+	@room_number varchar(9)
+As
+Begin
+	Select *
+	FROM (
+	SELECT
+		*
+	FROM Patient, Home
+	WHERE Patient.SSN = Home.Patient_Key
+	) Patient
+	Inner Join StaysIn On StaysIn.visitHistory_patientSSN = Patient.SSN
+	WHERE StaysIn.room_number = @room_number
+End
+
+CREATE PROCEDURE GetPatientWithAddressByFirstName
+	@FirstName VARCHAR(25)
+AS
+BEGIN
+	SELECT
+		*
+	FROM Patient, Home
+	WHERE Patient.FirstName = @FirstName AND Patient.SSN = Home.Patient_Key
+	ORDER BY
+		Patient.FirstName;
+END
+
+CREATE PROCEDURE GetPatientWithAddressByLastName
+	@LastName VARCHAR(25)
+AS
+BEGIN
+	SELECT
+		*
+	FROM Patient, Home
+	WHERE Patient.LastName = @LastName AND Patient.SSN = Home.Patient_Key
+	ORDER BY
+		Patient.LastName;
+END
