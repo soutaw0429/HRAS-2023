@@ -44,6 +44,7 @@ BEGIN
 	ORDER BY
 		Staff.LastName;
 END
+GO
 
 Create Procedure GetPatientWithAddressByRoomNumber
 	@room_number varchar(9)
@@ -59,6 +60,7 @@ Begin
 	Inner Join StaysIn On StaysIn.visitHistory_patientSSN = Patient.SSN
 	WHERE StaysIn.room_number = @room_number
 End
+GO
 
 CREATE PROCEDURE GetPatientWithAddressByFirstName
 	@FirstName VARCHAR(25)
@@ -71,6 +73,7 @@ BEGIN
 	ORDER BY
 		Patient.FirstName;
 END
+GO
 
 CREATE PROCEDURE GetPatientWithAddressByLastName
 	@LastName VARCHAR(25)
