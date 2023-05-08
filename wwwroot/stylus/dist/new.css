@@ -190,3 +190,38 @@ img {
 .first_info_table {
     padding-bottom: 30px;
 }
+.home_h1 {
+    text-align: center;
+    padding: 30px;
+    font-family: "Arial Black", sans-serif;
+}
+
+.row_head {
+    font-style: oblique;
+}
+
+.homepage {
+    background-color: rgb(162, 183, 250);
+    padding-bottom: 85px;
+}
+
+.home_table {
+    width: 90%;
+    border-top: 1px solid black;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: "Arial Black", sans-serif;
+}
+
+    .home_table th, td {
+        font-weight: 600;
+        font-size: x-large;
+        padding: 20px;
+        vertical-align: top;
+    }
+
+.home_first_column {
+    width: 30%;
+}
+
+
