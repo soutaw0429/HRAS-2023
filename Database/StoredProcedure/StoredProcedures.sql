@@ -45,6 +45,45 @@ BEGIN
 		Staff.LastName;
 END
 
+CREATE PROCEDURE GetSymptomFrequency
+AS
+BEGIN
+    SELECT Symptom_Name, COUNT(*) AS frequency
+    FROM Present
+	Inner Join VisitHistory On Present.SSN = VisitHistory.Patient_SSN
+	Inner Join Symptom On Present.Symptom_Name = Symptom.[Name]
+    GROUP BY Symptom_Name
+    ORDER BY frequency DESC;
+END
+
+-- Create Procedure FindPatientSSNBySymptom
+-- 	@Symptom_Name varchar(25)
+-- As
+-- Begin
+-- 	Select Presents.Patient_SSN, Symptom_Name
+-- 	From Presents
+-- 	Inner Join VisitHistory On Presents.Patient_SSN = VisitHistory.Patient_SSN
+-- 	Inner Join Symptom On Presents.Symptom_Name = Symptom.[Name]
+-- 	Where Symptom_Name = @Symptom_Name
+-- End
+
+CREATE PROCEDURE GetTableNearFiftyPercent
+AS
+BEGIN
+    SELECT *
+          FROM   (
+		  SELECT TOP 5 * 
+		  FROM Symptom
+          WHERE  (select AVG(Symptom.Frequency) from Symptom) > Symptom.Frequency
+		  ORDER  BY Symptom.Frequency DESC) Symptom
+    UNION ALL
+    SELECT *
+          FROM   (
+		  SELECT TOP 5 * 
+		  FROM Symptom
+          WHERE  (select AVG(Symptom.Frequency) from Symptom) <= Symptom.Frequency
+		  ORDER  BY Symptom.Frequency ASC) Symptom
+
 Create Procedure GetPatientWithAddressByRoomNumber
 	@room_number varchar(9)
 As
