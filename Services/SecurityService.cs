@@ -1,9 +1,9 @@
-namespace HRAS.Services;
+namespace HRAS_2023.Services;
 
 using System.Security.Cryptography;
 using Microsoft.AspNetCore.Cryptography.KeyDerivation;
-using HRAS.Interfaces;
-using HRAS.Models;
+using HRAS_2023.Interfaces;
+using HRAS_2023.Models;
 
 public class SecurityService : ISecurityService
 {

@@ -1,6 +1,6 @@
-namespace HRAS.Interfaces;
+namespace HRAS_2023.Interfaces;
 
-using HRAS.Models;
+using HRAS_2023.Models;
 
 public interface IStaffLogic
 {

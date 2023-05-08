@@ -1,7 +1,7 @@
-namespace HRAS.Context;
+namespace HRAS_2023.Context;
 
 using Microsoft.EntityFrameworkCore;
-using HRAS.Models;
+using HRAS_2023.Models;
 
 public class AuthDbContext : DbContext
 {
@@ -9,5 +9,5 @@ public class AuthDbContext : DbContext
     {
     }
 
-    public DbSet<HRAS.Models.Staff> Staff { get; set; } = null!;
+    public DbSet<Staff> Staff { get; set; } = null!;
 }

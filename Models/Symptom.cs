@@ -1,16 +1,15 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿namespace HRAS_2023.Models;
 
-namespace HRAS_2023.Models
+using System.ComponentModel.DataAnnotations;
+
+public class Symptom
 {
-    public class Symptom
-    {
-        private string? symptom;
+    private string? symptom;
 
-        [Key]
-        public string SymptomName 
-        {
-            get { return symptom!; }
-            set { symptom = value; } 
-        }
+    [Key]
+    public string SymptomName 
+    {
+        get { return symptom!; }
+        set { symptom = value; } 
     }
 }

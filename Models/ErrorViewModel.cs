@@ -1,4 +1,4 @@
-namespace HRAS.Models;
+namespace HRAS_2023.Models;
 
 public class ErrorViewModel
 {
