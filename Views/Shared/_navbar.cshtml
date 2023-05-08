@@ -1,0 +1,24 @@
+﻿<nav>
+    <div class="navbar">
+        <div class="home-logo">
+            <a asp-controller="HomePage" asp-action="Index">
+                <img src="~/images/GSHAImg.jpg" />
+            </a>
+        </div>
+        <div class="nav-link">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Search" asp-action="Index">SEARCH</a>
+        </div>
+        <div class="nav-link">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Search" asp-action="Index">CHECK IN</a>
+        </div>
+        <div class="nav-link">
+            <a class="nav-link text-dark" asp-area="" asp-controller="DiagnosisWizard" asp-action="Index">DIAGNOSIS WIZARD</a>
+        </div>
+        <div class="nav-link">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Inventory" asp-action="Index">INVENTORY</a>
+        </div>
+        <div class="nav-logout">
+            <a class="nav-link text-dark" asp-area="" asp-controller="Login" asp-action="WarningPage">LOGOUT</a>
+        </div>
+    </div>
+</nav>

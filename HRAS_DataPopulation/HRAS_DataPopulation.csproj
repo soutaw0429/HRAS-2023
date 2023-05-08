@@ -24,4 +24,8 @@
   <ItemGroup>
     <None Remove=".DS_Store" />
   </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\HRAS_2023.csproj" />
+  </ItemGroup>
 </Project>
