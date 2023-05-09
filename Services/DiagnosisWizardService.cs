@@ -5,7 +5,7 @@ using HRAS_2023.Models;
 
 public class DiagnosisWizardLogic : IDiagnosisWizardService
 {
-    public Diagnoses? GetDiagnoses(diagnosisId)
+    public String? GetDiagnoses(diagnosisId)
     {
         return null;
     }

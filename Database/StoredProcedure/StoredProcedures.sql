@@ -38,7 +38,7 @@ CREATE PROCEDURE GetPasswordByUserName
 AS
 BEGIN
 	SELECT
-		UserName, FirstName, LastName, [Password], UserType
+		UserName, FirstName, LastName, [Password], UserType, Position
 	FROM Staff
 	WHERE Staff.UserName = @UserName
 	ORDER BY
