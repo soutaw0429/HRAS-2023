@@ -3,5 +3,5 @@ using HRAS_2023.Models;
 
 public interface IDiagnosisWizardLogic
 {
-    Diagnoses? GetDiagnoses(string diagnosesId);
+    Symptom? getDiagnoses(string diagnosesIddiagnoses);
 }

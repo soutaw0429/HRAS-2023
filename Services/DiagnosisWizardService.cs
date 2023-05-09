@@ -1,11 +1,11 @@
 ﻿namespace HRAS_2023.Services;
 
-using HRAS_2023.Interface;
+using HRAS_2023.Interfaces;
 using HRAS_2023.Models;
 
-public class DiagnosisWizardLogic : IDiagnosisWizardService
+public class DiagnosisWizardService : IDiagnosisWizardService
 {
-    public String? GetDiagnoses(diagnosisId)
+    public Symptom? GetDiagnoses(string diagnosesId)
     {
         return null;
     }
