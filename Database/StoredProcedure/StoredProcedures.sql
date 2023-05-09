@@ -56,6 +56,7 @@ BEGIN
     GROUP BY Symptom_Name
     ORDER BY frequency DESC;
 END
+GO
 
 -- Create Procedure FindPatientSSNBySymptom
 -- 	@Symptom_Name varchar(25)
@@ -84,6 +85,8 @@ BEGIN
 		  FROM Symptom
           WHERE  (select AVG(Symptom.Frequency) from Symptom) <= Symptom.Frequency
 		  ORDER  BY Symptom.Frequency ASC) Symptom
+END
+GO
 
 Create Procedure GetPatientWithAddressByRoomNumber
 	@room_number varchar(9)
