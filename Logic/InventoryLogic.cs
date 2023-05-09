@@ -1,14 +1,12 @@
+namespace HRAS_2023.Logic;
 
-namespace HRAS.Logic;
 using HRAS_2023.Models;
-using HRAS.Services;
 using Microsoft.Data.SqlClient;
 using Microsoft.EntityFrameworkCore;
-using System.Linq;
 using HRAS_2023.Context;
 using HRAS_2023.Interfaces;
 
-public class InventoryLogic 
+public class InventoryLogic : IInventoryLogic
 {
 
     private readonly HrasDbContext _context;

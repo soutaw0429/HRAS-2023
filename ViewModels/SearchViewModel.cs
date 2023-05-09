@@ -6,6 +6,6 @@ public class SearchViewModel
 {
     public Patient? Patient { get; set; }
     public Home? Home { get; set; }
-    public Room? Room { get; set; }
+    public StaysIn? StaysIn { get; set; }
     public VisitHistory? VisitHistory { get; set; }
 }

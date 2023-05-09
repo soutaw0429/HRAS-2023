@@ -14,6 +14,8 @@ builder.Services.AddScoped<ISecurityService, SecurityService>();
 builder.Services.AddScoped<ISearchService, SearchService>();
 builder.Services.AddScoped<IDiagnosisWizardService, DiagnosisWizardService>();
 builder.Services.AddScoped<IDiagnosisWizardLogic, DiagnosisWizardLogic>();
+builder.Services.AddScoped<IInventoryLogic, InventoryLogic>();
+builder.Services.AddScoped<IInventoryService, InventoryService>();
 builder.Services.AddScoped<IPatientLogic, PatientLogic>();
 builder.Services.AddScoped<IStaffLogic, StaffLogic>();
 
@@ -27,13 +29,20 @@ builder.Services.AddDbContext<HrasDbContext>(options => options.UseSqlServer(bui
 // builder.Services.AddDbContext<AuthDbContext>(options => options.UseMySql(builder.Configuration.GetConnectionString("HRASTestContext"), serverVersion));
 
 // These lines globally configure auth cookies. Do not remove these lines
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("Admin", policy => policy.RequireClaim("Role", "A"));
+    options.AddPolicy("Junior", policy => policy.RequireClaim("Role", "J"));
+    options.AddPolicy("Senior", policy => policy.RequireClaim("Role", "S"));
+});
+
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options =>{
     // Cookie settings
     options.Cookie.HttpOnly = true;
-    options.ExpireTimeSpan = TimeSpan.FromMinutes(5);
+    options.ExpireTimeSpan = TimeSpan.FromMinutes(15);
 
     options.LoginPath = "/Login/Login";
-    options.AccessDeniedPath = "/Login/AccessDenied";
+    options.AccessDeniedPath = "/Login/ProcessLogout";
     options.SlidingExpiration = true;
 });
 

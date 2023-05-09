@@ -15,23 +15,23 @@ public class DiagnosisWizardLogic : IDiagnosisWizardLogic
         _context = context;
     }
 
-    public Diagnoses? getDiagnoses(string diagnoses)
+    public Symptom? getDiagnoses(string diagnoses)
     {
         var firstDiagnosesParam = new SqlParameter("@diagnoses", diagnoses);
         var firstBoolParam = new SqlParameter("@bool1", true);
         var secondDiagnosesParam = new SqlParameter("@diagnoses", null);
         var secondBoolParam = new SqlParameter("@bool2", false);
-        Diagnoses? diagnosesObject = _context.Diagnoses.FromSqlRaw("EXEC fsnlgjksdfngjkdn @smfsndf,sn",
+        Symptom? diagnosesObject = null;/*_context.Symptom.FromSqlRaw("EXEC fsnlgjksdfngjkdn @smfsndf,sn",
             firstDiagnosesParam,
             firstBoolParam,
             secondDiagnosesParam,
-            secondBoolParam);
+            secondBoolParam);*/
        
         Dictionary<string, string>? prevRespDict = createDictionaryOfPrevResponses(diagnosesObject);
         return null;
     }
 
-    private Dictionary<string, string>? createDictionaryOfPrevResponses(Diagnoses? diagnosesObj)
+    private Dictionary<string, string>? createDictionaryOfPrevResponses(Symptom? diagnosesObj)
     {
         return null;
     }
