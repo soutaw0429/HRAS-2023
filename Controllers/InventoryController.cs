@@ -9,7 +9,7 @@ using System.Data.SqlTypes;
 using Microsoft.AspNetCore.Authorization;
 
 //[Authorize(Policy = "Admin,Junior,Senior")]
-[Authorize(Policy = "Admin")]
+//[Authorize(Policy = "Admin")]
 public class InventoryController : Controller 
 {
     private readonly IInventoryService _inventory;
