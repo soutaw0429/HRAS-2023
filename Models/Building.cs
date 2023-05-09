@@ -4,14 +4,8 @@ using System.ComponentModel.DataAnnotations;
 
 public class Building
 {
-    private string? name;
-
     [Required]
     [Key]
-    public string Name 
-    { 
-        get { return name!; } 
-        set { name = value; } 
-    }
-
+    [StringLength(30)]
+    public string? building_name { get; set; }
 }

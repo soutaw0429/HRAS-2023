@@ -1,67 +1,39 @@
 ﻿namespace HRAS_2023.Models;
 
 using System.ComponentModel.DataAnnotations;
+using System.Data.SqlTypes;
 
 public class Room
 {
-    private string? roomNumber;
-    private string? designation;
-    private int maxOccupancy;
-    private long hourlyRate; //in the Spec Doc, the hourlyRate is int. Isn't long better?
-    private Building? building;
-    private string? floor;
-    private string? wing;
-    
+    [Required]
+    [Key]
+    [StringLength(30)]
+    public string? building_key { get; set; }
 
-    //[Required(ErrorMessage = "Specify the Room Number")]
     [Required]
     [Key]
     [StringLength(9)]
-    public string RoomNumber
-    {
-        get { return roomNumber!; }
-        set { roomNumber = value; }
-    }
+    public string? number { get; set; }
 
     [Required]
-    public string Designation
-    {
-        get { return designation!; }
-        set { designation = value; }
-    }
+    public SqlMoney? hourly_rate { get; set; }
 
     [Required]
-    public int MaxOccupancy
-    {
-        get { return maxOccupancy; }
-        set { maxOccupancy = value; }
-    }
+    [DataType(DataType.DateTime)]
+    public DateTime? effective_date_time { get; set; }
 
     [Required]
-    public long HourlyRate
-    {
-        get { return hourlyRate; }
-        set { hourlyRate = value; }
-    }
+    [StringLength(24)]
+    public string? wing { get; set; }
 
     [Required]
-    public string Floor
-    {
-        get { return floor!; }
-        set { floor = value; }
-    }
+    [StringLength(4)]
+    public string? floor { get; set; }
 
     [Required]
-    public string Wing
-    {
-        get { return wing!; }
-        set { wing = value; }
-    }
+    [StringLength(2)]
+    public string? designation { get; set; }
 
     [Required]
-    public Building Building 
-    {
-        get { return building!; }
-        set { building = value; }
-    } 
+    public int? max_occupancy { get; set; }
 }

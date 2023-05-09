@@ -4,12 +4,8 @@ using System.ComponentModel.DataAnnotations;
 
 public class Symptom
 {
-    private string? symptom;
-
+    [Required]
     [Key]
-    public string SymptomName 
-    {
-        get { return symptom!; }
-        set { symptom = value; } 
-    }
+    [StringLength(25)]
+    public string? Name { get; set; }
 }

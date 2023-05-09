@@ -1,55 +1,26 @@
 ﻿namespace HRAS_2023.Models;
 
 using System.ComponentModel.DataAnnotations;
+using System.Data.SqlTypes;
 
 public class InventoryItem
 {
-    private string? stockID;
-    private int quantity;
-    private string? description;
-    private long price;
-    //From Spec doc feedback: "you need an allowance for "virtual" inventory". 
-    //What is that??
-
     [Required]
     [Key]
     [StringLength(5)]
-    public string StockID
-    {
-        get { return stockID!; }
-        set { stockID = value; }
-    }
+    public char? stock_id { get; set; }
 
     [Required]
-    [Range(0, int.MaxValue, ErrorMessage = "Quantity can not be negative!")]
-    public int Quantity
-    {
-        get { return quantity; }
-        set { quantity = value; }
-    }
+    [StringLength(5)]
+    public string? quantity { get; set; }
 
     [Required]
-    public string Description
-    {
-        get { return description!; }
-        set { description = value; }
-    }
+    [StringLength(35)]
+    public string? description { get; set; }
 
     [Required]
-    [Range(0, long.MaxValue, ErrorMessage = "Price can not be negative!")]
-    public long Price
-    {
-        get { return price; }
-        set { price = value; }
-    }
+    public int? size { get; set; }
 
-
- /*   public InventoryItem(string _stockID, int _quantity, string _description, long _price)
-    {
-        stockID = _stockID;
-        quantity = _quantity; ;
-        description = _description; 
-        price = _price;
-    }*/
-
+    [Required]
+    public SqlMoney? price { get; set; }
 }
