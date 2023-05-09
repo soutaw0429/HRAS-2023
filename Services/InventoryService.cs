@@ -1,116 +1,42 @@
 namespace HRAS.Services;
-using System;
-using System.Data;
-using Microsoft.Data.SqlClient;
+using HRAS.Logic;
+//using System;
+using Microsoft.AspNetCore.Cryptography.KeyDerivation;
+using HRAS_2023.Interfaces;
+using HRAS_2023.Models;
 
-public class InventoryService
-{   
-    public static decimal CalculateItemCost(string stockId, int count)
+public class InventoryService : IInventoryService 
+{ 
+    private readonly IInventoryLogic _inventory;
+
+    public InventoryService(IInventoryLogic inventory)
     {
-        decimal itemPrice = 0;
-        string connectionString = "Data Source=DESKTOP-UF88CHJ;Initial Catalog=HRASDatabase;Integrated Security=True";
+         _inventory = inventory;
+    }  
     
-        using(SqlConnection connection = new SqlConnection(connectionString))
-        {
-            connection.Open();
-
-            using(SqlCommand command = new SqlCommand("GetInventoryItemByStockID", connection))
-            {
-                command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.AddWithValue("@StockId", stockId);
-
-                using(SqlDataReader reader = command.ExecuteReader())
-                {
-                    
-                    if(!reader.HasRows)
-                    {
-                        throw new Exception("There is no such a item exists.");
-                    } 
-                      
-                    if(reader.Read())
-                    {
-                        itemPrice = reader.GetDecimal(4);
-                    }
-                    reader.Close();    
-                }
-            }
-        }
-
-        return itemPrice*count;
-    }
-
-    public static string getStockIdByItemName(string itemName)
+    public InventoryItem? getInventoryItem(string stockId, string itemName)
     {
-        string itemId = "";
-        string connectionString = "Data Source=DESKTOP-UF88CHJ;Initial Catalog=HRASDatabase;Integrated Security=True";
+        if(!isValidStockId(stockId) && !isValidStockItemName(itemName))
+        {
+            throw new Exception("Both item name and stock id are not given. Please try it again");
+        }
+        if(!isValidStockId(stockId)) 
+        {
+            return _inventory.getItemByName(itemName);
+        }
+        return _inventory.getItemByStockId(stockId);
+    }
     
-        using(SqlConnection connection = new SqlConnection(connectionString))
-        {
-            connection.Open();
-
-            using(SqlCommand command = new SqlCommand("GetInventoryItemByName", connection))
-            {
-                command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.AddWithValue("@Description", itemName);
-
-                using(SqlDataReader reader = command.ExecuteReader())
-                { 
-                    if(!reader.HasRows)
-                    {
-                        throw new Exception("There is no such a item exists.");
-                    } 
-
-                    if(reader.Read())
-                    {
-                        itemId = reader.GetString(0);
-                    }
-                    reader.Close();    
-                }
-            }
-        }
-
-        return itemId;
-    }
-    public static string getItemNameByStockId(string stockId)
+    public bool isValidStockId(string stockId)
     {
-        string itemName = "";
-        string connectionString = "Data Source=DESKTOP-UF88CHJ;Initial Catalog=HRASDatabase;Integrated Security=True";
-    
-        using(SqlConnection connection = new SqlConnection(connectionString))
-        {
-            connection.Open();
-
-            using(SqlCommand command = new SqlCommand("GetInventoryItemByStockID", connection))
-            {
-                command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.AddWithValue("@StockId", stockId);
-
-                using(SqlDataReader reader = command.ExecuteReader())
-                { 
-                    if(!reader.HasRows)
-                    {
-                        throw new Exception("There is no such a item exists.");
-                    } 
-
-                    if(reader.Read())
-                    {
-                        itemName = reader.GetString(2);
-                    }
-                    reader.Close();    
-                }
-            }
-        }
-
-        return itemName;
+        if(stockId.Length > 0 && stockId.Length <= 5) return true;
+        
+        return false;
     }
-
-    public static decimal CalculateTotalInventoryCost(Dictionary<string, decimal> itemDictionary)
+    public bool isValidStockItemName(string itemName)
     {
-        decimal totalInventoryCost = 0;
-         foreach(var str in itemDictionary)
-        {
-            totalInventoryCost += str.Value;
-        }
-        return totalInventoryCost;
+        if(itemName.Length > 0) return true;
+        
+        return false;
     }
 }
