@@ -5,6 +5,11 @@ using Microsoft.AspNetCore.Mvc;
 using HRAS_2023.Interfaces;
 using HRAS_2023.ViewModels;
 using Microsoft.IdentityModel.Tokens;
+using System.Data.SqlTypes;
+using Microsoft.AspNetCore.Authorization;
+
+//[Authorize(Policy = "Admin,Junior,Senior")]
+[Authorize(Policy = "Admin")]
 public class InventoryController : Controller 
 {
     private readonly IInventoryService _inventory;
@@ -24,13 +29,13 @@ public class InventoryController : Controller
     [Route("/inventoryDeployment")]
     public async Task<IActionResult> AssignToPatient()
     {
-        decimal totalPrice = 0;
+        SqlMoney? totalPrice = 0;
         // Retrieve values from the form
-        Dictionary<string, decimal> itemDictionary = new Dictionary<string, decimal>();
-        string stockId = Request.Form["stock_id"];
-        string name = Request.Form["item_name"];
+        Dictionary<string, SqlMoney?> itemDictionary = new Dictionary<string, SqlMoney?>();
+        string stockId = Request.Form["stock_id"]!;
+        string name = Request.Form["item_name"]!;
         int quantity = Convert.ToInt32(Request.Form["item_count"]);
-        string nextAction = Request.Form["action"];
+        string nextAction = Request.Form["action"]!;
 
         if(nextAction == "AssignToPatient")
         {
@@ -39,25 +44,25 @@ public class InventoryController : Controller
         }
 
         // Store values in a dictionary        
-        totalPrice = CalculateItemCost(stockId, name, quantity);
+        totalPrice = CalculateItemCost(stockId, name, quantity)!;
         itemDictionary.Add(stockId, totalPrice);
         // Return a success response
         await Task.Delay(1000);
         return Ok();
     }
 
-    public decimal CalculateItemCost(string stockId, string itemName, int count)
+    public SqlMoney? CalculateItemCost(string stockId, string itemName, int count)
     {
-        decimal itemPrice = _inventory.getInventoryItem(stockId,itemName).Price;
+        SqlMoney? itemPrice = _inventory.getInventoryItem(stockId,itemName)?.price!;
         return itemPrice*count;
     }
 
-     public decimal CalculateTotalInventoryCost(Dictionary<string, decimal> itemDictionary)
+     public SqlMoney? CalculateTotalInventoryCost(Dictionary<string, SqlMoney?> itemDictionary)
     {
-        decimal totalInventoryCost = 0;
+        SqlMoney? totalInventoryCost = 0;
          foreach(var str in itemDictionary)
         {
-            totalInventoryCost += str.Value;
+            totalInventoryCost = totalInventoryCost + str.Value;
         }
         return totalInventoryCost;
     }
