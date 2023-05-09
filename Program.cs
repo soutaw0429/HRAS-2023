@@ -12,6 +12,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<ISecurityService, SecurityService>();
 builder.Services.AddScoped<ISearchService, SearchService>();
+builder.Services.AddScoped<IDiagnosisWizardService, DiagnosisWizardService>();
+builder.Services.AddScoped<IDiagnosisWizardLogic, DiagnosisWizardLogic>();
 builder.Services.AddScoped<IPatientLogic, PatientLogic>();
 builder.Services.AddScoped<IStaffLogic, StaffLogic>();
 
