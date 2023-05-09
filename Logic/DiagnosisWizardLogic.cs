@@ -21,11 +21,11 @@ public class DiagnosisWizardLogic : IDiagnosisWizardLogic
         var firstBoolParam = new SqlParameter("@bool1", true);
         var secondDiagnosesParam = new SqlParameter("@diagnoses", null);
         var secondBoolParam = new SqlParameter("@bool2", false);
-        Symptom? diagnosesObject = _context.Symptom.FromSqlRaw("EXEC fsnlgjksdfngjkdn @smfsndf,sn",
+        Symptom? diagnosesObject = null;/*_context.Symptom.FromSqlRaw("EXEC fsnlgjksdfngjkdn @smfsndf,sn",
             firstDiagnosesParam,
             firstBoolParam,
             secondDiagnosesParam,
-            secondBoolParam);
+            secondBoolParam);*/
        
         Dictionary<string, string>? prevRespDict = createDictionaryOfPrevResponses(diagnosesObject);
         return null;
