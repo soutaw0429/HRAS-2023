@@ -15,6 +15,7 @@ public class PatientLogic : IPatientLogic
     {
         _context = context;
     }
+
     public SearchViewModel? getPatientFromDbWithSSN(string ssn)
     {
         var searchParam = new SqlParameter("@SSN", ssn);
@@ -22,6 +23,7 @@ public class PatientLogic : IPatientLogic
         
         // return null;
     }
+
     public List<SearchViewModel>? getPatientFromDbWithLastname(string lastname)
     {
         var searchParam = new SqlParameter("@LastName", lastname);
@@ -29,6 +31,7 @@ public class PatientLogic : IPatientLogic
 
         // return null;
     }
+
     public List<SearchViewModel>? getPatientFromDbWithFirstname(string firstname)
     {
         var searchParam = new SqlParameter("@FirstName", firstname);

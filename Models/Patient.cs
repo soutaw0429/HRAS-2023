@@ -1,13 +1,15 @@
 namespace HRAS_2023.Models;
 
+using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 
+//[PrimaryKey(nameof(SSN))]
 public class Patient
 {
     [Required]
     [Key]
     [StringLength(9)]
-    public int SSN { get; set; }
+    public string? SSN { get; set; }
 
     [Required]
     [StringLength(50)]

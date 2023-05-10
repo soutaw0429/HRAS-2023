@@ -3,7 +3,9 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using HRAS_2023.Models;
+using Microsoft.AspNetCore.Authorization;
 
+[AllowAnonymous]
 public class AuthController : Controller
 {
     private readonly ILogger<AuthController> _logger;
