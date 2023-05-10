@@ -6,6 +6,10 @@ public class Home
 {
     [Required]
     [Key]
+    [StringLength(9)]
+    public string? Patient_Key { get; set; }
+
+    [Required]
     [StringLength(35)]
     public string? StreetAddress_Line_1 { get; set; }
 

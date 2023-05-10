@@ -1,61 +1,39 @@
-﻿using System;
+﻿namespace HRAS_2023.Services;
 
-public class DiagnosisWizardService
+using HRAS_2023.Interfaces;
+using HRAS_2023.Models;
+
+public class DiagnosisWizardService : IDiagnosisWizardService
 {
-
-	public static int GetSymptomFrequency()
-	{
-		int frequency = 0;
-        string connectionString = "Data Source=A;Initial Catalog=HRASDatabase;Integrated Security=True";
-        using (SqlConnection connection = new SqlConnection(connectionString))
-        {
-            connection.Open();
-            using (SqlCommand command = new SqlCommand("GetSymptomFrequency", connection))
-            {
-                command.CommandType = CommandType.StoredProcedure;
-                using (SqlDataReader reader = command.ExecuteReader())
-                {
-                    if (!reader.HasRows)
-                    {
-                        throw new Exception("There is no symptom exists.");
-                    }
-                    if (reader.Read())
-                    {
-                        frequency = reader.GetInt32(0);
-                    }
-                    reader.Close();
-                }
-            }
-        }
-        return frequency;
-    }
-
-    public static string FindPatientSSNBySymptom()
+    public Symptom? GetDiagnoses(string diagnosesId)
     {
-        string SSN = "";
-        string connectionString = "Data Source=A;Initial Catalog=HRASDatabase;Integrated Security=True";
-        using (SqlConnection connection = new SqlConnection(connectionString))
+        return null;
+    }
+    /*
+    public string FindSymptomNameNearFiftyPercent(Dictionary<string, int> dictionary)
+    {
+        
+        SortSymptomsByFrequencyDescendingOrder(dictionary);
+        if (sortedDict.Count % 2 == 0)
         {
-            connection.Open();
-            using (SqlCommand command = new SqlCommand("FindPatientSSNBySymptom", connection))
-            {
-                command.CommandType = CommandType.StoredProcedure;
-                using (SqlDataReader reader = command.ExecuteReader())
-                {
-                    if (!reader.HasRows)
-                    {
-                        throw new Exception("There is no SSN exists.");
-                    }
-                    if (reader.Read())
-                    {
-                        SSN = reader.GetString(0);
-                    }
-                    reader.Close();
-                }
-            }
+            Dictionary<string, int> result = sortedDict.ElementAt(sortedDict.Count / 2);
+            return result.Key;
         }
-        return SSN;
+        else
+        {
+            Dictionary<string, int> result = sortedDict.ElementAt(Math.Floor(sortedDict.Count / 2) + 1);
+            return result.Key;
+        }
     }
 
+    public void SortSymptomsByFrequencyDescendingOrder(Dictionary<string, int> dictionary)
+    {
+        dictionary = from entry in dictionary orderby entry.Value descending select entry;
+    }
 
+    public Dictionary<string, int> GetDiagnosisResults(Dictionary<string, int> dictionary)
+    {
+        SortSymptomsByFrequencyDescendingOrder(dictionary);
+        return dictionary.ToDictionary(pair => pair.Key, pair => pair.Value).Take(5);
+    }*/
 }

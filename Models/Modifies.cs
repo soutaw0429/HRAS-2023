@@ -12,11 +12,11 @@ public class Modifies
     [Required]
     [Key]
     [StringLength(5)]
-    public char? CheckInDateTime { get; set; }
+    public char? inventory_key { get; set; }
 
     [Required]
     [Key]
-    [StringLength(50)]
+    [StringLength(9)]
     public string? VisitHistory_patient_SSN { get; set; }
 
     [Required]

@@ -11,7 +11,7 @@ public class StaysIn
 
     [Required]
     [DataType(DataType.DateTime)]
-    public DateTime leftRoomDateTime { get; set; }
+    public DateTime leftTheRoomDateTime { get; set; }
 
     [Required]
     [Key]
@@ -26,7 +26,7 @@ public class StaysIn
     [Required]
     [Key]
     [StringLength(9)]
-    public string? visitHistory_patient { get; set; }
+    public string? visitHistory_patientSSN { get; set; }
 
     [Required]
     [Key]

@@ -1,7 +1,6 @@
-namespace HRAS.Services;
-using HRAS.Logic;
-//using System;
-using Microsoft.AspNetCore.Cryptography.KeyDerivation;
+namespace HRAS_2023.Services;
+
+using HRAS_2023.Logic;
 using HRAS_2023.Interfaces;
 using HRAS_2023.Models;
 
@@ -22,7 +21,7 @@ public class InventoryService : IInventoryService
         }
         if(!isValidStockId(stockId)) 
         {
-            return _inventory.getItemByName(itemName);
+            return _inventory.getItemByItemName(itemName);
         }
         return _inventory.getItemByStockId(stockId);
     }
