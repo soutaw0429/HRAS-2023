@@ -44,87 +44,55 @@ BEGIN
 	ORDER BY
 		Staff.LastName;
 END
-GO
 
-CREATE PROCEDURE GetSymptomFrequency
+Create Procedure GetInventoryItemByStockId
+	@StockId varchar(5)
 AS
 BEGIN
-    SELECT Symptom_Name, COUNT(*) AS frequency
-    FROM Present
-	Inner Join VisitHistory On Present.SSN = VisitHistory.Patient_SSN
-	Inner Join Symptom On Present.Symptom_Name = Symptom.[Name]
-    GROUP BY Symptom_Name
-    ORDER BY frequency DESC;
+	SELECT *
+	FROM dbo.Inventory
+	WHERE stock_id = @StockId
 END
 GO
 
--- Create Procedure FindPatientSSNBySymptom
--- 	@Symptom_Name varchar(25)
--- As
--- Begin
--- 	Select Presents.Patient_SSN, Symptom_Name
--- 	From Presents
--- 	Inner Join VisitHistory On Presents.Patient_SSN = VisitHistory.Patient_SSN
--- 	Inner Join Symptom On Presents.Symptom_Name = Symptom.[Name]
--- 	Where Symptom_Name = @Symptom_Name
--- End
+Create Procedure GetInventoryItemByName
+	@Description varchar(35)
 
-CREATE PROCEDURE GetTableNearFiftyPercent
 AS
 BEGIN
-    SELECT *
-          FROM   (
-		  SELECT TOP 5 * 
-		  FROM Symptom
-          WHERE  (select AVG(Symptom.Frequency) from Symptom) > Symptom.Frequency
-		  ORDER  BY Symptom.Frequency DESC) Symptom
-    UNION ALL
-    SELECT *
-          FROM   (
-		  SELECT TOP 5 * 
-		  FROM Symptom
-          WHERE  (select AVG(Symptom.Frequency) from Symptom) <= Symptom.Frequency
-		  ORDER  BY Symptom.Frequency ASC) Symptom
+	SELECT *
+	FROM dbo.Inventory
+	WHERE description = @Description
 END
 GO
 
-Create Procedure GetPatientWithAddressByRoomNumber
-	@room_number varchar(9)
-As
-Begin
-	Select *
-	FROM (
-	SELECT
-		*
-	FROM Patient, Home
-	WHERE Patient.SSN = Home.Patient_Key
-	) Patient
-	Inner Join StaysIn On StaysIn.visitHistory_patientSSN = Patient.SSN
-	WHERE StaysIn.room_number = @room_number
-End
-GO
 
-CREATE PROCEDURE GetPatientWithAddressByFirstName
-	@FirstName VARCHAR(25)
+
+CREATE PROCEDURE UpdateInventory 
+	@StockId nchar(5),
+	@Quantity nvarchar(5), 
+	@Description varchar(35),
+	@Size int,
+	@Price money
 AS
 BEGIN
-	SELECT
-		*
-	FROM Patient, Home
-	WHERE Patient.FirstName = @FirstName AND Patient.SSN = Home.Patient_Key
-	ORDER BY
-		Patient.FirstName;
+	
+	If exists (Select 1 From[Inventory]
+	Where @StockId = stock_id)
+	Begin
+		Update Inventory Set
+		quantity = @Quantity
+		where @StockId = stock_id
+	End
+
+	Else
+	Begin
+		Insert Into Inventory(stock_id, quantity, description, size, price)
+		Values (@StockId, @Quantity, @Description, @Size, @Price)
+	End
+
+	SELECT *
+	FROM dbo.Inventory
+	WHERE stock_id = @StockId
 END
 GO
-
-CREATE PROCEDURE GetPatientWithAddressByLastName
-	@LastName VARCHAR(25)
-AS
-BEGIN
-	SELECT
-		*
-	FROM Patient, Home
-	WHERE Patient.LastName = @LastName AND Patient.SSN = Home.Patient_Key
-	ORDER BY
-		Patient.LastName;
-END
