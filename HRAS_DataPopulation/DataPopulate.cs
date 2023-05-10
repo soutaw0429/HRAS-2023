@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Data;
 using Microsoft.Data.SqlClient;
+using HRAS_2023.Services;
 
 
 class DataPopulate
@@ -233,8 +234,9 @@ class DataPopulate
             connection.Open();
             string insertSql = "INSERT INTO Staff (FirstName, LastName, UserName, Password, UserType, Position) VALUES (@p1, @p2, @p3, @p4, @p5, @p6)";
             string selectSql = "SELECT COUNT(*) FROM Staff WHERE UserName = @key";
+            SecurityService security = new SecurityService(null);
 
-            string userName, password, userType, lastName, firstName;
+            string userName, password, userType, lastName, firstName, hashedPassword;
             foreach (string line in lines)
             {
                 using (SqlCommand selectCommand = new SqlCommand(selectSql, connection))
@@ -251,6 +253,7 @@ class DataPopulate
                         else
                         {
                             password = line.Substring(25, 50).Trim();
+                            hashedPassword = security.batchHashPassword(password);
                             userType = line.Substring(75, 1).Trim();
                             lastName = line.Substring(76, 30).Trim();
                             firstName = line.Substring(106, 20).Trim();
@@ -258,7 +261,7 @@ class DataPopulate
                             insertCommand.Parameters.AddWithValue("@p1", firstName);
                             insertCommand.Parameters.AddWithValue("@p2", lastName);
                             insertCommand.Parameters.AddWithValue("@p3", userName);
-                            insertCommand.Parameters.AddWithValue("@p4", password);
+                            insertCommand.Parameters.AddWithValue("@p4", hashedPassword);
                             insertCommand.Parameters.AddWithValue("@p5", userType);
                             insertCommand.Parameters.AddWithValue("@p6", 'J');//the position is not received from the data files
                             rowsAffected += insertCommand.ExecuteNonQuery();

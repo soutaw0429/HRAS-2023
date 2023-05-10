@@ -26,7 +26,7 @@ public class SecurityService : ISecurityService
         Staff? user = _staffLogic.findUserByCredentials(username);
         if (user == null) return null;
 
-        bool passResult = verifyPassword(password, user.password!);
+        bool passResult = verifyPassword(password, user.Password!);
 
         if (!passResult) return null;
         return user;

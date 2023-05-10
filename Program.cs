@@ -11,10 +11,17 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<ISecurityService, SecurityService>();
+builder.Services.AddScoped<ISearchService, SearchService>();
+builder.Services.AddScoped<IDiagnosisWizardService, DiagnosisWizardService>();
+builder.Services.AddScoped<IDiagnosisWizardLogic, DiagnosisWizardLogic>();
+builder.Services.AddScoped<IInventoryLogic, InventoryLogic>();
+builder.Services.AddScoped<IInventoryService, InventoryService>();
+builder.Services.AddScoped<IPatientLogic, PatientLogic>();
 builder.Services.AddScoped<IStaffLogic, StaffLogic>();
 
 // Add database connection. This will be the main DB connection when the MSSql middleware connection has been granted
 builder.Services.AddDbContext<AuthDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("HRASTestContext")));
+builder.Services.AddDbContext<HrasDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("HRASTestContext")));
 // Use the line above to run the project on Windows machine
 
 // This is the DB connection required for macos. It will be commented out on the repo. Do not remove these lines.
@@ -22,13 +29,20 @@ builder.Services.AddDbContext<AuthDbContext>(options => options.UseSqlServer(bui
 // builder.Services.AddDbContext<AuthDbContext>(options => options.UseMySql(builder.Configuration.GetConnectionString("HRASTestContext"), serverVersion));
 
 // These lines globally configure auth cookies. Do not remove these lines
+builder.Services.AddAuthorization(options =>
+{
+    options.AddPolicy("Admin", policy => policy.RequireClaim("Role", "A"));
+    options.AddPolicy("Junior", policy => policy.RequireClaim("Role", "J"));
+    options.AddPolicy("Senior", policy => policy.RequireClaim("Role", "S"));
+});
+
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme).AddCookie(options =>{
     // Cookie settings
     options.Cookie.HttpOnly = true;
-    options.ExpireTimeSpan = TimeSpan.FromMinutes(5);
+    options.ExpireTimeSpan = TimeSpan.FromMinutes(15);
 
     options.LoginPath = "/Login/Login";
-    options.AccessDeniedPath = "/Login/AccessDenied";
+    options.AccessDeniedPath = "/Login/ProcessLogout";
     options.SlidingExpiration = true;
 });
 

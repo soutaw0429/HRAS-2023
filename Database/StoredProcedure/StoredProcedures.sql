@@ -38,12 +38,13 @@ CREATE PROCEDURE GetPasswordByUserName
 AS
 BEGIN
 	SELECT
-		UserName, FirstName, LastName, [Password], UserType
+		UserName, FirstName, LastName, [Password], UserType, Position
 	FROM Staff
 	WHERE Staff.UserName = @UserName
 	ORDER BY
 		Staff.LastName;
 END
+GO
 
 CREATE PROCEDURE find_symptoms_near_median
 AS
@@ -117,4 +118,56 @@ BEGIN
 
     -- Drop the temporary table
     DROP TABLE #temp_results
+GO
+
+-- Create Procedure FindPatientSSNBySymptom
+-- 	@Symptom_Name varchar(25)
+-- As
+-- Begin
+-- 	Select Presents.Patient_SSN, Symptom_Name
+-- 	From Presents
+-- 	Inner Join VisitHistory On Presents.Patient_SSN = VisitHistory.Patient_SSN
+-- 	Inner Join Symptom On Presents.Symptom_Name = Symptom.[Name]
+-- 	Where Symptom_Name = @Symptom_Name
+-- End
+
+Create Procedure GetPatientWithAddressByRoomNumber
+	@room_number varchar(9)
+As
+Begin
+	Select *
+	FROM (
+	SELECT
+		*
+	FROM Patient, Home
+	WHERE Patient.SSN = Home.Patient_Key
+	) Patient
+	Inner Join StaysIn On StaysIn.visitHistory_patientSSN = Patient.SSN
+	WHERE StaysIn.room_number = @room_number
+End
+GO
+
+CREATE PROCEDURE GetPatientWithAddressByFirstName
+	@FirstName VARCHAR(25)
+AS
+BEGIN
+	SELECT
+		*
+	FROM Patient, Home
+	WHERE Patient.FirstName = @FirstName AND Patient.SSN = Home.Patient_Key
+	ORDER BY
+		Patient.FirstName;
+END
+GO
+
+CREATE PROCEDURE GetPatientWithAddressByLastName
+	@LastName VARCHAR(25)
+AS
+BEGIN
+	SELECT
+		*
+	FROM Patient, Home
+	WHERE Patient.LastName = @LastName AND Patient.SSN = Home.Patient_Key
+	ORDER BY
+		Patient.LastName;
 END

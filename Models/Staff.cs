@@ -7,7 +7,7 @@ public class Staff
     [Required]
     [Key]
     [StringLength(25)]
-    public string? userName { get; set; }
+    public string? UserName { get; set; }
 
     [Required]
     [StringLength(20)]
@@ -20,9 +20,13 @@ public class Staff
     [Required]
     [DataType(DataType.Password)]
     [StringLength(128)]
-    public string? password {get; set;}
+    public string? Password {get; set;}
 
     [Required]
     [StringLength(1)]
-    public char userType {get; set;}
+    public char UserType {get; set;}
+
+    //[Required]
+    //[StringLength(50)]
+    //public string? Position { get; set;}
 }

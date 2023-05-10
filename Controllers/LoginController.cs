@@ -7,7 +7,9 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using HRAS_2023.Interfaces;
 using HRAS_2023.Models;
+using Microsoft.AspNetCore.Authorization;
 
+[AllowAnonymous]
 public class LoginController : Controller
 {
     private readonly ISecurityService _security;
@@ -39,22 +41,22 @@ public class LoginController : Controller
 
         var claims = new List<Claim>
         {
-            new Claim(ClaimTypes.Name, result.userName!),
+            new Claim(ClaimTypes.Name, result.UserName!),
             new Claim("Fullname",  result.FirstName + result.LastName),
-            new Claim(ClaimTypes.Role, "Administrator"),
+            new Claim(ClaimTypes.Role, Convert.ToString(result.UserType!)),
         };
 
         var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
 
         var authProperties = new AuthenticationProperties {
             ExpiresUtc = DateTimeOffset.UtcNow.AddMinutes(15),
-            IsPersistent = false,
+            IsPersistent = true,
             IssuedUtc = DateTime.UtcNow
         };
 
         await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity), authProperties);
        
-        _logger.LogInformation("User {Staff} logged in at {Time}.", result.userName, DateTime.UtcNow);
+        _logger.LogInformation("User {Staff} logged in at {Time}.", result.UserName, DateTime.UtcNow);
 
         return RedirectToAction("Index", "HomePage");
     }

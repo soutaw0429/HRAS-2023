@@ -7,27 +7,37 @@ public class Patient
     [Required]
     [Key]
     [StringLength(9)]
-    public int SSN {get; set;}
-    
-    [Required]
-    public string? insurer {get; set;}
+    public int SSN { get; set; }
 
     [Required]
-    [MaxLengthAttribute(2)]
-    public char state {get; set;}
-
-    [Required]
-    [DataType(DataType.PostalCode)]
-    public int ZIP {get; set;}
+    [StringLength(50)]
+    public string? LastName { get; set; }
 
     [Required]
     [StringLength(25)]
-    public string? city {get; set;}
+    public string? FirstName { get; set; }
 
     [Required]
-    [DataType(DataType.MultilineText)]
-    public string? streetAddress {get; set;}
+    [StringLength(1)]
+    public string? MiddleInitial { get; set; }
+
+    [Required]
+    [StringLength(1)]
+    public char Sex { get; set; }
+
+    [Required]
+    [DataType(DataType.Date)]
+    public int BirthDate { get; set; }
     
     [Required]
-    public bool isCurrentlyCheckedIn { get; set; }
+    [StringLength(5)]
+    public string? Insurer {get; set;}
+
+    [Required]
+    [StringLength(1)]
+    public string? OrganDonor { get; set; }
+
+    [Required]
+    [StringLength(1)]
+    public string? DNR_Status { get; set; }
 }
