@@ -1,6 +1,5 @@
 ﻿namespace HRAS_2023.Controllers; 
 
-using HRAS_2023.Services;
 using Microsoft.AspNetCore.Mvc; 
 using HRAS_2023.Interfaces;
 using HRAS_2023.ViewModels;
@@ -16,14 +15,14 @@ public class InventoryController : Controller
     private readonly ILogger<InventoryController> _logger;
     public InventoryController(IInventoryService inventoryService, ILogger<InventoryController> logger)
     {
-        _inventory = inventoryService;
+         _inventory = inventoryService;
          _logger = logger;
     }
+
     public IActionResult Index() 
     {
         return View(); 
     }
-    
     
     [HttpPost("/inventoryDeployment")]
     [Route("/inventoryDeployment")]
@@ -60,7 +59,7 @@ public class InventoryController : Controller
      public SqlMoney? CalculateTotalInventoryCost(Dictionary<string, SqlMoney?> itemDictionary)
     {
         SqlMoney? totalInventoryCost = 0;
-         foreach(var str in itemDictionary)
+        foreach(var str in itemDictionary)
         {
             totalInventoryCost = totalInventoryCost + str.Value;
         }

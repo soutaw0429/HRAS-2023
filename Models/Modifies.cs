@@ -10,17 +10,17 @@ public class Modifies
     public string? staff_key { get; set; }
 
     [Required]
-    [Key]
+    //[Key]
     [StringLength(5)]
     public char? inventory_key { get; set; }
 
     [Required]
-    [Key]
+    //[Key]
     [StringLength(9)]
     public string? VisitHistory_patient_SSN { get; set; }
 
     [Required]
-    [Key]
+    //[Key]
     [DataType(DataType.DateTime)]
     public DateTime? VisitHistory_CheckInDateTime { get; set; }
 }

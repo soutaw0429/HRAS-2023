@@ -1,5 +1,6 @@
 ﻿namespace HRAS_2023.Models;
 
+using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 
 public class Diagnoses
@@ -10,7 +11,7 @@ public class Diagnoses
     public string? Patient_SSN { get; set; }
 
     [Required]
-    [Key]
+    //[Key]
     [DataType(DataType.DateTime)]
     public DateTime CheckInDateTime { get; set; }
 
@@ -19,7 +20,7 @@ public class Diagnoses
     public string? Diagnosis_Name { get; set; }
 
     [Required]
-    [Key]
+    //[Key]
     [StringLength(25)]
     public string? Staff_UserName { get; set; }
 }

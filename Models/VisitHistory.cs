@@ -10,7 +10,7 @@ public class VisitHistory
     public string? patient_SSN { get; set; }
 
     [Required]
-    [Key]
+    //[Key]
     [DataType(DataType.DateTime)]
     public DateTime CheckInDateTime { get; set; }
 

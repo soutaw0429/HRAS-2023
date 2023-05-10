@@ -32,6 +32,7 @@ public class InventoryService : IInventoryService
         
         return false;
     }
+
     public bool isValidStockItemName(string itemName)
     {
         if(itemName.Length > 0) return true;

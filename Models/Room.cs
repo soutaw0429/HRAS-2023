@@ -1,6 +1,7 @@
 ﻿namespace HRAS_2023.Models;
 
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.SqlTypes;
 
 public class Room
@@ -11,11 +12,12 @@ public class Room
     public string? building_key { get; set; }
 
     [Required]
-    [Key]
+    //[Key]
     [StringLength(9)]
     public string? number { get; set; }
 
     [Required]
+    [NotMapped]
     public SqlMoney? hourly_rate { get; set; }
 
     [Required]
