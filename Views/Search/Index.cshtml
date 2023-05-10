@@ -1,63 +1,68 @@
-﻿@{
+﻿@model HRAS_2023.ViewModels.SearchViewModel
+@{
     ViewData["Title"] = "Search Patient";
 }
 
 <div class="search_page">
     <div class="search_bar">
-        <div class="search_box">
-            <table class="search_table">
-                <tr>
-                    <td>
-                        <input class="box1" type="search" placeholder="Search by First Name">
-                    </td>
-                    <td>
-                        <input class="box2" type="search" placeholder="Search by Last Name">
-                    </td>
-                    <td>
-                        <input class="box3" type="search" placeholder="Search by SSN">
-                    </td>
-                    <td>
-                        <input class="box4" type="search" placeholder="Search by Room #">
-                    </td>
-                </tr>
-            </table>
-        </div>
-        <div class="search_find_button">
-            <button class="search_button"> Find </button>
-        </div>
+        <form asp-action="Details">
+            <div class="search_box">
+                <div class="search_box">
+                    <table class="search_table">
+                        <tr>
+                            <td>
+                                <input asp-for="Patient.FirstName" class="box1" type="search" placeholder="Search by First Name">
+                            </td>
+                            <td>
+                                <input class="box2" type="search" asp-for="Patient.LastName" placeholder="Search by Last Name">
+                            </td>
+                            <td>
+                                <input class="box3" type="search" value=""000005578"" placeholder="Search by SSN">
+                            </td>
+                            <td>
+                                <input class="box4" type="search" asp-for="StaysIn.room_number" placeholder="Search by Room #">
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="search_find_button">
+                <button class="search_button" type="submit"> Find </button>
+            </div>
+        </form>
     </div>
     <div class="search_info">
         <div class="first_search_info">
             <table class="first_info_table">
                 <tr>
-                    <td class="search_first_row">Last Name: </td>
-                    <td>First Name: </td>
+                    <td class="search_first_row">Last Name: @Html.DisplayFor(model => model.Patient.LastName)</td>
+                    <td>First Name: @Html.DisplayFor(model => model.Patient.FirstName)</td>
                 </tr>
                 <tr>
-                    <td>Middle Initial: </td>
-                    <td>DOB: </td>
+                    <td>Middle Initial: @Html.DisplayFor(model => model.Patient.MiddleInitial)</td>
+                    <td>DOB: @Html.DisplayFor(model => model.Patient.BirthDate)</td>
                 </tr>
                 <tr>
-                    <td>Sex:</td>
-                    <td>Organ Donor:</td>
+                    <td>Sex: @Html.DisplayFor(model => model.Patient.Sex)</td>
+                    <td>Organ Donor: @Html.DisplayFor(model => model.Patient.OrganDonor)</td>
                 </tr>
                 <tr>
-                    <td>DNR Status:</td>
+                    <td>DNR Status: @Html.DisplayFor(model => model.Patient.DNR_Status)</td>
                 </tr>
             </table>
         </div>
         <div class="second_search_info">
             <table class="second_info_table">
                 <tr>
-                    <td>Street Address 1:</td>
-                    <td>Street Address 2:</td>
+                    <td>Street Address 1: @Html.DisplayFor(model => model.Home.StreetAddress_Line_1)</td>
+                    <td>Street Address 2: @Html.DisplayFor(model => model.Home.StreetAddress_Line_2)</td>
                 </tr>
                 <tr>
-                    <td>City:</td>
-                    <td>State:</td>
+                    <td>City: @Html.DisplayFor(model => model.Home.City)</td>
+                    <td>State: @Html.DisplayFor(model => model.Home.State)</td>
                 </tr>
                 <tr>
-                    <td>ZIP:</td>
+                    <td>ZIP: @Html.DisplayFor(model => model.Home.ZIP)</td>
                 </tr>
             </table>
         </div>
