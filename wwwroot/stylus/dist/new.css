@@ -213,7 +213,7 @@ img {
     font-family: "Arial Black", sans-serif;
 }
 
-    .home_table th, td {
+    .home_table th, .home_table td {
         font-weight: 600;
         font-size: x-large;
         padding: 20px;
