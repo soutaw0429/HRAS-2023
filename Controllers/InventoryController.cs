@@ -1,14 +1,19 @@
 ﻿namespace HRAS_2023.Controllers; 
 
+
+using HRAS_2023.Services;
+
 using Microsoft.AspNetCore.Mvc; 
 using HRAS_2023.Interfaces;
 using HRAS_2023.ViewModels;
 using Microsoft.IdentityModel.Tokens;
+
 using System.Data.SqlTypes;
 using Microsoft.AspNetCore.Authorization;
 
 //[Authorize(Policy = "Admin,Junior,Senior")]
 //[Authorize(Policy = "Admin")]
+
 public class InventoryController : Controller 
 {
     private readonly IInventoryService _inventory;
@@ -19,6 +24,7 @@ public class InventoryController : Controller
          _logger = logger;
     }
 
+
     public IActionResult Index() 
     {
         return View(); 
@@ -28,6 +34,7 @@ public class InventoryController : Controller
     [Route("/inventoryDeployment")]
     public async Task<IActionResult> AssignToPatient()
     {
+
         SqlMoney? totalPrice = 0;
         // Retrieve values from the form
         Dictionary<string, SqlMoney?> itemDictionary = new Dictionary<string, SqlMoney?>();
@@ -43,13 +50,13 @@ public class InventoryController : Controller
         }
 
         // Store values in a dictionary        
+
         totalPrice = CalculateItemCost(stockId, name, quantity)!;
         itemDictionary.Add(stockId, totalPrice);
         // Return a success response
         await Task.Delay(1000);
         return Ok();
     }
-
     public SqlMoney? CalculateItemCost(string stockId, string itemName, int count)
     {
         SqlMoney? itemPrice = _inventory.getInventoryItem(stockId,itemName)?.price!;
