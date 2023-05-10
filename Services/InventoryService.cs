@@ -38,4 +38,19 @@ public class InventoryService : IInventoryService
         
         return false;
     }
+     public decimal CalculateItemCost(string stockId, string itemName, int count)
+    {
+        decimal itemPrice = getInventoryItem(stockId,itemName).Price;
+        return itemPrice*count;
+    }
+
+     public decimal? CalculateTotalInventoryCost(Dictionary<string, decimal> itemDictionary)
+    {
+        decimal totalInventoryCost = 0;
+         foreach(var str in itemDictionary)
+        {
+            totalInventoryCost += str.Value;
+        }
+        return totalInventoryCost;
+    }
 }

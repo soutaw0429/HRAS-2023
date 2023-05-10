@@ -46,6 +46,16 @@ BEGIN
 END
 GO
 
+Create Procedure GetInventoryItemByStockId
+	@StockId varchar(5)
+AS
+BEGIN
+	SELECT *
+	FROM dbo.Inventory
+	WHERE stock_id = @StockId
+END
+GO
+
 CREATE PROCEDURE find_symptoms_near_median
 AS
 BEGIN
@@ -74,6 +84,7 @@ BEGIN
     HAVING ABS(CAST(COUNT(*) as float) - @median) <= 15
     ORDER BY ABS(CAST(COUNT(*) as float) - @median);
 END
+GO
 
 CREATE PROCEDURE find_symptoms_near_medians_hasParameter @s1_name varchar(25)
 AS
@@ -118,18 +129,19 @@ BEGIN
 
     -- Drop the temporary table
     DROP TABLE #temp_results
+END
 GO
 
--- Create Procedure FindPatientSSNBySymptom
--- 	@Symptom_Name varchar(25)
--- As
--- Begin
--- 	Select Presents.Patient_SSN, Symptom_Name
--- 	From Presents
--- 	Inner Join VisitHistory On Presents.Patient_SSN = VisitHistory.Patient_SSN
--- 	Inner Join Symptom On Presents.Symptom_Name = Symptom.[Name]
--- 	Where Symptom_Name = @Symptom_Name
--- End
+Create Procedure GetInventoryItemByName
+	@Description varchar(35)
+
+AS
+BEGIN
+	SELECT *
+	FROM dbo.Inventory
+	WHERE description = @Description
+END
+GO
 
 Create Procedure GetPatientWithAddressByRoomNumber
 	@room_number varchar(9)
@@ -147,27 +159,32 @@ Begin
 End
 GO
 
-CREATE PROCEDURE GetPatientWithAddressByFirstName
-	@FirstName VARCHAR(25)
+
+CREATE PROCEDURE UpdateInventory 
+	@StockId nchar(5),
+	@Quantity nvarchar(5), 
+	@Description varchar(35),
+	@Size int,
+	@Price money
 AS
 BEGIN
-	SELECT
-		*
-	FROM Patient, Home
-	WHERE Patient.FirstName = @FirstName AND Patient.SSN = Home.Patient_Key
-	ORDER BY
-		Patient.FirstName;
+	
+	If exists (Select 1 From[Inventory]
+	Where @StockId = stock_id)
+	Begin
+		Update Inventory Set
+		quantity = @Quantity
+		where @StockId = stock_id
+	End
+
+	Else
+	Begin
+		Insert Into Inventory(stock_id, quantity, description, size, price)
+		Values (@StockId, @Quantity, @Description, @Size, @Price)
+	End
+
+	SELECT *
+	FROM dbo.Inventory
+	WHERE stock_id = @StockId
 END
 GO
-
-CREATE PROCEDURE GetPatientWithAddressByLastName
-	@LastName VARCHAR(25)
-AS
-BEGIN
-	SELECT
-		*
-	FROM Patient, Home
-	WHERE Patient.LastName = @LastName AND Patient.SSN = Home.Patient_Key
-	ORDER BY
-		Patient.LastName;
-END
