@@ -41,7 +41,7 @@ public class InventoryService : IInventoryService
     }
      public decimal CalculateItemCost(string stockId, string itemName, int count)
     {
-        decimal itemPrice = getInventoryItem(stockId,itemName).Price;
+        decimal itemPrice = Convert.ToDecimal(getInventoryItem(stockId, itemName)?.price!);
         return itemPrice*count;
     }
 
