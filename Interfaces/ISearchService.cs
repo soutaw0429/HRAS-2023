@@ -7,5 +7,5 @@ public interface ISearchService
 {
     SearchViewModel? getPatientFromSearch(string search);
 
-    List<SearchViewModel>? getPatientListFromSearch(IFormCollection search);
+    SearchViewModel? getPatientListFromSearch(IFormCollection search);
 }

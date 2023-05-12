@@ -4,6 +4,7 @@ using HRAS_2023.Interfaces;
 using HRAS_2023.Models;
 using HRAS_2023.ViewModels;
 using Microsoft.IdentityModel.Tokens;
+using System.Runtime.Intrinsics.X86;
 using System.Text.RegularExpressions;
 
 public class SearchService : ISearchService
@@ -21,22 +22,24 @@ public class SearchService : ISearchService
         
     }
 
-    public List<SearchViewModel>? getPatientListFromSearch(IFormCollection search)
+    public SearchViewModel? getPatientListFromSearch(IFormCollection search)
     {
-        if (!search["room"].IsNullOrEmpty())
-        {
-            if (sanatiseInput(search?["room"]!) == null) return null;
-            return _patient.getPatientFromDbWithRoom(search?["room"]!);
+        string room = search?["StaysIn.room_number"]!;
+        if (!string.IsNullOrWhiteSpace(room)) {
+            if (sanatiseInput(room) == null) return null;
+            return _patient.getPatientFromDbWithRoom(room);
         }
-        else if (!search["lastname"].IsNullOrEmpty())
-        {
-            if (sanatiseInput(search?["lastname"]!) == null) return null;
-            return _patient.getPatientFromDbWithLastname(search?["lastname"]!);
+        
+        string lastname = search?["Patient.LastName"]!;
+		if (!string.IsNullOrWhiteSpace(lastname)) {
+			if (sanatiseInput(lastname) == null) return null;
+            return _patient.getPatientFromDbWithLastname(lastname);
         }
-        else if (!search["firstname"].IsNullOrEmpty())
-        {
-            if (sanatiseInput(search?["firstname"]!) == null) return null;
-            return _patient.getPatientFromDbWithFirstname(search?["firstname"]!);
+
+		string firstname = search?["Patient.FirstName"]!;
+		if (!string.IsNullOrWhiteSpace(firstname)) {
+            if (sanatiseInput(firstname) == null) return null;
+            return _patient.getPatientFromDbWithFirstname(firstname);
         }
         return null;
     }

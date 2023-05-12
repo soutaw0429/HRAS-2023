@@ -6,7 +6,7 @@ using HRAS_2023.ViewModels;
 public interface IPatientLogic
 {
     SearchViewModel? getPatientFromDbWithSSN(string ssn);
-    List<SearchViewModel>? getPatientFromDbWithLastname(string lastname);
-    List<SearchViewModel>? getPatientFromDbWithFirstname(string firstname);
-    List<SearchViewModel>? getPatientFromDbWithRoom(string room);
+    SearchViewModel? getPatientFromDbWithLastname(string lastname);
+    SearchViewModel? getPatientFromDbWithFirstname(string firstname);
+    SearchViewModel? getPatientFromDbWithRoom(string room);
 }

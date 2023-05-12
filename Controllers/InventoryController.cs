@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Mvc;
 using HRAS_2023.Interfaces;
 using HRAS_2023.ViewModels;
 using Microsoft.IdentityModel.Tokens;
-
 using System.Data.SqlTypes;
 using Microsoft.AspNetCore.Authorization;
 
@@ -27,7 +26,17 @@ public class InventoryController : Controller
 
     public IActionResult Index() 
     {
-        return View(); 
+        InventoryViewModel viewModel = new InventoryViewModel();
+        return View("Index", viewModel); 
+    }
+
+    public IActionResult AddAnotherItem(IFormCollection item) 
+    {
+
+        int quantity = (string.IsNullOrWhiteSpace(item["quantity"])) ? 1 : Convert.ToInt32(item?["Inventory.quantity"]);
+
+		InventoryViewModel? inventoryResult = _inventory.addItemToCart(item?["Inventory.stock_id"]!, item?["Inventory.description"]!, quantity);
+        return (inventoryResult == null) ? View("Index") : View("Index", inventoryResult);
     }
     
     [HttpPost("/inventoryDeployment")]
@@ -59,8 +68,9 @@ public class InventoryController : Controller
     }
     public SqlMoney? CalculateItemCost(string stockId, string itemName, int count)
     {
-        SqlMoney? itemPrice = _inventory.getInventoryItem(stockId,itemName)?.price!;
-        return itemPrice*count;
+        //SqlMoney? itemPrice = _inventory.getInventoryItem(stockId,itemName)?.price!;
+        //return itemPrice*count;
+        return null;
     }
 
      public SqlMoney? CalculateTotalInventoryCost(Dictionary<string, SqlMoney?> itemDictionary)

@@ -4,6 +4,7 @@ using HRAS_2023.Interfaces;
 using HRAS_2023.Logic;
 using HRAS_2023.Services;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using HRAS_2023.ViewModels;
 
 // Do not change this line, this builds the web app
 var builder = WebApplication.CreateBuilder(args);
