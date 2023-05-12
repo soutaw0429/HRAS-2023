@@ -188,3 +188,81 @@ BEGIN
 	WHERE stock_id = @StockId
 END
 GO
+
+--These stored procedures were added, as the middleware was unable to read data from multiple tables
+
+
+CREATE PROCEDURE GetPatientBySSN
+	@SSN varchar(9)
+AS
+BEGIN
+	SELECT
+		Patient.SSN AS PatientSSN, Patient.FirstName AS PatientFirstName, Patient.LastName AS PatientLastName, Patient.MiddleInitial AS PatientMiddleInitial
+	FROM Patient
+	WHERE Patient.SSN = @SSN
+END
+
+CREATE PROCEDURE GetPatientByFirstName
+	@FirstName varchar(25)
+AS
+BEGIN
+	SELECT
+		Patient.SSN AS PatientSSN, Patient.FirstName AS PatientFirstName, Patient.LastName AS PatientLastName, Patient.MiddleInitial AS PatientMiddleInitial
+	FROM Patient
+	WHERE Patient.FirstName = @FirstName
+END
+
+CREATE PROCEDURE GetPatientByLastName
+	@LastName varchar(50)
+AS
+BEGIN
+	SELECT
+		Patient.SSN AS PatientSSN, Patient.FirstName AS PatientFirstName, Patient.LastName AS PatientLastName, Patient.MiddleInitial AS PatientMiddleInitial
+	FROM Patient
+	WHERE Patient.LastName = @LastName
+END
+
+Create Procedure getPatientSSNByRoom
+	@room_number varchar(9)
+As
+Begin
+	Select *
+	FROM StaysIn
+	WHERE StaysIn.room_number = @room_number
+End
+
+Create Procedure getHomeAddressBySSN
+	@SSN varchar(9)
+As
+Begin
+	Select *
+	FROM Home
+	WHERE Home.Patient_Key = @SSN
+End
+
+CREATE PROCEDURE GetHomeByLastName
+	@LastName varchar(50)
+AS
+BEGIN
+	SELECT Home.City, Home.Patient_Key, Home.State, Home.StreetAddress_Line_1, Home.StreetAddress_Line_2, Home.ZIP FROM
+	(SELECT Patient.SSN FROM Patient WHERE Patient.LastName = @LastName) Patient 
+	inner join Home ON Patient.SSN = Home.Patient_Key
+END
+
+CREATE PROCEDURE GetHomeByFirstName
+	@FirstName varchar(50)
+AS
+BEGIN
+	SELECT Home.City, Home.Patient_Key, Home.State, Home.StreetAddress_Line_1, Home.StreetAddress_Line_2, Home.ZIP FROM
+	(SELECT Patient.SSN FROM Patient WHERE Patient.LastName = @FirstName) Patient 
+	inner join Home ON Patient.SSN = Home.Patient_Key
+END
+
+CREATE PROCEDURE GetHomeByRoomNumber
+	@RoomNumber varchar(9)
+AS
+BEGIN
+	SELECT Home.City, Home.Patient_Key, Home.State, Home.StreetAddress_Line_1, Home.StreetAddress_Line_2, Home.ZIP FROM
+	(SELECT StaysIn.room_number, StaysIn.visitHistory_patientSSN FROM StaysIn WHERE StaysIn.room_number = @RoomNumber) StaysIn 
+	inner join Home ON StaysIn.visitHistory_patientSSN = Home.Patient_Key
+END
