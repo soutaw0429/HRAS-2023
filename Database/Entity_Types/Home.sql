@@ -45,13 +45,12 @@ BEGIN
 	WHERE Patient.LastName = @LastName
 END
 
-Create Procedure GetPatientsByRoomNumber
+Create Procedure getPatientSSNByRoom
 	@room_number varchar(9)
 As
 Begin
-	Select Patient.SSN AS PatientSSN, Patient.FirstName AS PatientFirstName, Patient.LastName AS PatientLastName, Patient.MiddleInitial AS PatientMiddleInitial
-	FROM Patient
-	Inner Join StaysIn On StaysIn.visitHistory_patientSSN = Patient.SSN
+	Select *
+	FROM StaysIn
 	WHERE StaysIn.room_number = @room_number
 End
 
@@ -66,7 +65,7 @@ Create Procedure getHomeAddressBySSN
 	@SSN varchar(9)
 As
 Begin
-	Select StreetAddress_Line_1, StreetAddress_Line_2
+	Select *
 	FROM Home
 	WHERE Home.Patient_Key = @SSN
 End
