@@ -3,7 +3,6 @@ namespace HRAS_2023.Models;
 using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 
-//[PrimaryKey(nameof(SSN))]
 public class Patient
 {
     [Required]
@@ -28,8 +27,8 @@ public class Patient
     public char Sex { get; set; }
 
     [Required]
-    [DataType(DataType.Date)]
-    public int BirthDate { get; set; }
+    [DataType(DataType.DateTime)]
+    public DateTime BirthDate { get; set; }
     
     [Required]
     [StringLength(5)]

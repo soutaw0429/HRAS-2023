@@ -5,6 +5,7 @@ using HRAS_2023.Interfaces;
 using HRAS_2023.ViewModels;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.VisualBasic;
 
 //[Authorize(Policy = "Admin,Junior,Senior")]
 //[Authorize(Policy = "Admin")]
@@ -20,25 +21,21 @@ public class SearchController : Controller
     }
     public IActionResult Index()
     {
-        return View();
+        SearchViewModel searchViewModel = new SearchViewModel();
+        return View("Index", searchViewModel);
     }
 
     //[HttpPost]
     //[ValidateAntiForgeryToken]
     public IActionResult Details(IFormCollection collection)
     {
-        SearchViewModel? patientResult = new SearchViewModel();
-        string ssn = "000005578";
-        if (!collection["ssn"].IsNullOrEmpty()) {
-            patientResult = _search.getPatientFromSearch(ssn);//collection?["ssn"]!);
-            _logger.LogInformation(patientResult?.Patient?.FirstName);
-            _logger.LogInformation(patientResult?.Patient?.LastName);
-            _logger.LogInformation(Convert.ToString(patientResult?.Patient?.SSN));
-            _logger.LogInformation(patientResult?.Home?.StreetAddress_Line_1);
-            _logger.LogInformation(patientResult?.Home?.ZIP);
+        string ssn = collection?["Patient.SSN"]!;
+        if (!string.IsNullOrWhiteSpace(ssn)) {
+            SearchViewModel? patientResult = _search.getPatientFromSearch(collection?["Patient.SSN"]!);
             return (patientResult == null) ? View("Index") : View("Index", patientResult);
         }
-        List<SearchViewModel>? patientResults = _search.getPatientListFromSearch(collection);
+        
+        SearchViewModel? patientResults = _search.getPatientListFromSearch(collection!);
         return (patientResults == null) ? View("Index") : View("Index", patientResults);
     }
 }

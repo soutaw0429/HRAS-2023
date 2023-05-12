@@ -17,7 +17,7 @@
                                 <input class="box2" type="search" asp-for="Patient.LastName" placeholder="Search by Last Name">
                             </td>
                             <td>
-                                <input class="box3" type="search" value=""000005578"" placeholder="Search by SSN">
+                                <input class="box3" type="search" asp-for="Patient.SSN" placeholder="Search by SSN">
                             </td>
                             <td>
                                 <input class="box4" type="search" asp-for="StaysIn.room_number" placeholder="Search by Room #">
@@ -30,6 +30,15 @@
                 <button class="search_button" type="submit"> Find </button>
             </div>
         </form>
+    </div>
+    <div class="multiple">
+        @if (Model.Patients.Count > 0) {
+                <ul>Patients matching search:
+                @foreach (var patient in Model.Patients) {
+                    <li>Patient: @patient.FirstName @patient.LastName</li>
+                }
+                </ul>
+        }
     </div>
     <div class="search_info">
         <div class="first_search_info">

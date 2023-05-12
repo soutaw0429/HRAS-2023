@@ -16,15 +16,15 @@ public class InventoryLogic : IInventoryLogic
         _context = context;
     }
 
-    public InventoryItem? getItemByItemName(string itemName)
+    public Inventory? getItemByItemName(string itemName)
     {
         var inventoryParam = new SqlParameter("@Description", itemName);
-        return _context.InventoryItem.FromSqlRaw("EXEC GetInventoryItemByName @Description", inventoryParam).AsEnumerable().FirstOrDefault();
+        return _context.Inventory.FromSqlRaw("EXEC GetInventoryItemByName @Description", inventoryParam).AsEnumerable().First();
     }
     
-    public InventoryItem? getItemByStockId(string stockId)
+    public Inventory? getItemByStockId(string stockId)
     {
         var inventoryParam = new SqlParameter("@StockId", stockId);
-        return _context.InventoryItem.FromSqlRaw("EXEC GetInventoryItemByName @StockId", inventoryParam).AsEnumerable().FirstOrDefault();
+        return _context.Inventory.FromSqlRaw("EXEC GetInventoryItemByName @StockId", inventoryParam).AsEnumerable().FirstOrDefault();
     } 
 }

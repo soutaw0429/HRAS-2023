@@ -4,12 +4,12 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.SqlTypes;
 
-public class InventoryItem
+public class Inventory
 {
     [Required]
     [Key]
     [StringLength(5)]
-    public char? stock_id { get; set; }
+    public string? stock_id { get; set; }
 
     [Required]
     [StringLength(5)]
@@ -23,6 +23,5 @@ public class InventoryItem
     public int? size { get; set; }
 
     [Required]
-    [NotMapped]
-    public SqlMoney? price { get; set; }
+    public decimal? price { get; set; }
 }

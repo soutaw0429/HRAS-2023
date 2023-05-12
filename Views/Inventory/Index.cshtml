@@ -1,16 +1,16 @@
-﻿@{
+﻿@model HRAS_2023.ViewModels.InventoryViewModel
+@{
 	ViewData["Title"] = "Inventory";
 }
 
 <style>
 	body {
 		margin: 0px;
-		height: 1006
+		height: 100%;
 	}
 
 	.inventory_page {
-		margin-top: 50px;
-		padding-bottom: 100px;
+		min-height: 50vw;
 	}
 
 	.inventory {
@@ -135,6 +135,7 @@
 		display: inline-block;
 		width: 20%;
 		vertical-align: top;
+		height: 50vw;
 	}
 
 	.cart {
@@ -180,33 +181,34 @@
 		margin: 5%;
 	}
 </style>
-<div class=inventory_page>
-	<div class=inventory>
-		<div class=search>
-			<table class=search_table>
-				<tr class=first_row>
-					<td>PRODUCT ID</td>
-					<td>NAME </td>
-					<td>QUANTITY</td>
-				</tr>
-				<tr>
-					<td>
-						<input class=id_box type="text">
-					</td>
-					<td>
-						<input class=name_box type="text">
-					</td>
-					<td class=quantity>
-						<input class=quantity_box type="text">
-					</td>
-				</tr>
-			</table>
+<div class="inventory_page">
+	<div class="inventory">
+		<div class="search">
+			<form asp-action="AddAnotherItem">
+				<table class="search_table">
+					<tr class="first_row">
+						<td>PRODUCT ID</td>
+						<td>NAME </td>
+						<td>QUANTITY</td>
+					</tr>
+					<tr>
+						<td>
+							<input asp-for="Inventory.stock_id" class=id_box type="text">
+						</td>
+						<td>
+							<input asp-for="Inventory.description" class=name_box type="text">
+						</td>
+						<td class=quantity>
+							<input asp-for="Inventory.quantity" class=quantity_box type="text">
+						</td>
+					</tr>
+				</table>
+				<div class="add_item">
+					<button type="submit" class="add_another_item">ADD ANOTHER ITEM</button>
+				</div>
+			</form>
 		</div>
-		<div class=add_item>
-			<button class=add_another_item>
-				ADD ANOTHER ITEM
-			</button>
-		</div>
+		
 		<div class=information>
 			<table class=info_table>
 				<tr>
@@ -236,82 +238,63 @@
 		<h1 style="color:white">Patients Cart</h1>
 		<div class="cart">
 			<table>
-				<tr>
-					<td> Item </td>
-					<td> x1 </td>
-				</tr>
-				<tr>
-					<td> Item </td>
-					<td> x2 </td>
-				</tr>
-				<tr>
-					<td> Item </td>
-					<td> x3 </td>
-				</tr>
-				<tr>
-					<td> Item </td>
-					<td> x4 </td>
-				</tr>
-				<tr>
-					<td> Item </td>
-					<td> x5 </td>
-				</tr>
-				<tr>
-					<td> Item </td>
-					<td> x6 </td>
-				</tr>
-				<tr>
-					<td> Item </td>
-					<td> x7 </td>
-				</tr>
-				<tr>
-					<td> Item </td>
-					<td> x8 </td>
-				</tr>
-				<tr>
-					<td> Item </td>
-					<td> x9 </td>
-				</tr>
-				<tr>
-					<td> Item </td>
-					<td> x10 </td>
-				</tr>
-				<tr>
-					<td> Item </td>
-					<td> x11 </td>
-				</tr>
-				<tr>
-					<td> Item </td>
-					<td> x12 </td>
-				</tr>
-				<tr>
-					<td> Item </td>
-					<td> x13 </td>
-				</tr>
-				<tr>
-					<td> Item </td>
-					<td> x14 </td>
-				</tr>
-				<tr>
-					<td> Item </td>
-					<td> x15 </td>
-				</tr>
-				<tr>
-					<td> Item </td>
-					<td> x16 </td>
-				</tr>
-				<tr>
-					<td> Item </td>
-					<td> x17 </td>
-				</tr>
-				<tr>
-					<td> Item </td>
-					<td> x18 </td>
-				</tr>
-				<tr>
-					<td> Item </td>
-					<td> x19 </td>
-				</tr>
+				@if (Model.Cart.Count < 0) {
+					<tr>
+						<td> Item </td>
+						<td> x1 </td>
+					</tr>
+					<tr>
+						<td> Item </td>
+						<td> x2 </td>
+					</tr>
+					<tr>
+						<td> Item </td>
+						<td> x3 </td>
+					</tr>
+					<tr>
+						<td> Item </td>
+						<td> x4 </td>
+					</tr>
+					<tr>
+						<td> Item </td>
+						<td> x5 </td>
+					</tr>
+					<tr>
+						<td> Item </td>
+						<td> x6 </td>
+					</tr>
+					<tr>
+						<td> Item </td>
+						<td> x7 </td>
+					</tr>
+					<tr>
+						<td> Item </td>
+						<td> x8 </td>
+					</tr>
+					<tr>
+						<td> Item </td>
+						<td> x9 </td>
+					</tr>
+					<tr>
+						<td> Item </td>
+						<td> x10 </td>
+					</tr>
+					<tr>
+						<td> Item </td>
+						<td> x11 </td>
+					</tr>
+					<tr>
+						<td> Item </td>
+						<td> x12 </td>
+					</tr>
+				} else {
+					@foreach (KeyValuePair<string, int> item in Model.Cart) {
+						<tr>
+							<td>@item.Key</td>
+							<td>@item.Value.ToString()</td>
+						</tr>
+					}
+				}
 			</table>
 		</div>
 		<div class=assign_to_patient>

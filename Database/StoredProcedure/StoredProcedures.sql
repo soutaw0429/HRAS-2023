@@ -132,7 +132,7 @@ BEGIN
 END
 GO
 
-Create Procedure GetInventoryItemByName
+CREATE PROCEDURE GetInventoryItemByName
 	@Description varchar(35)
 
 AS
@@ -143,7 +143,7 @@ BEGIN
 END
 GO
 
-Create Procedure GetPatientWithAddressByRoomNumber
+CREATE PROCEDURE GetPatientWithAddressByRoomNumber
 	@room_number varchar(9)
 As
 Begin
@@ -197,50 +197,55 @@ CREATE PROCEDURE GetPatientBySSN
 AS
 BEGIN
 	SELECT
-		Patient.SSN AS PatientSSN, Patient.FirstName AS PatientFirstName, Patient.LastName AS PatientLastName, Patient.MiddleInitial AS PatientMiddleInitial
+		*
 	FROM Patient
 	WHERE Patient.SSN = @SSN
 END
+GO
 
-CREATE PROCEDURE GetPatientByFirstName
+CREATE PROCEDURE GetPatientsByFirstName
 	@FirstName varchar(25)
 AS
 BEGIN
 	SELECT
-		Patient.SSN AS PatientSSN, Patient.FirstName AS PatientFirstName, Patient.LastName AS PatientLastName, Patient.MiddleInitial AS PatientMiddleInitial
+		*
 	FROM Patient
 	WHERE Patient.FirstName = @FirstName
 END
+GO
 
-CREATE PROCEDURE GetPatientByLastName
+CREATE PROCEDURE GetPatientsByLastName
 	@LastName varchar(50)
 AS
 BEGIN
 	SELECT
-		Patient.SSN AS PatientSSN, Patient.FirstName AS PatientFirstName, Patient.LastName AS PatientLastName, Patient.MiddleInitial AS PatientMiddleInitial
+		*
 	FROM Patient
 	WHERE Patient.LastName = @LastName
 END
+GO
 
-Create Procedure getPatientSSNByRoom
+CREATE PROCEDURE getPatientsByRoom
 	@room_number varchar(9)
-As
-Begin
-	Select *
-	FROM StaysIn
-	WHERE StaysIn.room_number = @room_number
-End
+AS
+BEGIN
+	SELECT * FROM
+	(SELECT StaysIn.room_number, StaysIn.visitHistory_PatientSSN FROM StaysIn WHERE StaysIn.room_number = @room_number) StaysIn 
+	inner join Patient ON StaysIn.visitHistory_PatientSSN = Patient.SSN
+END
+GO
 
-Create Procedure getHomeAddressBySSN
+CREATE PROCEDURE getHomeAddressBySSN
 	@SSN varchar(9)
-As
-Begin
-	Select *
+AS
+BEGIN
+	SELECT *
 	FROM Home
 	WHERE Home.Patient_Key = @SSN
-End
+END
+GO
 
-CREATE PROCEDURE GetHomeByLastName
+CREATE PROCEDURE GetHomesByLastName
 	@LastName varchar(50)
 AS
 BEGIN
@@ -248,8 +253,9 @@ BEGIN
 	(SELECT Patient.SSN FROM Patient WHERE Patient.LastName = @LastName) Patient 
 	inner join Home ON Patient.SSN = Home.Patient_Key
 END
+GO
 
-CREATE PROCEDURE GetHomeByFirstName
+CREATE PROCEDURE GetHomesByFirstName
 	@FirstName varchar(50)
 AS
 BEGIN
@@ -257,8 +263,9 @@ BEGIN
 	(SELECT Patient.SSN FROM Patient WHERE Patient.LastName = @FirstName) Patient 
 	inner join Home ON Patient.SSN = Home.Patient_Key
 END
+GO
 
-CREATE PROCEDURE GetHomeByRoomNumber
+CREATE PROCEDURE GetHomesByRoomNumber
 	@RoomNumber varchar(9)
 AS
 BEGIN

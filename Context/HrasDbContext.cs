@@ -14,7 +14,7 @@ public class HrasDbContext : DbContext
 
     public DbSet<Home> Home { get; set; } = null!;
 
-    public DbSet<InventoryItem> InventoryItem { get; set; } = null!;
+    public DbSet<Inventory> Inventory { get; set; } = null!;
 
     public DbSet<Modifies> Modifies { get; set; } = null!;
 
@@ -29,4 +29,6 @@ public class HrasDbContext : DbContext
     public DbSet<VisitHistory> VisitHistory { get; set; } = null!;
 
     public DbSet<SearchViewModel> SearchViewModel { get; set; } = null!;
+
+	public DbSet<InventoryViewModel> InventoryViewModel { get; set; } = null!;
 }
